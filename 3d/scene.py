@@ -376,6 +376,9 @@ SPOTS = [((-2.0, 1.6, 4.4), 0), ((2.1, 1.9, 4.9), 1), ((-1.5, 2.6, 2.4), 2), ((1
 for (x, y, z), mi in SPOTS:
     mat = M_CHROME if mi == 6 else M_NAILS[mi % len(M_NAILS)]
     nail((x, y, z), (random.uniform(-70, 70), random.uniform(-70, 70), random.uniform(0, 360)), mat, random.uniform(0.9, 1.25))
+# la capsule chocolat tout en haut au centre (6e de la liste) est cachée : Marie la trouvait collée au logo
+# (on la garde dans la liste pour ne pas changer le tirage au hasard des autres capsules)
+FLOATERS[5]['ob'].hide_render = True
 for (x, y, z) in [(-1.2, 1.8, 5.0), (1.3, 1.5, 3.9), (-2.5, 2.0, 3.0), (2.6, 2.6, 2.5), (0.5, 3.6, 6.4), (-0.4, 2.8, 3.6), (2.3, -2.0, 1.6), (-2.0, -1.5, 4.9)]:
     o = pearl((x, y, z), random.uniform(0.07, 0.13))
     FLOATERS.append(dict(ob=o, loc=Vector((x, y, z)), rot=Vector((0, 0, 0)), ph=random.uniform(0, 6.28), amp=random.uniform(0.06, 0.15), spin=0))
