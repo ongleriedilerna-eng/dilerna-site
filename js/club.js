@@ -8,6 +8,9 @@
   "use strict";
   var club = document.querySelector("[data-club]");
   if (!club) return;
+  // places restantes (réglées dans config.js → clubPlaces)
+  var n = (window.DILERNA || {}).clubPlaces, places = club.querySelector("[data-club-places]");
+  if (places && typeof n === "number") places.textContent = n <= 0 ? "Complet" : n + (n === 1 ? " place restante" : " places restantes");
   document.querySelectorAll("[data-club-open]").forEach(function (b) {
     b.addEventListener("click", function (e) { e.preventDefault(); if (club.showModal) club.showModal(); });
   });

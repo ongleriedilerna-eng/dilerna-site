@@ -171,6 +171,23 @@
     el.addEventListener("click", function () { copyForInsta(RDV_MSG); });
   });
 
+  /* ---------- Sticker « A propos » ----------
+     Le bout du scotch de droite se soulève quand on fait défiler la page,
+     et se recolle quand le sticker est au milieu de l'écran. */
+  var tease = $("[data-tease]");
+  if (tease && !reduceMotion) {
+    var teaseRaf = 0;
+    var teasePeel = function () {
+      teaseRaf = 0;
+      var r = tease.getBoundingClientRect(), mid = r.top + r.height / 2;
+      if (r.bottom < -200 || r.top > innerHeight + 200) return;
+      var d = Math.abs(mid - innerHeight / 2) / (innerHeight / 2);
+      tease.style.setProperty("--p", Math.min(1, Math.max(0, (d - .15) * 1.3)).toFixed(3));
+    };
+    window.addEventListener("scroll", function () { if (!teaseRaf) teaseRaf = requestAnimationFrame(teasePeel); }, { passive: true });
+    teasePeel();
+  }
+
   /* ---------- Fabrique d'ongles / tuiles ---------- */
   function nail(art) {
     var n = document.createElement("span");

@@ -52,9 +52,11 @@ Avis Google : la carte « Tu as aimé ta pose ? » mène au lien direct « Rédi
 Le bouton « Suivre » ouvre le profil Instagram (impossible de s'abonner automatiquement depuis un site).
 
 ## Club Dilerna (abonnement, `js/club.js`)
-Prix décidé par Marie : **15 € par mois**, **21 places** (prix seulement dans la pastille ronde qui bouge, comme celle de la Carte blanche ;
-phrase d'intro : « Des petits plus rien que pour toi, toute l'année. »). La fiche doit tenir sur un seul écran de téléphone,
-bouton « Je veux faire partie du club » compris, sans défiler (tailles en svh, croix de fermeture en haut à gauche).
+Prix décidé par Marie : **15 € par mois** (seulement dans la pastille ronde qui bouge, comme celle de la Carte blanche ;
+phrase d'intro : « Des petits plus rien que pour toi, toute l'année. »). **Places restantes** sous « Abonnement mensuel » :
+nombre réglé dans `js/config.js` → `clubPlaces` (21 au départ ; baisser de 1 à chaque inscrite ; 0 = « Complet »).
+Plus de phrase « Le club ouvre bientôt ». Tailles d'origine (Marie trouvait la version resserrée trop tassée) ; la fiche tient
+sur un écran d'iPhone standard ; croix de fermeture en haut à gauche.
 Avantages dans cet ordre : nail art offert chaque année, nuancier privé, joker d'annulation, soin des mains, puis priorité fêtes,
 −10 % anniversaire, huile offerte, parrainage. Chaque avantage a un emoji teinté en marron (pas de ronds marrons).
 La fiche dit toujours « Le club ouvre bientôt » et le bouton prépare un message à Marie.
@@ -73,8 +75,9 @@ Pet friendly : Marie est dessinée bras le long du corps, mains posées sur le b
   CNAME `www` → `ongleriedilerna-eng.github.io.` ; MX/SPF OVH conservés (compte e-mail Zimbra Starter inclus).
   HTTPS actif et forcé (certificat GitHub pour dilerna.fr + www, renouvelé automatiquement). Site en ligne sur https://dilerna.fr.
 - Phrase sous « A propos » : Marie a choisi le **sticker scotché** (carte crème penchée) tenu par deux bouts de **washi à pois
-  chocolat**, bords déchirés, **sans animation**. Elle n'a aimé ni le scotch qui se décolle en 3D, ni celui qui lâche et se balance.
-  Ne pas changer le texte.
+  chocolat**, bords déchirés. Le bout du scotch de droite **se soulève quand on fait défiler la page** et se recolle quand le sticker
+  est au milieu de l'écran (`[data-tease]`, `--p` réglé dans main.js). Elle n'a aimé ni le décollement en boucle, ni le scotch
+  qui lâche et se balance. Ne pas changer le texte.
 - Carte blanche : idée de cartes qui se retournent (face « La demande » : thème ou photo d'inspi ; dos « Le résultat »).
   En attente des vraies photos et demandes de Marie, ne rien inventer.
 - Agenda / réservation en ligne : plus tard.

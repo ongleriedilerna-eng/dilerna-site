@@ -12,6 +12,10 @@ window.DILERNA = {
   /* Réduction du deal « Mes envies » (Pinterest). Exemple : "15" */
   discount: "[xx]",
 
+  /* Club Dilerna : nombre de places encore libres (21 au départ).
+     À chaque nouvelle inscrite, baisser ce nombre de 1 : 20, 19… À 0, la fiche affiche « Complet ». */
+  clubPlaces: 21,
+
   /* Affiche les petites étiquettes « Photo à venir » sur les emplacements
      provisoires. Passer à false une fois toutes les photos fournies. */
   showPlaceholderLabels: true,
