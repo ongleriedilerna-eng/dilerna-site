@@ -119,9 +119,11 @@
 
   /* ---------- Prendre RDV ----------
      Fenêtre avec Instagram / Appeler / SMS (Instagram seul sur ordinateur).
-     Chaque bouton a son message déjà écrit : il s'écrit tout seul dans le SMS,
-     et il est copié pour Instagram (Instagram ne permet pas de pré-remplir). */
+     Chaque bouton a son message déjà écrit : il s'écrit tout seul dans le SMS ;
+     pour Instagram, il est passé dans le lien (?text=, non officiel : reconnu par
+     certaines versions de l'appli) et copié en secours si l'appli l'ignore. */
   var RDV_MSG = "Bonjour Marie, je souhaiterais prendre rendez-vous pour une pose. Quelles sont tes disponibilités ?";
+  function igLink(msg) { return "https://ig.me/m/ongleriedilerna?text=" + encodeURIComponent(msg); }
   var sheet = $("[data-sheet]");
   var sheetMsg = RDV_MSG;
 
@@ -136,7 +138,7 @@
   function copyForInsta(msg) {
     if (!navigator.clipboard) return;
     navigator.clipboard.writeText(msg).then(function () {
-      toast("Message copié ! Dans Instagram, appuie dans la zone de texte puis « Coller ».");
+      toast("Ton message est prêt ! S'il n'apparaît pas dans Instagram, appuie dans la zone de texte puis « Coller ».");
     }).catch(function () {});
   }
 
@@ -146,9 +148,10 @@
     box.hidden = false;
     box.textContent = "« " + sheetMsg + " »";
     $("[data-sheet-sms]").href = "sms:+33745073235?&body=" + encodeURIComponent(sheetMsg);
+    $("[data-sheet-ig]").href = igLink(sheetMsg);
     $("[data-sheet-tel]").hidden = !isTouch;
     $("[data-sheet-sms]").hidden = !isTouch;
-    if (sheet.showModal) sheet.showModal(); else { copyForInsta(sheetMsg); window.open("https://ig.me/m/ongleriedilerna", "_blank", "noopener"); }
+    if (sheet.showModal) sheet.showModal(); else { copyForInsta(sheetMsg); window.open(igLink(sheetMsg), "_blank", "noopener"); }
   }
   $$("[data-rdv]").forEach(function (el) {
     el.addEventListener("click", function (e) {
@@ -164,6 +167,7 @@
   }
   // bulle « Écrire sur Instagram » de la partie contact
   $$("[data-ig-copy]").forEach(function (el) {
+    el.href = igLink(RDV_MSG);
     el.addEventListener("click", function () { copyForInsta(RDV_MSG); });
   });
 
