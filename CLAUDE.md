@@ -34,7 +34,7 @@ Louise (teckel, mascotte) : #6E4A32 avec collier rose pastel. Le collier fait le
 avec la médaille dorée qui pend dessous ; Louise a un petit cou et une oreille un peu plus courte pour qu'il se voie (validé par Marie).
 
 ## Structure de la page (ordre actuel)
-Header (logo) · Menu (Club Dilerna qui brille en premier, puis Accueil, Infos, Inspi, À propos, Contact + Louise et « Prendre rendez-vous »)
+Header (logo en haut de l'accueil, qui part avec la page : **pas de barre fixe en haut quand on descend**, Marie n'en veut pas) · Menu (Club Dilerna qui brille en premier, puis Accueil, Infos, Inspi, À propos, Contact + Louise et « Prendre rendez-vous »)
 · **Accueil** : animation 3D jouée automatiquement (`js/pour.js`, images `assets/hero3d/`), infos CAP / Porto-Vecchio / avis en haut (variante `#…bas` = en bas)
 · **Prestations** : bloc Louise + « Prendre rendez-vous » tout en haut, titre, cartes empilées, devis nail art, Carte blanche
 · Les dernières du salon (Instagram) + carte « Tu as aimé ta pose ? »
