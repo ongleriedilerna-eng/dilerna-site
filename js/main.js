@@ -151,7 +151,7 @@
     $("[data-sheet-ig]").href = igLink(sheetMsg);
     $("[data-sheet-tel]").hidden = !isTouch;
     $("[data-sheet-sms]").hidden = !isTouch;
-    if (sheet.showModal) sheet.showModal(); else { copyForInsta(sheetMsg); window.open(igLink(sheetMsg), "_blank", "noopener"); }
+    if (sheet.showModal) { sheet.showModal(); sheet.focus({ preventScroll: true }); } else { copyForInsta(sheetMsg); window.open(igLink(sheetMsg), "_blank", "noopener"); }
   }
   $$("[data-rdv]").forEach(function (el) {
     el.addEventListener("click", function (e) {

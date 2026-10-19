@@ -55,8 +55,10 @@ Le bouton « Suivre » ouvre le profil Instagram (impossible de s'abonner automa
 Prix décidé par Marie : **15 € par mois** (seulement dans la pastille ronde qui bouge, comme celle de la Carte blanche ;
 phrase d'intro : « Des petits plus rien que pour toi, toute l'année. »). **Places restantes** sous « Abonnement mensuel » :
 nombre réglé dans `js/config.js` → `clubPlaces` (21 au départ ; baisser de 1 à chaque inscrite ; 0 = « Complet »).
-Plus de phrase « Le club ouvre bientôt ». Tailles d'origine (Marie trouvait la version resserrée trop tassée) ; la fiche tient
-sur un écran d'iPhone standard ; croix de fermeture en haut à gauche.
+Plus de phrase « Le club ouvre bientôt ». Tailles d'origine (Marie trouvait la version resserrée trop tassée) ; la fiche fait
+au moins 90 % de la hauteur de l'écran, avantages répartis dans la hauteur ; croix de fermeture en haut à gauche.
+Aucun contour rose : le contour de sélection du site est beige pastel, et à l'ouverture d'une fiche c'est la fiche qui est
+sélectionnée (pas un bouton).
 Avantages dans cet ordre : nail art offert chaque année, nuancier privé, joker d'annulation, soin des mains, puis priorité fêtes,
 −10 % anniversaire, huile offerte, parrainage. Chaque avantage a un emoji teinté en marron (pas de ronds marrons).
 La fiche dit toujours « Le club ouvre bientôt » et le bouton prépare un message à Marie.

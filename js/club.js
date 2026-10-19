@@ -12,7 +12,8 @@
   var n = (window.DILERNA || {}).clubPlaces, places = club.querySelector("[data-club-places]");
   if (places && typeof n === "number") places.textContent = n <= 0 ? "Complet" : n + (n === 1 ? " place restante" : " places restantes");
   document.querySelectorAll("[data-club-open]").forEach(function (b) {
-    b.addEventListener("click", function (e) { e.preventDefault(); if (club.showModal) club.showModal(); });
+    // à l'ouverture, on sélectionne la fiche elle-même : aucun bouton n'apparaît entouré
+    b.addEventListener("click", function (e) { e.preventDefault(); if (club.showModal) { club.showModal(); club.focus({ preventScroll: true }); } });
   });
   club.querySelector("[data-club-close]").addEventListener("click", function () { club.close(); });
   club.querySelector("[data-club-join]").addEventListener("click", function () { club.close(); });
