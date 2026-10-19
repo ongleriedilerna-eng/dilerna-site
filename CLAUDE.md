@@ -56,6 +56,6 @@ en verre, le moule disparaît, décor studio (colonnes travertin, capsules d'ong
   renouvellement en octobre 2031). Fichier `CNAME` = `dilerna.fr`, « Custom domain » réglé dans Settings → Pages.
   Zone DNS OVH : A → 185.199.108.153, .109.153, .110.153, .111.153 ; AAAA → 2606:50c0:8000::153 à 8003::153 ;
   CNAME `www` → `ongleriedilerna-eng.github.io.` ; MX/SPF OVH conservés (compte e-mail Zimbra Starter inclus).
-  Reste à faire : cocher « Enforce HTTPS » dans Settings → Pages dès que GitHub a émis le certificat.
+  HTTPS actif et forcé (certificat GitHub pour dilerna.fr + www, renouvelé automatiquement). Site en ligne sur https://dilerna.fr.
 - Phrase sous « A propos » : Marie doit choisir parmi 5 styles (citation, petites capitales, surligné, sticker, machine à écrire).
 - Agenda / réservation en ligne : plus tard.
