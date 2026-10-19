@@ -30,7 +30,8 @@ Site statique : `index.html`, `css/style.css`, `js/*.js`, `assets/`. Hébergé s
 
 ## Couleurs
 Fond crème #F8F4EC / #F2E8E1 · marrons #4E2E22, #6E4A32, #210202 · beiges #D5C6AF, #D8C6B6, #AB9680.
-Louise (teckel, mascotte) : #6E4A32 avec collier rose pastel.
+Louise (teckel, mascotte) : #6E4A32 avec collier rose pastel. Le collier fait le tour du cou (de la nuque à la gorge),
+avec la médaille dorée qui pend dessous ; Louise a un petit cou et une oreille un peu plus courte pour qu'il se voie (validé par Marie).
 
 ## Structure de la page (ordre actuel)
 Header (logo) · Menu (Club Dilerna qui brille en premier, puis Accueil, Infos, Inspi, À propos, Contact + Louise et « Prendre rendez-vous »)
