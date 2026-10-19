@@ -1262,9 +1262,18 @@ body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
 .t-fit { white-space: nowrap; }
 /* nom de la couleur du mois et phrase sous « A propos » : italique douce */
 .color-card__name { font: 700 clamp(26px, 7.4vw, 34px)/1.02 "Fraunces", var(--font-display) !important; font-variation-settings: "SOFT" 100, "WONK" 0, "opsz" 144; letter-spacing: -.01em !important; overflow-wrap: anywhere; max-width: 100%; }
-/* « A propos » : la petite question en bulle de discussion, comme dans « On papote ? » */
-.about__tease { position: relative; margin: 14px auto 4px !important; padding: 12px 16px; max-width: 300px !important; border-radius: 20px 20px 20px 6px; background: #F2E8E1; box-shadow: 0 0 0 1px #E4D8CB;
-  font: 500 14.5px/1.45 var(--font-body) !important; font-variation-settings: normal; color: #6E4A32 !important; text-align: left; }
+/* « A propos » : la petite question sur un sticker crème penché, tenu par deux bouts de scotch (celui de droite se décolle un peu) */
+.about__tease { position: relative; margin: 26px auto 8px !important; padding: 22px 20px 20px; max-width: 320px !important; border-radius: 22px; background: #FFFDF8; transform: rotate(-2.2deg);
+  box-shadow: 0 0 0 1.5px #E4D8CB, 0 14px 26px -16px rgba(33, 2, 2, .45);
+  font: italic 500 17.5px/1.45 "Fraunces", var(--font-display) !important; font-variation-settings: "SOFT" 100, "opsz" 48; color: #6E4A32 !important; text-align: center; }
+.about__tease::before, .about__tease::after { content: ""; position: absolute; top: -10px; width: 64px; height: 20px; border-radius: 3px; pointer-events: none; }
+.about__tease::before { left: 22px; background: rgba(213, 198, 175, .78); transform: rotate(-8deg); }
+/* scotch qui se décolle : le bout droit est relevé (pli plus clair + ombre dessous) et bouge doucement */
+.about__tease::after { right: 18px; transform-origin: 0 50%;
+  background: linear-gradient(90deg, rgba(213, 198, 175, .78) 0 66%, rgba(236, 226, 211, .95) 66% 80%, rgba(196, 178, 152, .9) 100%);
+  box-shadow: 4px 5px 6px -3px rgba(33, 2, 2, .22); animation: tapePeel 4.5s ease-in-out infinite; }
+@keyframes tapePeel { 0%, 100% { transform: rotate(7deg) perspective(110px) rotateY(-24deg); } 50% { transform: rotate(10deg) perspective(110px) rotateY(-38deg) translateY(-2px); } }
+@media (prefers-reduced-motion: reduce) { .about__tease::after { animation: none; transform: rotate(7deg) perspective(110px) rotateY(-30deg); } }
 /* bouton rond « Club Dilerna » : texte marron */
 .tab-rdv__txt { fill: #4E2E22; }
 
