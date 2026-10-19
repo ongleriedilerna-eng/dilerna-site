@@ -72,8 +72,9 @@ Pet friendly : Marie est dessinée bras le long du corps, mains posées sur le b
   Zone DNS OVH : A → 185.199.108.153, .109.153, .110.153, .111.153 ; AAAA → 2606:50c0:8000::153 à 8003::153 ;
   CNAME `www` → `ongleriedilerna-eng.github.io.` ; MX/SPF OVH conservés (compte e-mail Zimbra Starter inclus).
   HTTPS actif et forcé (certificat GitHub pour dilerna.fr + www, renouvelé automatiquement). Site en ligne sur https://dilerna.fr.
-- Phrase sous « A propos » : Marie a choisi le **sticker scotché** (carte crème penchée, deux bouts de scotch, celui de droite
-  se décolle un peu et bouge doucement). Ne pas changer le texte.
+- Phrase sous « A propos » : Marie a choisi le **sticker scotché** (carte crème penchée, deux bouts de scotch) avec l'animation
+  « le scotch lâche » : le scotch de droite se décroche, le sticker se balance tenu par celui de gauche, puis se recolle (6 s).
+  Elle n'a pas aimé le scotch qui se décolle en 3D. Ne pas changer le texte.
 - Carte blanche : idée de cartes qui se retournent (face « La demande » : thème ou photo d'inspi ; dos « Le résultat »).
   En attente des vraies photos et demandes de Marie, ne rien inventer.
 - Agenda / réservation en ligne : plus tard.

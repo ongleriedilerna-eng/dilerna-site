@@ -1267,22 +1267,14 @@ body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
   box-shadow: 0 0 0 1.5px #E4D8CB, 0 14px 26px -16px rgba(33, 2, 2, .45);
   font: italic 500 17.5px/1.45 "Fraunces", var(--font-display) !important; font-variation-settings: "SOFT" 100, "opsz" 48; color: #6E4A32 !important; text-align: center; }
 .about__tease::before, .about__tease::after { content: ""; position: absolute; top: -10px; width: 64px; height: 20px; border-radius: 3px; pointer-events: none; }
-.about__tease::before { left: 22px; background: rgba(213, 198, 175, .78); transform: rotate(-8deg); }
-/* scotch qui se décolle : le bout droit est relevé (pli plus clair + ombre dessous) et bouge doucement */
-.about__tease::after { right: 18px; transform-origin: 0 50%;
-  background: linear-gradient(90deg, rgba(213, 198, 175, .78) 0 66%, rgba(236, 226, 211, .95) 66% 80%, rgba(196, 178, 152, .9) 100%);
-  box-shadow: 4px 5px 6px -3px rgba(33, 2, 2, .22); animation: tapePeel 6s cubic-bezier(.45, .05, .35, 1) infinite; }
-/* le scotch se soulève (le bout droit monte vers nous), flotte, puis se recolle */
-@keyframes tapePeel {
-  0%, 22%, 100% { transform: rotate(7deg) perspective(110px) rotateY(-10deg); box-shadow: 2px 2px 3px -2px rgba(33, 2, 2, .18); }
-  40% { transform: rotate(13deg) perspective(110px) rotateY(-62deg) translateY(-4px); box-shadow: 10px 12px 10px -4px rgba(33, 2, 2, .3); }
-  50% { transform: rotate(11deg) perspective(110px) rotateY(-50deg) translateY(-2px); box-shadow: 8px 10px 9px -4px rgba(33, 2, 2, .27); }
-  60% { transform: rotate(14deg) perspective(110px) rotateY(-66deg) translateY(-5px); box-shadow: 11px 13px 11px -4px rgba(33, 2, 2, .3); }
-  82% { transform: rotate(7deg) perspective(110px) rotateY(-10deg); box-shadow: 2px 2px 3px -2px rgba(33, 2, 2, .18); } }
-/* le coin du sticker se soulève un peu en même temps */
-.about__tease { animation: stickerLift 6s cubic-bezier(.45, .05, .35, 1) infinite; }
-@keyframes stickerLift { 0%, 22%, 82%, 100% { transform: rotate(-2.2deg); } 40%, 60% { transform: rotate(-1.2deg) translateY(-2px); } 50% { transform: rotate(-1.5deg) translateY(-1px); } }
-@media (prefers-reduced-motion: reduce) { .about__tease, .about__tease::after { animation: none; } .about__tease::after { transform: rotate(7deg) perspective(110px) rotateY(-30deg); } }
+.about__tease::before { left: 22px; background: rgba(213, 198, 175, .8); transform: rotate(-8deg); }
+.about__tease::after { right: 22px; background: rgba(213, 198, 175, .8); transform: rotate(7deg); transform-origin: 0 50%; }
+/* le scotch lâche : le scotch de droite se décroche, le sticker se balance tenu par celui de gauche, puis tout se recolle */
+.about__tease { transform-origin: 54px 0; animation: tease-swing 6s cubic-bezier(.45, .05, .35, 1) infinite; }
+.about__tease::after { animation: tease-lache 6s cubic-bezier(.45, .05, .35, 1) infinite; }
+@keyframes tease-lache { 0%, 18%, 86%, 100% { transform: rotate(7deg); } 26%, 74% { transform: rotate(-14deg) translateY(-3px); } }
+@keyframes tease-swing { 0%, 22%, 86%, 100% { transform: rotate(-2.2deg); } 34% { transform: rotate(5deg); } 44% { transform: rotate(1.5deg); } 54% { transform: rotate(4deg); } 64% { transform: rotate(2.6deg); } 74% { transform: rotate(3.4deg); } }
+@media (prefers-reduced-motion: reduce) { .about__tease, .about__tease::after { animation: none; } }
 /* bouton rond « Club Dilerna » : texte marron */
 .tab-rdv__txt { fill: #4E2E22; }
 
