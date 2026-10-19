@@ -52,8 +52,10 @@ Rendue sous Blender (Cycles) image par image, sources dans `3d/` (voir `3d/READM
 en verre, le moule disparaît, décor studio (colonnes travertin, capsules d'ongles, perles).
 
 ## En cours / à faire
-- Nom de domaine : **dilerna.fr** à acheter chez OVH (ni dilerna.fr ni dilerna.com n'étaient enregistrés). Ensuite : fichier `CNAME`
-  avec `dilerna.fr`, DNS chez OVH (A → 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 ; CNAME `www` → `ongleriedilerna-eng.github.io.`),
-  puis « Custom domain » + « Enforce HTTPS » dans Settings → Pages.
+- Nom de domaine : **dilerna.fr** acheté chez OVH le 19/10/2026 pour 5 ans (commande 261349820, compte particulier de Marie,
+  renouvellement en octobre 2031). Fichier `CNAME` = `dilerna.fr`, « Custom domain » réglé dans Settings → Pages.
+  Zone DNS OVH : A → 185.199.108.153, .109.153, .110.153, .111.153 ; AAAA → 2606:50c0:8000::153 à 8003::153 ;
+  CNAME `www` → `ongleriedilerna-eng.github.io.` ; MX/SPF OVH conservés (compte e-mail Zimbra Starter inclus).
+  Reste à faire : cocher « Enforce HTTPS » dans Settings → Pages dès que GitHub a émis le certificat.
 - Phrase sous « A propos » : Marie doit choisir parmi 5 styles (citation, petites capitales, surligné, sticker, machine à écrire).
 - Agenda / réservation en ligne : plus tard.
