@@ -1271,9 +1271,18 @@ body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
 /* scotch qui se décolle : le bout droit est relevé (pli plus clair + ombre dessous) et bouge doucement */
 .about__tease::after { right: 18px; transform-origin: 0 50%;
   background: linear-gradient(90deg, rgba(213, 198, 175, .78) 0 66%, rgba(236, 226, 211, .95) 66% 80%, rgba(196, 178, 152, .9) 100%);
-  box-shadow: 4px 5px 6px -3px rgba(33, 2, 2, .22); animation: tapePeel 4.5s ease-in-out infinite; }
-@keyframes tapePeel { 0%, 100% { transform: rotate(7deg) perspective(110px) rotateY(-24deg); } 50% { transform: rotate(10deg) perspective(110px) rotateY(-38deg) translateY(-2px); } }
-@media (prefers-reduced-motion: reduce) { .about__tease::after { animation: none; transform: rotate(7deg) perspective(110px) rotateY(-30deg); } }
+  box-shadow: 4px 5px 6px -3px rgba(33, 2, 2, .22); animation: tapePeel 6s cubic-bezier(.45, .05, .35, 1) infinite; }
+/* le scotch se soulève (le bout droit monte vers nous), flotte, puis se recolle */
+@keyframes tapePeel {
+  0%, 22%, 100% { transform: rotate(7deg) perspective(110px) rotateY(-10deg); box-shadow: 2px 2px 3px -2px rgba(33, 2, 2, .18); }
+  40% { transform: rotate(13deg) perspective(110px) rotateY(-62deg) translateY(-4px); box-shadow: 10px 12px 10px -4px rgba(33, 2, 2, .3); }
+  50% { transform: rotate(11deg) perspective(110px) rotateY(-50deg) translateY(-2px); box-shadow: 8px 10px 9px -4px rgba(33, 2, 2, .27); }
+  60% { transform: rotate(14deg) perspective(110px) rotateY(-66deg) translateY(-5px); box-shadow: 11px 13px 11px -4px rgba(33, 2, 2, .3); }
+  82% { transform: rotate(7deg) perspective(110px) rotateY(-10deg); box-shadow: 2px 2px 3px -2px rgba(33, 2, 2, .18); } }
+/* le coin du sticker se soulève un peu en même temps */
+.about__tease { animation: stickerLift 6s cubic-bezier(.45, .05, .35, 1) infinite; }
+@keyframes stickerLift { 0%, 22%, 82%, 100% { transform: rotate(-2.2deg); } 40%, 60% { transform: rotate(-1.2deg) translateY(-2px); } 50% { transform: rotate(-1.5deg) translateY(-1px); } }
+@media (prefers-reduced-motion: reduce) { .about__tease, .about__tease::after { animation: none; } .about__tease::after { transform: rotate(7deg) perspective(110px) rotateY(-30deg); } }
 /* bouton rond « Club Dilerna » : texte marron */
 .tab-rdv__txt { fill: #4E2E22; }
 
