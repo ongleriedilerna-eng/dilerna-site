@@ -52,7 +52,9 @@ Avis Google : la carte « Tu as aimé ta pose ? » mène au lien direct « Rédi
 Le bouton « Suivre » ouvre le profil Instagram (impossible de s'abonner automatiquement depuis un site).
 
 ## Club Dilerna (abonnement, `js/club.js`)
-Prix décidé par Marie : **15 € par mois** (pastille ronde qui bouge, comme celle de la Carte blanche, + rappel dans la phrase d'intro).
+Prix décidé par Marie : **15 € par mois**, **21 places** (prix seulement dans la pastille ronde qui bouge, comme celle de la Carte blanche ;
+phrase d'intro : « Des petits plus rien que pour toi, toute l'année. »). La fiche doit tenir sur un seul écran de téléphone,
+bouton « Je veux faire partie du club » compris, sans défiler (tailles en svh, croix de fermeture en haut à gauche).
 Avantages dans cet ordre : nail art offert chaque année, nuancier privé, joker d'annulation, soin des mains, puis priorité fêtes,
 −10 % anniversaire, huile offerte, parrainage. Chaque avantage a un emoji teinté en marron (pas de ronds marrons).
 La fiche dit toujours « Le club ouvre bientôt » et le bouton prépare un message à Marie.
