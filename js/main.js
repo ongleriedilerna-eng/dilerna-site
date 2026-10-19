@@ -599,13 +599,11 @@
     pObs.observe(pinCta);
   }
 
-  /* ---------- Plan : ouvre l'appli de cartes du téléphone ---------- */
+  /* ---------- Plan : itinéraire Google Maps vers la fiche DILERNA ----------
+     (Marie préfère Google Maps à Plans : ouvre l'appli Google Maps si elle est installée, sinon le site) */
   (function () {
-    var lat = 41.6176338, lng = 9.300044, label = encodeURIComponent("DILERNA, Rte de Pezza Carda Cardo, 20137 Porto-Vecchio");
-    var ua = navigator.userAgent, url;
-    if (/iPhone|iPad|iPod|Macintosh/.test(ua) && "ontouchend" in document) url = "https://maps.apple.com/?daddr=" + lat + "," + lng + "&q=" + label;
-    else if (/Android/.test(ua)) url = "geo:" + lat + "," + lng + "?q=" + lat + "," + lng + "(" + label + ")";
-    if (url) $$("[data-maps]").forEach(function (a) { a.href = url; a.removeAttribute("target"); });
+    var url = "https://www.google.com/maps/dir/?api=1&destination=41.6176338,9.300044&destination_place_id=ChIJtRocvpiB2RIRG8ZMvOE_BQE";
+    $$("[data-maps]").forEach(function (a) { a.href = url; a.target = "_blank"; a.rel = "noopener"; });
   })();
 
   /* ---------- Accueil : 5 modèles au choix (#hero1 à #hero5 dans le lien) ---------- */

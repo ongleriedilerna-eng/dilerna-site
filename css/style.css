@@ -1319,7 +1319,8 @@ html { background: linear-gradient(var(--cream) 50%, var(--cocoa) 50%); }
 .week li.is-today { outline: 3px solid #D9819C; outline-offset: 2px; }
 /* petite aide sous le plan */
 .map__help { display: block; margin: 16px auto 0; text-align: center; letter-spacing: .2em; font-size: 11px; color: #8A6A52; }
-.map__help a { color: #4E2E22; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+/* « Appelle-moi » centré sur sa propre ligne, juste en dessous */
+.map__help a { display: block; width: fit-content; margin: 6px auto 0; color: #4E2E22; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
 /* espaces resserrés : avis Google → Pet friendly, et Appelle-moi → Avis */
 #creations { padding-bottom: 22px !important; }
