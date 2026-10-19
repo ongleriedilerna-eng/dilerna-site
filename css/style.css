@@ -1234,7 +1234,7 @@ body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
 .club__title { margin: 0; text-align: center; font: 400 clamp(28px, 4.4svh, 38px)/1 var(--font-display); color: #4E2E22; }
 .club__lead { margin: clamp(4px, .9svh, 10px) 0 clamp(8px, 1.6svh, 16px); text-align: center; color: var(--muted); font-size: clamp(13px, 1.9svh, 15px); line-height: 1.3; }
 .club__perks { list-style: none; margin: 0 0 clamp(8px, 1.4svh, 14px); padding: 0; display: grid; gap: clamp(4px, .8svh, 8px); }
-.club__perks li { position: relative; padding: clamp(6px, 1.05svh, 11px) 12px clamp(6px, 1.05svh, 11px) 42px; border-radius: 14px; background: #F2E8E1; color: #4E2E22; font-size: clamp(12.5px, 1.75svh, 14.5px); line-height: 1.28; }
+.club__perks li { position: relative; padding: clamp(5px, .9svh, 11px) 12px clamp(5px, .9svh, 11px) 42px; border-radius: 14px; background: #F2E8E1; color: #4E2E22; font-size: clamp(12.5px, 1.75svh, 14.5px); line-height: 1.28; }
 /* emojis teintés dans les marrons du salon */
 .club__ico { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); font-size: clamp(15px, 2.2svh, 19px); line-height: 1; filter: grayscale(1) sepia(1) saturate(1.35) hue-rotate(-32deg) brightness(.66) contrast(1.15); }
 .club__perks b { color: #210202; }
