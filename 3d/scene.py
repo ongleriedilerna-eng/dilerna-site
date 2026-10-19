@@ -4,7 +4,7 @@ from mathutils import Vector, Matrix, Euler
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 D = json.load(open(os.path.join(ROOT, 'logo_polys.json')))
-LOGO_PNG = '/home/user/dilerna-site/assets/logo/dilerna-logo-mot-blanc.png'
+LOGO_PNG = os.path.join(ROOT, '..', 'assets', 'logo', 'dilerna-logo-mot-blanc.png')
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 sc = bpy.context.scene
@@ -166,9 +166,11 @@ CAPZ = BH + 0.004
 cap = bpy.data.objects.new('cap', None); sc.collection.objects.link(cap); cap.parent = bottle
 cap.location = (0, 0, CAPZ)
 capm = rounded_box('capm', 0.36, 0.36, 0.86, 0.06, M_CAP, seg=5); capm.parent = cap
-stem = cyl('stem', 0.032, 0.5, M_STEM, z0=-0.5, seg=24); stem.parent = cap
+# tige raccourcie : le bout du pinceau reste au-dessus du fond en verre épais (sinon on le voit dépasser en bas du flacon)
+STEM_L = 0.35
+stem = cyl('stem', 0.032, STEM_L, M_STEM, z0=-STEM_L, seg=24); stem.parent = cap
 # pinceau de vernis : plat, en éventail, bout arrondi, chargé de vernis
-FER = cyl('ferrule', 0.04, 0.05, M_STEM, z0=-0.55, seg=32); FER.parent = cap
+FER = cyl('ferrule', 0.04, 0.05, M_STEM, z0=-STEM_L - 0.05, seg=32); FER.parent = cap
 br_me = bpy.data.meshes.new('brush')
 # bloc subdivisé puis déformé : poils plats qui s'ouvrent en éventail, bout coupé droit et arrondi
 _bb = bmesh.new(); bmesh.ops.create_cube(_bb, size=1.0)
@@ -191,7 +193,7 @@ _tc = _n.nodes.new('ShaderNodeTexCoord'); _n.links.new(_tc.outputs['Object'], _w
 _bp = _n.nodes.new('ShaderNodeBump'); _bp.inputs['Strength'].default_value = 0.25; _bp.inputs['Distance'].default_value = 0.002
 _n.links.new(_wv.outputs['Fac'], _bp.inputs['Height']); _n.links.new(_bp.outputs['Normal'], _bs.inputs['Normal'])
 brush = bpy.data.objects.new('brush', br_me); link(brush, M_BRUSH); brush.parent = cap
-brush.location = (0, 0, -0.55)
+brush.location = (0, 0, -STEM_L - 0.05)
 for p in br_me.polygons: p.use_smooth = True
 brush.modifiers.new('sub', 'SUBSURF').levels = 1
 drop = bpy.data.objects.new('drop', bpy.data.meshes.new('drop'))
@@ -200,7 +202,7 @@ for v in bm_.verts:
     if v.co.z > 0: v.co.z *= 1.6
 bm_.to_mesh(drop.data); bm_.free(); link(drop, M_POLISH); drop.parent = cap
 for p in drop.data.polygons: p.use_smooth = True
-drop.location = (0, 0, -0.55 - 0.27 - 0.016)
+drop.location = (0, 0, -STEM_L - 0.05 - 0.27 - 0.016)
 
 # ---------------- filet de vernis ----------------
 st_cu = bpy.data.curves.new('stream', 'CURVE'); st_cu.dimensions = '3D'

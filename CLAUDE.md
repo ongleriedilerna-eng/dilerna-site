@@ -43,13 +43,17 @@ Header (logo) · Menu (Club Dilerna qui brille en premier, puis Accueil, Infos, 
 · Barre du bas façon appli : Accueil, Inspo, bouton rond **CLUB DILERNA** (ouvre la fiche du club), Infos, Menu.
 
 ## Club Dilerna (abonnement, `js/club.js`)
-Fiche avec les idées de Marie uniquement (priorité fêtes, soin des mains, nail art offert/an, −10 % anniversaire, huile offerte,
-nuancier privé, joker d'annulation, parrainage). **Aucun prix fixé** : la fiche dit « Le club ouvre bientôt » et le bouton prépare
-un message à Marie. Ne pas ajouter de prix tant qu'elle ne l'a pas décidé.
+Prix décidé par Marie : **15 € par mois** (pastille ronde qui bouge, comme celle de la Carte blanche, + rappel dans la phrase d'intro).
+Avantages dans cet ordre : nail art offert chaque année, nuancier privé, joker d'annulation, soin des mains, puis priorité fêtes,
+−10 % anniversaire, huile offerte, parrainage. Chaque avantage a un emoji teinté en marron (pas de ronds marrons).
+La fiche dit toujours « Le club ouvre bientôt » et le bouton prépare un message à Marie.
 
 ## Animation 3D de l'accueil
 Rendue sous Blender (Cycles) image par image, sources dans `3d/` (voir `3d/README.md`). Le flacon se dévisse, verse dans le logo
 en verre, le moule disparaît, décor studio (colonnes travertin, capsules d'ongles, perles).
+Le pinceau est assez court pour ne pas dépasser sous le flacon, et le filet de vernis s'arrête avant que le flacon se redresse
+(aucun trait ne doit rester en l'air). Le bas de l'accueil se fond dans le crème des prestations (dégradé CSS).
+Pet friendly : Marie est dessinée bras le long du corps, mains posées sur le bureau, 5 doigts.
 
 ## En cours / à faire
 - Nom de domaine : **dilerna.fr** acheté chez OVH le 19/10/2026 pour 5 ans (commande 261349820, compte particulier de Marie,

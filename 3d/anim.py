@@ -1,7 +1,8 @@
 # DILERNA · animation image par image (t de 0 à 1) et rendu
 import sys, os, math
 sys.argv = [a for a in sys.argv]
-exec(open('/home/user/dilerna-3d/v5/scene.py').read())
+__file__ = os.path.abspath(__file__)
+exec(open(os.path.join(os.path.dirname(__file__), 'scene.py'), encoding='utf-8').read())
 import bmesh
 from mathutils import Matrix, Vector, Quaternion
 
@@ -99,13 +100,15 @@ def pose(t):
     outer.location.z = 0.32 * dm
     outer.hide_render = dm >= 0.999
     set_logo_level(lambda x: logo_level(x, t))
-    # filet
-    grow = out(seg(t, .455, .515)); stop = inn(seg(t, .79, .845))
-    # quand le flacon arrête de verser, le filet garde sa trajectoire (il ne suit plus le flacon qui se redresse)
-    BMs = BM if t < .79 else bottle_matrix(.79)[0]
+    # filet : il s'arrête pendant que le flacon est encore penché (sa queue tombe dans le « l »),
+    # pour ne jamais rester suspendu en l'air quand le flacon se redresse
+    grow = out(seg(t, .455, .515)); stop = inn(seg(t, .72, .78))
+    BMs = BM
     mouth = BMs @ MOUTH
     axis = (BMs.to_3x3() @ Vector((0, 0, 1))).normalized()
-    end = Vector((X0, -0.0, max(0.05, logo_level(X0, t))))
+    # le filet finit toujours dans la lettre (pas au-dessus, même quand le vernis arrive en haut)
+    # (haut du vernis dans la lettre sous le point de versement : 0,715 d'après logo_polys.json)
+    end = Vector((X0, -0.0, max(0.05, min(logo_level(X0, t), 0.69))))
     A = mouth + axis * 0.03; B = mouth + axis * 0.16 + Vector((0, 0, -0.25)); C = end
     def P(u): return A * (1 - u) ** 2 + B * 2 * u * (1 - u) + C * u * u
 
@@ -132,6 +135,17 @@ if __name__ == '__main__':
     outdir = os.environ.get('OUTDIR', os.path.join(ROOT, 'frames')); os.makedirs(outdir, exist_ok=True)
     N = int(os.environ.get('NFRAMES', '100'))
     if os.environ.get('SAMPLES'): sc.cycles.samples = int(os.environ['SAMPLES'])
+    # GPU=1 : rendu sur la carte graphique (OptiX ou CUDA), bien plus rapide que le processeur
+    if os.environ.get('GPU'):
+        prefs = bpy.context.preferences.addons['cycles'].preferences
+        for typ in ('OPTIX', 'CUDA'):
+            try:
+                prefs.compute_device_type = typ; prefs.get_devices()
+                if any(d.type == typ for d in prefs.devices): break
+            except TypeError: pass
+        for d in prefs.devices: d.use = d.type != 'CPU'
+        sc.cycles.device = 'GPU'
+        print('devices', [(d.name, d.type, d.use) for d in prefs.devices], flush=True)
     for a in args:
         i = int(a); t = i / (N - 1)
         pose(t)
