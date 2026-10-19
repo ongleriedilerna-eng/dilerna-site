@@ -663,7 +663,7 @@ body.menu-open .burger { background: #AB9680; }
 .teckel__ear { fill: var(--teckel-dark); }
 .teckel__pupil { fill: #1A0E08; } .teckel__eye { fill: #FFF4EC; }
 .teckel__tail { fill: none; stroke: var(--teckel); stroke-width: 9; stroke-linecap: round; transform-origin: 44px 66px; animation: wag .5s ease-in-out infinite alternate; }
-.teckel__collar { fill: none; stroke: #F4B6C8; stroke-width: 6; stroke-linecap: round; }
+.teckel__collar { fill: none; stroke: #F4B6C8; stroke-width: 6.5; stroke-linecap: round; }
 .teckel__nose { fill: #2A1810; }
 .comforts__title { position: relative; margin: 26px 0 0; text-align: center; font: 600 13px/1.5 var(--font-body); letter-spacing: .14em; text-transform: uppercase; text-wrap: balance; }
 .comforts__title b { display: block; font: italic 400 26px/1.2 var(--font-display); letter-spacing: 0; text-transform: none; color: #AB9680; }
