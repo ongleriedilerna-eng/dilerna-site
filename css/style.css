@@ -140,7 +140,7 @@ button { font: inherit; color: inherit; }
 .btn:active { transform: scale(.96); }
 .btn--small { min-height: 38px; padding: 0 16px; font-size: 13.5px; }
 .btn--primary { background: var(--bordeaux); color: #FFF4EC; box-shadow: 0 8px 20px -10px rgba(109, 31, 46, .8); }
-.btn--primary:hover { background: var(--fuchsia); transform: translateY(-2px) rotate(-1deg); box-shadow: 0 12px 24px -10px rgba(224, 33, 138, .7); }
+.btn--primary:hover { background: #F3D9DE; color: #4E2E22; box-shadow: 0 8px 20px -10px rgba(78, 46, 34, .5); }
 .btn--ghost { border-color: currentColor; color: var(--text); background: transparent; }
 .btn--ghost:hover { background: var(--text); color: var(--bg); transform: translateY(-2px); }
 .btn--light { background: #FFF4EC; color: var(--bordeaux); }
@@ -369,6 +369,11 @@ body.menu-open .burger { background: #AB9680; }
 @keyframes starPop { 0%, 60%, 100% { transform: scale(1); color: #D5C6AF; } 70% { transform: scale(1.25); color: #F4B6C8; } 80% { transform: scale(1); color: #F4B6C8; } }
 .rate__txt { font-size: 13.5px; color: #E6D2B6; max-width: 26ch; }
 .rate:hover .rate__stars i { color: #F4B6C8; }
+/* vrai bouton dans la carte, qui « respire » pour donner envie de toucher */
+.rate { transition: transform .2s var(--ease); -webkit-tap-highlight-color: transparent; }
+.rate:active { transform: scale(.97); }
+.rate__cta { margin-top: 6px; padding: 12px 26px; border-radius: 999px; background: #FBF7F3; color: #4E2E22; font-weight: 700; font-size: 15.5px; letter-spacing: .02em; animation: ctaPulse 2.4s ease-in-out infinite; }
+@keyframes ctaPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(251, 247, 243, .55); } 60% { box-shadow: 0 0 0 10px rgba(251, 247, 243, 0); } }
 #contact .rate { margin: 0 auto 6px; }
 #avis { overflow: hidden; }
 .avis-title { position: relative; display: inline-block; }
@@ -901,6 +906,14 @@ body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
 .sheet__inner { background: var(--surface); border-radius: 28px 28px 0 0; padding: 14px 22px calc(22px + env(safe-area-inset-bottom)); text-align: center; }
 .sheet__grip { display: block; width: 44px; height: 5px; border-radius: 9px; background: var(--line); margin: 0 auto 16px; }
 .sheet__title { font: 400 30px/1.05 var(--font-display); margin-bottom: 6px; }
+/* même écriture que le titre « Club Dilerna », sur une seule ligne */
+.sheet__title.t-soft { color: #4E2E22; font-size: clamp(22px, 6.9vw, 32px); white-space: nowrap; }
+/* bouton Instagram de la fenêtre RDV : il ne bouge pas, rose pastel quand on appuie */
+.sheet__actions .btn:hover, .sheet__actions .btn:active { transform: none; }
+.btn--ig:hover, .btn--ig:active { background: #F3D9DE; color: #4E2E22; }
+/* message « copié » en bas de l'écran */
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); z-index: 300; width: max-content; max-width: calc(100% - 32px); margin: 0; padding: 12px 18px; border-radius: 18px; background: #4E2E22; color: #F8F4EC; font-size: 14px; text-align: center; box-shadow: var(--shadow); opacity: 0; transform: translate(-50%, 12px); transition: opacity .3s, transform .3s var(--ease); pointer-events: none; }
+.toast.is-on { opacity: 1; transform: translate(-50%, 0); }
 .sheet__text { color: var(--muted); }
 .sheet__actions { display: grid; gap: 10px; }
 .sheet__close { margin-top: 12px; border: 0; background: none; color: var(--muted); font-weight: 600; padding: 10px; }

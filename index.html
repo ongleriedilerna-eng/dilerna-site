@@ -177,7 +177,7 @@
       <div class="devis-note reveal">
         <h3 id="devis-title">Nail art</h3>
         <p>Hormis la French à <strong>+10 €</strong>, les poses avec nail art se font <strong>uniquement sur devis</strong>.</p>
-        <a class="btn btn--latte" href="https://ig.me/m/ongleriedilerna" target="_blank" rel="noopener">Demander un devis</a>
+        <button class="btn btn--latte" type="button" data-rdv data-rdv-msg="Bonjour Marie, je souhaiterais prendre rendez-vous pour un nail art. Je t'envoie la photo de ce que j'aimerais, pour avoir un devis.">Demander un devis</button>
       </div>
 
       <!-- Carte blanche : nail art à prix fixe -->
@@ -191,7 +191,7 @@
           <li><b>2</b><span>Je te réserve un créneau, rien que pour ta création.</span></li>
           <li><b>3</b><span>Tu découvres le résultat.</span></li>
         </ol>
-        <a class="btn btn--creme btn--cb" href="https://ig.me/m/ongleriedilerna" target="_blank" rel="noopener"><small>Prendre rendez-vous</small><b>Carte blanche</b></a>
+        <button class="btn btn--creme btn--cb" type="button" data-rdv data-rdv-msg="Bonjour Marie, je souhaiterais prendre rendez-vous pour une Carte blanche ! Je t'envoie mon thème et mes photos d'inspiration."><small>Prendre rendez-vous</small><b>Carte blanche</b></button>
       </article>
 
 
@@ -210,10 +210,12 @@
       <div class="posts reveal" data-posts data-drag tabindex="0" aria-label="Mes dernières publications Instagram, fais glisser pour voir les autres"></div>
       <p class="center gallery__cta reveal"><a class="btn btn--choco btn--icon" href="https://www.instagram.com/ongleriedilerna/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg>Voir tout mon univers sur Instagram</a></p>
       <!-- Avis Google : juste après le lien Instagram -->
-      <a class="rate rate--after-insta reveal" href="https://maps.app.goo.gl/ABrZfmms8Tfr6d978" target="_blank" rel="noopener">
+      <!-- lien direct « Rédiger un avis » de la fiche Google DILERNA -->
+      <a class="rate rate--after-insta reveal" href="https://search.google.com/local/writereview?placeid=ChIJtRocvpiB2RIRG8ZMvOE_BQE" target="_blank" rel="noopener">
           <span class="rate__q">Tu as aimé ta pose ?</span>
           <span class="rate__stars" aria-hidden="true"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span>
           <span class="rate__txt">Laisse un avis Google à ta prothésiste ongulaire préférée ♡</span>
+          <span class="rate__cta">Laisser mon avis</span>
         </a>
     </section>
 
@@ -485,8 +487,8 @@
             <p class="bubble bubble--in">Coucou ! Une question ou besoin d'un rendez-vous ? Écris-moi, je te réponds au plus vite.</p>
             <div class="chat__replies">
               <a class="bubble bubble--out" href="tel:0745073235">Appeler</a>
-              <a class="bubble bubble--out" href="sms:0745073235?&amp;body=Bonjour%20Marie%2C%20je%20t%27%C3%A9cris%20pour%20">Envoyer un SMS</a>
-              <a class="bubble bubble--out" href="https://ig.me/m/ongleriedilerna" target="_blank" rel="noopener">Écrire sur Instagram</a>
+              <a class="bubble bubble--out" href="sms:0745073235?&amp;body=Bonjour%20Marie%2C%20je%20souhaiterais%20prendre%20rendez-vous%20pour%20une%20pose.%20Quelles%20sont%20tes%20disponibilit%C3%A9s%20%3F">Envoyer un SMS</a>
+              <a class="bubble bubble--out" href="https://ig.me/m/ongleriedilerna" target="_blank" rel="noopener" data-ig-copy>Écrire sur Instagram</a>
             </div>
           </div>
         </div>
@@ -585,11 +587,11 @@
   <dialog class="sheet" data-sheet aria-labelledby="sheet-title">
     <div class="sheet__inner">
       <span class="sheet__grip" aria-hidden="true"></span>
-      <p class="sheet__title" id="sheet-title">On se fait les ongles ?</p>
-      <p class="sheet__text" data-sheet-text>Choisis ton moyen préféré, je réponds vite.</p>
+      <p class="sheet__title t-soft" id="sheet-title">On se fait les ongles ?</p>
+      <p class="sheet__text" data-sheet-text>Ton message est déjà écrit, tu n'as plus qu'à l'envoyer. Je réponds vite !</p>
       <p class="sheet__msg" data-sheet-msg hidden></p>
       <div class="sheet__actions">
-        <a class="btn btn--primary" href="https://ig.me/m/ongleriedilerna" target="_blank" rel="noopener" data-sheet-ig>Écrire sur Instagram</a>
+        <a class="btn btn--choco btn--ig" href="https://ig.me/m/ongleriedilerna" target="_blank" rel="noopener" data-sheet-ig>Écrire sur Instagram</a>
         <a class="btn btn--ghost" href="tel:+33745073235" data-sheet-tel>Appeler</a>
         <a class="btn btn--ghost" href="sms:+33745073235" data-sheet-sms>Envoyer un SMS</a>
       </div>

@@ -102,39 +102,54 @@
   }
 
   /* ---------- Prendre RDV ----------
-     Mobile : fenêtre avec Instagram / Appeler / SMS.
-     Ordinateur : ouvre directement la conversation Instagram. */
+     Fenêtre avec Instagram / Appeler / SMS (Instagram seul sur ordinateur).
+     Chaque bouton a son message déjà écrit : il s'écrit tout seul dans le SMS,
+     et il est copié pour Instagram (Instagram ne permet pas de pré-remplir). */
+  var RDV_MSG = "Bonjour Marie, je souhaiterais prendre rendez-vous pour une pose. Quelles sont tes disponibilités ?";
   var sheet = $("[data-sheet]");
-  var sheetMsg = "";
+  var sheetMsg = RDV_MSG;
+
+  // petit message en bas de l'écran
+  var toastEl = null, toastT = 0;
+  function toast(text) {
+    if (!toastEl) { toastEl = document.createElement("p"); toastEl.className = "toast"; toastEl.setAttribute("role", "status"); document.body.appendChild(toastEl); }
+    toastEl.textContent = text;
+    toastEl.classList.add("is-on");
+    clearTimeout(toastT); toastT = setTimeout(function () { toastEl.classList.remove("is-on"); }, 4200);
+  }
+  function copyForInsta(msg) {
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText(msg).then(function () {
+      toast("Message copié ! Dans Instagram, appuie dans la zone de texte puis « Coller ».");
+    }).catch(function () {});
+  }
+
   function openRdv(msg) {
-    sheetMsg = msg || "";
+    sheetMsg = msg || RDV_MSG;
     var box = $("[data-sheet-msg]");
-    box.hidden = !sheetMsg;
-    box.textContent = sheetMsg ? "« " + sheetMsg + " »" : "";
-    $("[data-sheet-text]").textContent = sheetMsg ? "Ton message est prêt : envoie-le par SMS, ou colle-le sur Instagram." : "Choisis ton moyen préféré, je réponds vite.";
-    $("[data-sheet-sms]").href = "sms:+33745073235" + (sheetMsg ? "?&body=" + encodeURIComponent(sheetMsg) : "");
+    box.hidden = false;
+    box.textContent = "« " + sheetMsg + " »";
+    $("[data-sheet-sms]").href = "sms:+33745073235?&body=" + encodeURIComponent(sheetMsg);
     $("[data-sheet-tel]").hidden = !isTouch;
     $("[data-sheet-sms]").hidden = !isTouch;
-    if (sheet.showModal) sheet.showModal(); else window.open("https://ig.me/m/ongleriedilerna", "_blank", "noopener");
+    if (sheet.showModal) sheet.showModal(); else { copyForInsta(sheetMsg); window.open("https://ig.me/m/ongleriedilerna", "_blank", "noopener"); }
   }
   $$("[data-rdv]").forEach(function (el) {
     el.addEventListener("click", function (e) {
       e.preventDefault();
       if (menu.classList.contains("is-open")) setMenu(false);
-      var msg = el.getAttribute("data-rdv-msg");
-      // Sur ordinateur sans message : directement la conversation Instagram
-      if (!isTouch && !msg) { window.open("https://ig.me/m/ongleriedilerna", "_blank", "noopener"); return; }
-      openRdv(msg);
+      openRdv(el.getAttribute("data-rdv-msg"));
     });
   });
   if (sheet) {
     $("[data-sheet-close]", sheet).addEventListener("click", function () { sheet.close(); });
     sheet.addEventListener("click", function (e) { if (e.target === sheet) sheet.close(); });
-    // Instagram ne permet pas de pré-remplir : on copie le message pour le coller
-    $("[data-sheet-ig]").addEventListener("click", function () {
-      if (sheetMsg && navigator.clipboard) navigator.clipboard.writeText(sheetMsg).catch(function () {});
-    });
+    $("[data-sheet-ig]").addEventListener("click", function () { copyForInsta(sheetMsg); });
   }
+  // bulle « Écrire sur Instagram » de la partie contact
+  $$("[data-ig-copy]").forEach(function (el) {
+    el.addEventListener("click", function () { copyForInsta(RDV_MSG); });
+  });
 
   /* ---------- Fabrique d'ongles / tuiles ---------- */
   function nail(art) {

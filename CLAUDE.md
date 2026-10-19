@@ -42,6 +42,15 @@ Header (logo) · Menu (Club Dilerna qui brille en premier, puis Accueil, Infos, 
 · Avis Google (bande de couleur plus foncée, Louise mange le mot « Google » puis le rapporte, en boucle) · On papote ? · Bon à savoir · Réseaux · Footer
 · Barre du bas façon appli : Accueil, Inspo, bouton rond **CLUB DILERNA** (ouvre la fiche du club), Infos, Menu.
 
+## Prise de rendez-vous (`js/main.js`, fenêtre « On se fait les ongles ? »)
+Chaque bouton a un message déjà écrit (`data-rdv-msg`, sinon message par défaut : pose + disponibilités) : il s'écrit tout seul
+dans le SMS, et il est copié pour Instagram (Instagram ne permet pas de pré-remplir un message ; un petit message dit de le coller).
+Messages dédiés : chaque prestation, devis nail art, Carte blanche, Club. Bouton Instagram marron, sans mouvement, rose pastel
+au toucher (Marie n'aime pas le rose vif). Titre de la fenêtre dans l'écriture du titre « Club Dilerna » (`t-soft`).
+Avis Google : la carte « Tu as aimé ta pose ? » mène au lien direct « Rédiger un avis »
+(https://search.google.com/local/writereview?placeid=ChIJtRocvpiB2RIRG8ZMvOE_BQE) et a un bouton « Laisser mon avis ».
+Le bouton « Suivre » ouvre le profil Instagram (impossible de s'abonner automatiquement depuis un site).
+
 ## Club Dilerna (abonnement, `js/club.js`)
 Prix décidé par Marie : **15 € par mois** (pastille ronde qui bouge, comme celle de la Carte blanche, + rappel dans la phrase d'intro).
 Avantages dans cet ordre : nail art offert chaque année, nuancier privé, joker d'annulation, soin des mains, puis priorité fêtes,
