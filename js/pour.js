@@ -14,7 +14,7 @@
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // séquence actuelle : 720×960 sur fond transparent (« contain ») ; la version avec décor passera en 600×1300 (« cover »)
-  var N = 100, W = 720, H = 960, FPS = 18, COVER = false;
+  var N = 100, W = 600, H = 1300, FPS = 18, COVER = true;
   // mise en page : infos en haut (par défaut) ou en bas (#…bas dans l'adresse)
   if (/bas/.test(location.hash)) sec.classList.add("pour--bas");
   var src = function (i) { return "assets/hero3d/f" + ("00" + i).slice(-3) + ".webp"; };
