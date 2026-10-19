@@ -1242,7 +1242,23 @@ html { background: linear-gradient(var(--cream) 50%, var(--cocoa) 50%); }
 .club__eyebrow { margin: 0 0 6px; padding: 0 36px; text-align: center; font: 600 10px/1.45 var(--font-body); letter-spacing: .26em; text-transform: uppercase; color: #AB9680; }
 .club__eyebrow b { font-weight: 800; color: #6E4A32; }
 .club__title { margin: 0; text-align: center; font: 400 38px/1 var(--font-display); color: #4E2E22; }
-.club__lead { margin: 8px 0 12px; text-align: center; color: var(--muted); }
+/* la phrase tient toujours sur une seule ligne */
+.club__lead { margin: 8px 0 12px; text-align: center; color: var(--muted); white-space: nowrap; font-size: min(15px, 3.55vw); }
+/* la fiche ne bouge pas (pas de rebond quand on touche dedans) */
+.club__inner { overscroll-behavior: contain; }
+/* téléphones étroits : un peu moins de marge sur les côtés, pour que les avantages tiennent sur moins de lignes */
+@media (max-width: 380px) { .club .club__inner { padding-left: 14px; padding-right: 14px; } }
+/* petits téléphones (moins de 800 px de haut) : on resserre juste ce qu'il faut pour que tout tienne sans défiler */
+@media (max-height: 800px) {
+  .club .club__inner { padding-top: 10px; padding-bottom: calc(14px + env(safe-area-inset-bottom)); }
+  .club .club__inner .sheet__grip { margin-bottom: 6px; }
+  .club .club__eyebrow { margin-bottom: 2px; }
+  .club .club__title { font-size: 30px; }
+  .club .club__lead { margin: 4px 0 8px; }
+  .club .club__perks { gap: 5px; margin-bottom: 10px; }
+  .club .club__perks li { padding: 5px 10px 5px 38px; font-size: 12.5px; line-height: 1.25; border-radius: 13px; }
+  .club .club__ico { left: 11px; font-size: 15px; }
+}
 .club__perks { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 8px; }
 .club__perks li { position: relative; padding: 12px 14px 12px 46px; border-radius: 16px; background: #F2E8E1; color: #4E2E22; font-size: 14.5px; line-height: 1.35; }
 /* emojis teintés dans les marrons du salon */
