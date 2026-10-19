@@ -871,7 +871,10 @@ body.menu-open .burger { background: #AB9680; }
 @keyframes sniff { to { transform: rotate(-8deg) translateY(-2px); } }
 
 /* Barre du bas façon appli : onglets + gros bouton rond « Prendre RDV » au centre */
-body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+/* la place pour la barre du bas est prise dans le pied de page marron (pas de bande crème tout en bas),
+   et quand on tire la page vers le haut tout en bas, c'est marron aussi */
+html { background: linear-gradient(var(--cream) 50%, var(--cocoa) 50%); }
+.footer__inner { padding-bottom: calc(32px + 84px + env(safe-area-inset-bottom)) !important; }
 .tabbar { position: fixed; z-index: 60; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: 1fr 1fr 96px 1fr 1fr; align-items: end; padding: 8px max(8px, env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-right)); background: #FBF7F3; border-radius: 26px 26px 0 0; box-shadow: 0 -6px 24px -12px rgba(33, 2, 2, .3); }
 .tabbar::before { content: ""; position: absolute; left: 50%; top: -24px; width: 104px; height: 104px; margin-left: -52px; border-radius: 50%; background: #FBF7F3; box-shadow: 0 -6px 18px -12px rgba(33, 2, 2, .3); z-index: -1; }
 .tab { display: grid; justify-items: center; gap: 4px; padding: 6px 2px; border: 0; background: none; color: #A8968A; text-decoration: none; font: 600 11.5px/1 var(--font-body); -webkit-tap-highlight-color: transparent; transition: color .25s; }
