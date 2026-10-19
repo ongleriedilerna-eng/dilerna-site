@@ -1227,7 +1227,8 @@ html { background: linear-gradient(var(--cream) 50%, var(--cocoa) 50%); }
 
 
 /* ===== Club Dilerna ===== */
-.club__inner { max-height: 92svh; overflow-y: auto; text-align: left; }
+/* jamais de défilement dans la fiche du club : club.js réduit la liste juste ce qu'il faut pour que tout tienne */
+.club__inner { max-height: 92svh; overflow: hidden; text-align: left; }
 /* pastille du prix, comme celle de la Carte blanche : à cheval sur le haut de la fiche */
 .club { overflow: visible; }
 .club__price { position: absolute; z-index: 2; top: -56px; right: 16px; width: 84px; height: 84px; border-radius: 50%; background: var(--beige); color: var(--ink); display: grid; place-content: center; text-align: center; transform: rotate(10deg); box-shadow: var(--shadow); animation: bob 5s ease-in-out infinite; }

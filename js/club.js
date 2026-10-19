@@ -11,9 +11,19 @@
   // places restantes (réglées dans config.js → clubPlaces)
   var n = (window.DILERNA || {}).clubPlaces, places = club.querySelector("[data-club-places]");
   if (places && typeof n === "number") places.textContent = n <= 0 ? "Complet" : n + (n === 1 ? " place restante" : " places restantes");
+  // tout doit tenir sur l'écran, bouton compris, sans défiler : si ça dépasse,
+  // la liste des avantages est réduite petit à petit jusqu'à ce que tout rentre
+  var inner = club.querySelector(".club__inner"), perks = club.querySelector(".club__perks");
+  function fit() {
+    if (!club.open) return;
+    var z = 1;
+    perks.style.zoom = 1;
+    while (inner.scrollHeight > inner.clientHeight + 1 && z > .6) { z -= .03; perks.style.zoom = z; }
+  }
+  window.addEventListener("resize", fit);
   document.querySelectorAll("[data-club-open]").forEach(function (b) {
     // à l'ouverture, on sélectionne la fiche elle-même : aucun bouton n'apparaît entouré
-    b.addEventListener("click", function (e) { e.preventDefault(); if (club.showModal) { club.showModal(); club.focus({ preventScroll: true }); } });
+    b.addEventListener("click", function (e) { e.preventDefault(); if (club.showModal) { club.showModal(); club.focus({ preventScroll: true }); fit(); } });
   });
   club.querySelector("[data-club-close]").addEventListener("click", function () { club.close(); });
   club.querySelector("[data-club-join]").addEventListener("click", function () { club.close(); });
