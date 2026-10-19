@@ -13,8 +13,8 @@
   var reveals = sec.querySelectorAll("[data-reveal]");
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // séquence actuelle : 720×960 sur fond transparent (« contain ») ; la version avec décor passera en 600×1300 (« cover »)
-  var N = 100, W = 600, H = 1300, FPS = 18, COVER = true;
+  // séquence HD avec décor : 1080×2340 (la définition d'un écran de téléphone), qui remplit l'écran (« cover »)
+  var N = 100, W = 1080, H = 2340, FPS = 18, COVER = true;
   // mise en page : infos en haut (par défaut) ou en bas (#…bas dans l'adresse)
   if (/bas/.test(location.hash)) sec.classList.add("pour--bas");
   var src = function (i) { return "assets/hero3d/f" + ("00" + i).slice(-3) + ".webp"; };
@@ -32,7 +32,7 @@
   // canvas net (densité d'écran), l'image remplit tout l'écran (« cover »)
   var cw = 0, ch = 0;
   function size() {
-    var r = canvas.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var r = canvas.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 3);
     cw = Math.round(r.width * dpr); ch = Math.round(r.height * dpr);
     if (canvas.width !== cw || canvas.height !== ch) { canvas.width = cw; canvas.height = ch; }
     draw(shown, true);
@@ -46,6 +46,7 @@
     shown = i;
     var s = (COVER ? Math.max : Math.min)(cw / W, ch / H), dw = W * s, dh = H * s;
     ctx.clearRect(0, 0, cw, ch);
+    ctx.imageSmoothingQuality = "high";
     ctx.drawImage(frames[i], (cw - dw) / 2, (ch - dh) / 2, dw, dh);
   }
 

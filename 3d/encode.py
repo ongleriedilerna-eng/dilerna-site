@@ -12,5 +12,5 @@ for f in sorted(os.listdir(src)):
     cleaned = np.clip((a - 12) / (255 - 12) * 255, 0, 255)
     a2 = np.where(shadow, cleaned, a)
     out = np.dstack([rgb, a2]).astype(np.uint8)
-    Image.fromarray(out, 'RGBA').save(os.path.join(dst, f.replace('.png', '.webp')), 'WEBP', quality=84, method=6, alpha_quality=90)
+    Image.fromarray(out, 'RGBA').save(os.path.join(dst, f.replace('.png', '.webp')), 'WEBP', quality=90, method=6, alpha_quality=90)
     print(f, flush=True)

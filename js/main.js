@@ -20,6 +20,22 @@
 
   if (C.showPlaceholderLabels === false) doc.classList.add("hide-ph");
 
+  /* ---------- Toujours repartir du haut de la page ----------
+     Au rechargement, le navigateur ne remet plus la page là où on était,
+     et un ancien lien de section (#prestations…) est retiré de l'adresse. */
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  var hashId = location.hash.slice(1);
+  if (hashId && document.getElementById(hashId)) history.replaceState(null, "", location.pathname + location.search);
+  // (seulement tant que la personne n'a pas commencé à faire défiler elle-même)
+  var userMoved = false;
+  ["touchstart", "wheel", "keydown", "mousedown"].forEach(function (ev) {
+    window.addEventListener(ev, function () { userMoved = true; }, { passive: true, once: true });
+  });
+  function toTop() { if (!userMoved) window.scrollTo({ top: 0, left: 0, behavior: "instant" }); }
+  toTop();
+  window.addEventListener("load", toTop);
+  window.addEventListener("pageshow", function (e) { if (e.persisted) { userMoved = false; toTop(); } });
+
   /* ---------- Thème clair / sombre ---------- */
   var themeBtn = $("[data-theme-toggle]");
   function currentTheme() {
