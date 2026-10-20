@@ -146,9 +146,6 @@
 
   function openRdv(msg) {
     sheetMsg = msg || RDV_MSG;
-    var box = $("[data-sheet-msg]");
-    box.hidden = false;
-    box.textContent = "« " + sheetMsg + " »";
     $("[data-sheet-sms]").href = "sms:+33745073235?&body=" + encodeURIComponent(sheetMsg);
     $("[data-sheet-ig]").href = igLink(sheetMsg);
     $("[data-sheet-wa]").href = waLink(sheetMsg);
@@ -358,52 +355,15 @@
     return d;
   }
 
-  /* ---------- Photos en grand (visionneuse) ----------
-     Toutes les photos s'affichent dans un cadre de la même taille ; on fait glisser pour voir les voisines.
-     La version HD (champ « full » dans config.js) est utilisée si elle existe. */
-  var viewer = null;
-  function openPhoto(list, start) {
-    if (!viewer) {
-      viewer = document.createElement("dialog");
-      viewer.className = "viewer"; viewer.tabIndex = -1;
-      viewer.innerHTML = '<div class="viewer__track"></div><p class="viewer__dots"></p><button class="viewer__close" type="button" aria-label="Fermer">×</button>';
-      document.body.appendChild(viewer);
-      viewer.addEventListener("click", function (e) { if (!e.target.closest(".viewer__frame")) viewer.close(); });
-      $(".viewer__track", viewer).addEventListener("scroll", function () {
-        var t = this, k = Math.round(t.scrollLeft / t.clientWidth);
-        $$(".viewer__dots i", viewer).forEach(function (d, i) { d.classList.toggle("is-on", i === k); });
-      }, { passive: true });
-    }
-    var track = $(".viewer__track", viewer), dots = $(".viewer__dots", viewer);
-    track.innerHTML = ""; dots.innerHTML = "";
-    list.forEach(function (p) {
-      var sl = document.createElement("figure"); sl.className = "viewer__slide";
-      var fr = document.createElement("span"); fr.className = "viewer__frame";
-      var src = p.full || p.src;
-      fr.style.setProperty("--bg-img", "url('" + src + "')");
-      var im = document.createElement("img"); im.src = src; im.alt = p.alt || ""; im.decoding = "async"; im.draggable = false;
-      fr.appendChild(im); sl.appendChild(fr); track.appendChild(sl);
-      dots.appendChild(document.createElement("i"));
-    });
-    dots.hidden = list.length < 2;
-    if (viewer.showModal) { viewer.showModal(); viewer.focus({ preventScroll: true }); } else { window.open(list[start].full || list[start].src, "_blank"); return; }
-    track.scrollLeft = track.clientWidth * start;
-    $$("i", dots).forEach(function (d, i) { d.classList.toggle("is-on", i === start); });
-  }
-
   /* ---------- Dernières publications Instagram (à faire glisser) ---------- */
   var postsBox = $("[data-posts]");
   if (postsBox) {
     var track = document.createElement("div");
     track.className = "posts__track";
-    (C.instaPosts || []).forEach(function (p, idx) {
-      // toucher la photo l'ouvre en grand sur le site (pas sur Instagram)
-      var a = document.createElement("a");
+    (C.instaPosts || []).forEach(function (p) {
+      // les photos ne sont pas cliquables (choix de Marie) : on les fait juste glisser
+      var a = document.createElement("div");
       a.className = "post";
-      a.href = p.src;
-      a.setAttribute("aria-label", "Voir la photo en grand : " + p.alt);
-      // (après un glissement à la souris, le clic est déjà annulé plus bas : on n'ouvre rien)
-      a.addEventListener("click", function (e) { if (e.defaultPrevented) return; e.preventDefault(); openPhoto(C.instaPosts, idx); });
       a.innerHTML = '<span class="post__head"><b>ongleriedilerna</b><small>Porto-Vecchio</small></span>';
       var im = img(p.src, p.alt); im.draggable = false;
       var media = document.createElement("span");
@@ -657,8 +617,11 @@
       burpEl.style.right = (parseFloat(dog.style.right) + 30) + "px";
       burpEl.classList.remove("show"); void burpEl.offsetWidth; burpEl.classList.add("show");
     };
+    var rounds = 0;
     var eat = function () {
+      rounds++;
       var W = goo.offsetWidth + 6, BITES = 7, gap = 1300;
+      cover.style.opacity = "1";
       var place = function (w) { cover.style.width = w + "px"; dog.style.right = (w - 40) + "px"; };
       dog.style.transition = "none"; dog.style.opacity = "1"; dog.style.transform = "scaleX(-1)"; dog.style.right = "-90px";
       requestAnimationFrame(function () {
@@ -686,8 +649,15 @@
         dog.style.right = "-84px";
         cover.style.width = "0px";
       }, 1100 + BITES * gap + 3200);
-      // et quelques secondes plus tard… elle recommence
-      setTimeout(function () { cover.style.transition = ""; again(); }, 1100 + BITES * gap + 3200 + 3200 + 3500);
+      // le mot est revenu en entier (aucun bout de découpe ne reste sur le « e »)
+      setTimeout(function () { cover.style.transition = ""; cover.style.opacity = "0"; }, 1100 + BITES * gap + 3200 + 3300);
+      // elle recommence une seule fois ; après la 2e fois, elle s'en va pour de bon
+      if (rounds < 2) setTimeout(again, 1100 + BITES * gap + 3200 + 3200 + 3500);
+      else setTimeout(function () {
+        dog.style.transition = "right 1.4s ease-in, transform .2s";
+        dog.style.transform = "scaleX(1)";
+        dog.style.right = "-460px";
+      }, 1100 + BITES * gap + 3200 + 3200 + 1500);
     };
     var inView = false, waiting = false;
     var again = function () { if (inView) eat(); else waiting = true; };

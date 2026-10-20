@@ -37,10 +37,10 @@ avec la médaille dorée qui pend dessous ; Louise a un petit cou et une oreille
 **Pas de logo ni de barre en haut de la page** (header caché, Marie le trouvait inutile) · Menu (Club Dilerna qui brille en premier, puis Accueil, Infos, Inspi, À propos, Contact + Louise et « Prendre rendez-vous »)
 · **Accueil** : animation 3D jouée automatiquement (`js/pour.js`, images `assets/hero3d/`), infos CAP / Porto-Vecchio / avis en haut (variante `#…bas` = en bas)
 · **Prestations** : bloc Louise + « Prendre rendez-vous » tout en haut, titre, cartes empilées, devis nail art, Carte blanche
-· Les dernières du salon (Instagram) + carte « Tu as aimé ta pose ? »
+· Les dernières du salon (Instagram, photos **non cliquables**, on les fait glisser) + carte « Tu as aimé ta pose ? »
 · Pet friendly · Couleur du mois · Besoin d'inspiration (Pinterest) · A propos (sans accent) + Mon salon
 · Infos pratiques (horaires, adresse, plan, « Tu es devant et tu ne trouves pas ? Appelle-moi »)
-· Avis Google (bande de couleur plus foncée, Louise mange le mot « Google » puis le rapporte, en boucle) · On papote ? · Bon à savoir · Réseaux · Footer
+· Avis Google (bande plus foncée ; Louise mange le mot « Google » puis le rapporte **2 fois seulement**, puis s'en va ; le mot revient toujours en entier ; les avis défilent tout seuls) · On papote ? · Bon à savoir · Réseaux · Footer
 · Barre du bas façon appli : Accueil, Inspo, bouton rond **CLUB DILERNA** (ouvre la fiche du club), Infos, Menu.
 
 ## Horaires
@@ -55,7 +55,7 @@ Message par défaut : « Bonjour Marie, j'aimerais prendre rendez-vous. Quelles 
 propose plusieurs prestations).
 Chaque bouton a un message déjà écrit (`data-rdv-msg`, sinon message par défaut : pose + disponibilités) : il s'écrit tout seul
 dans le SMS, et il est copié pour Instagram (Instagram ne permet pas de pré-remplir un message ; un petit message dit de le coller).
-Messages dédiés : chaque prestation, devis nail art, Carte blanche, Club. Bouton Instagram marron, sans mouvement, rose pastel
+Messages dédiés : chaque prestation, devis nail art, Carte blanche, Club. La fenêtre n'affiche plus ni phrase ni aperçu du message : juste le titre et les boutons. Bouton Instagram marron, sans mouvement, rose pastel
 au toucher (Marie n'aime pas le rose vif). Titre de la fenêtre dans l'écriture du titre « Club Dilerna » (`t-soft`).
 Avis Google : la carte « Tu as aimé ta pose ? » mène au lien direct « Rédiger un avis »
 (https://search.google.com/local/writereview?placeid=ChIJtRocvpiB2RIRG8ZMvOE_BQE) et a un bouton « Laisser mon avis ».
@@ -94,7 +94,7 @@ Pet friendly : Marie est dessinée bras le long du corps, mains posées sur le b
 - Carte blanche : **toute la carte se retourne** (bouton « Touche pour voir une Carte blanche » sous la carte, ou on la fait
   glisser) ; au dos, **la demande en haut et le résultat en bas**. Ne pas toucher au contenu de la carte elle-même.
   Photos dans `js/config.js` → `carteBlanche` (la 1re est affichée). 1re Carte blanche : thème L'Étrange Noël de Monsieur Jack
-  (en haut : illustration originale aux couleurs de la pose, `assets/img/carte-blanche/theme-jack.svg`, légende « Le thème » ;
+  (en haut : photo de Jack choisie par Marie, `assets/img/carte-blanche/theme-jack.webp`, légende « Le thème » ;
   Marie n'aimait pas les couleurs de l'image d'inspi, et on n'utilise pas d'images Pinterest (droits) ; résultat = `creations/creation-04.webp`).
 - Agenda / réservation en ligne : plus tard.
 
