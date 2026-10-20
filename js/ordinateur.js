@@ -66,6 +66,20 @@
 
   /* ---------- Les publications Instagram défilent toutes seules (en boucle) ---------- */
   var postsTrack = $("#creations .posts__track");
+  // sur ordinateur : les dernières publications en haute qualité (config → instaPostsOrdinateur)
+  var hd = (window.DILERNA || {}).instaPostsOrdinateur;
+  if (postsTrack && postsTrack.children.length && hd && hd.length) {
+    var model = postsTrack.children[0];
+    postsTrack.innerHTML = "";
+    hd.forEach(function (p) {
+      var q = model.cloneNode(true), im = $(".post__media img", q), media = $(".post__media", q), cap = $(".post__cap", q), like = $(".post__like", q);
+      if (im) { im.src = p.src; im.alt = p.alt || ""; im.removeAttribute("srcset"); }
+      if (media) media.style.setProperty("--bg-img", "url('" + p.src + "')");
+      if (cap) cap.innerHTML = "<b>ongleriedilerna</b> " + (p.alt || "").split(" : ")[0].replace(/[<>&]/g, "");
+      if (like) like.setAttribute("aria-pressed", "false");
+      postsTrack.appendChild(q);
+    });
+  }
   if (postsTrack && postsTrack.children.length) {
     var orig = $$(".post", postsTrack);
     // assez de publications pour remplir l'écran et boucler sans trou

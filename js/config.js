@@ -77,6 +77,19 @@ window.DILERNA = {
     { titre: "Toy Story", demande: "assets/img/carte-blanche/theme-toy-story.webp", label: "Le thème", resultat: "assets/img/carte-blanche/resultat-toy-story.webp", theme: "Toy Story" },
   ],
 
+  /* Version ordinateur seulement : les dernières publications Instagram en haute qualité (originaux retrouvés dans les photos de Marie),
+     de la plus récente à la plus ancienne ; sans les publications où l'on voit un visage. Le téléphone garde instaPosts ci-dessous. */
+  instaPostsOrdinateur: [
+    { src: "assets/img/insta/ig-01.webp", alt: "Bienvenue chez Dilerna : ongles pêche et fleurs" },
+    { src: "assets/img/insta/ig-02.webp", alt: "Nail art rose et chrome" },
+    { src: "assets/img/insta/post-01.webp", alt: "Pretty very scary : nail art Scream rose et noir" },
+    { src: "assets/img/insta/ig-04.webp", alt: "Pretty very spooky : nail art L'Étrange Noël de Monsieur Jack" },
+    { src: "assets/img/insta/ig-05.webp", alt: "Nail art fleurs roses et vertes" },
+    { src: "assets/img/insta/ig-06.webp", alt: "Nail art rose et nacré" },
+    { src: "assets/img/insta/ig-07.webp", alt: "Soft details, big difference : nude doré et chrome" },
+    { src: "assets/img/insta/post-02.webp", alt: "Nail crush : rayures, pois et bijoux dorés" }
+  ],
+
   instaPosts: [
     { src: "assets/img/insta/post-01.webp?v=hd", alt: "Pretty very scary : nail art Scream rose et noir" },
     { src: "assets/img/insta/post-02.webp?v=hd", alt: "Nail crush : rayures, pois et bijoux dorés" },

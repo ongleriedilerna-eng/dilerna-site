@@ -223,3 +223,26 @@ html.is-desktop .end-row .rules__list { gap: 8px; }
 html.is-desktop .end-row .rules__list li { font-size: 13.5px; line-height: 1.4; }
 html.is-desktop .end-row .chat__thread { padding-bottom: 14px; }
 html.is-desktop .end-sq--socials h3 { font-size: 26px; }
+
+/* Carte blanche : encore plus petite, tranquille (Marie la trouvait beaucoup trop grosse) */
+html.is-desktop .cb-flip { max-width: 760px; margin-top: 30px; }
+html.is-desktop .cb-flip__in { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); border-radius: 28px; }
+html.is-desktop .cb-flip__front { padding: 24px 26px 22px; }
+html.is-desktop .cb-flip__front .eyebrow { font-size: 10px; }
+html.is-desktop .cb-flip__front h3 { font-size: 32px; margin-bottom: 8px; padding-right: 90px; }
+html.is-desktop .cb-flip__front p { font-size: 13.5px; line-height: 1.45; }
+html.is-desktop .cb-flip__front .steps { margin: 10px 0 12px; gap: 6px; }
+html.is-desktop .cb-flip__front .steps li { font-size: 13px; }
+html.is-desktop .cb-flip__front .steps b { width: 24px; height: 24px; font-size: 13px; }
+html.is-desktop .cb-flip__front .btn--cb { transform: scale(.88); }
+html.is-desktop .cb-flip .carte-blanche__price { width: 80px; height: 80px; top: 16px; right: 16px; }
+html.is-desktop .cb-flip .carte-blanche__price b { font-size: 22px; }
+html.is-desktop .cb-flip .carte-blanche__price small { font-size: 8.5px; }
+html.is-desktop .cb-flip__back { padding: 10px; }
+html.is-desktop .cb-flip__back .cbc-car { min-height: 0; border-radius: 20px; }
+html.is-desktop .cb-flip__back .cbc-round { width: 64px; height: 64px; left: 12px; bottom: 34px; }
+html.is-desktop .cb-flip__back .cbc-rlab { left: 86px; bottom: 44px; }
+html.is-desktop .cb-flip__back .cbc-rlab b { font-size: 19px; }
+html.is-desktop .cbc-arrow { width: 36px; height: 36px; margin-top: -18px; }
+html.is-desktop .cbc-arrow svg { width: 18px; height: 18px; }
+html.is-desktop .cbc-arrow.is-prev { left: 18px; } html.is-desktop .cbc-arrow.is-next { right: 18px; }

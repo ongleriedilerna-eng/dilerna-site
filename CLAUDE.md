@@ -34,6 +34,9 @@ Marie a validé la version téléphone : elle ne doit plus bouger quand on trava
   Louise passe la tête un peu partout (côtés et bas de l'écran, toutes les 7 à 14 s) ; A propos : photo 300 px à gauche, à droite le titre,
   le sticker « Mais qui est donc cette baddie… » puis le texte en rectangle ; Infos pratiques **tout en bas** et compactes (tiennent sur un écran) ;
   On papote ? / Bon à savoir / Mes réseaux plus compacts (tiennent sur un écran). Chaque bloc doit tenir sur un écran (Marie ne veut pas défiler).
+- 4e version (21/10/2026) : Carte blanche beaucoup plus petite (760 px, « obèse » avant) ; sur ordinateur, les publications Insta viennent de
+  `config.js` → `instaPostsOrdinateur` : 8 dernières publications en HD (originaux retrouvés dans les photos iCloud de Marie ; les miniatures
+  d'Instagram sans connexion ne font que 640 px, trop floues pour Marie). Les publications avec un visage sont exclues. Le téléphone garde `instaPosts`.
 - Vérification du téléphone : `cdpsig.py` (empreinte de la position/taille de chaque élément à 390 px), à comparer avant/après.
 
 ## Infos réelles
