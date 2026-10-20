@@ -48,7 +48,9 @@ Marie a validé la version téléphone : elle ne doit plus bouger quand on trava
 - Page `mentions-legales.html` (lien en bas du site, téléphone et ordinateur) : éditrice, hébergeur GitHub, domaine OVH, prix TTC,
   médiateur, avis clients, données personnelles, cookies, droits sur les contenus. **Champs « à compléter »** en attendant les infos de Marie :
   complétés le 21/10/2026 : Marie Leandri, micro-entreprise, ongleriedilerna@gmail.com, SIRET 954 000 253 00029, TVA non applicable (art. 293 B du CGI).
-  Reste : le médiateur de la consommation (Marie doit adhérer à un médiateur).
+  Médiateur de la consommation : obligatoire (art. L.612-1, amende jusqu'à 3 000 €), mais Marie a décidé le 20/10/2026 de ne pas
+  s'inscrire. La section s'appelle « En cas de désaccord » (« écris-moi d'abord… »), sans médiateur. Si elle change d'avis : CM2C
+  (48 € / 3 ans, www.cm2c.net, 49 rue de Ponthieu 75008 Paris) — c'est elle qui s'inscrit et paye, puis on ajoute ses coordonnées.
 - Aucun service tiers chargé par le site (donc pas de bandeau cookies) : polices servies par le site (`css/fonts.css`, `assets/fonts/`),
   scripts Pinterest et Instagram retirés (ils ne servaient plus). Ne pas remettre Google Fonts ni de widget tiers sans bandeau de consentement.
 - Sous les avis Google : « Une sélection d'avis publiés par des clientes sur Google, non vérifiés par Dilerna. » ; « prix TTC » à côté des tarifs.
