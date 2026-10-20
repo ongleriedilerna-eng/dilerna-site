@@ -60,7 +60,7 @@ window.DILERNA = {
      theme = le thème demandé ; label = le mot affiché sur la photo du haut (« La demande » par défaut, « Le thème » pour une illustration).
      Tant que la liste est vide, la carte ne se retourne pas. */
   carteBlanche: [
-    { titre: "Tim Burton", demande: "assets/img/carte-blanche/theme-tim-burton.webp", label: "Le thème", resultat: "assets/img/creations/creation-04.webp", theme: "L'Étrange Noël de Monsieur Jack" },
+    { titre: "Tim Burton", demande: "assets/img/carte-blanche/theme-jack.webp", label: "Le thème", resultat: "assets/img/creations/creation-04.webp", theme: "L'Étrange Noël de Monsieur Jack" },
     { titre: "Beetlejuice", demande: "assets/img/carte-blanche/theme-beetlejuice.webp?v=2", label: "Le thème", resultat: "assets/img/carte-blanche/resultat-beetlejuice.webp", theme: "Beetlejuice" },
     { titre: "Chucky", demande: "assets/img/carte-blanche/theme-chucky.webp", label: "Le thème", resultat: "assets/img/carte-blanche/resultat-chucky.webp", theme: "Chucky" },
     { titre: "Willy Wonka", demande: "assets/img/carte-blanche/theme-wonka.webp?v=3", label: "Le thème", resultat: "assets/img/carte-blanche/resultat-wonka.webp", theme: "Charlie et la chocolaterie" },
