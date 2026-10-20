@@ -102,6 +102,7 @@ Pet friendly : Marie est dessinée bras le long du corps, mains posées sur le b
   2e Carte blanche : Beetlejuice (`theme-beetlejuice.webp` = tête de Beetlejuice envoyée par Marie, `resultat-beetlejuice.webp`).
   3e Carte blanche : Chucky (`theme-chucky.webp` recadré sur le visage, `resultat-chucky.webp`).
   4e Carte blanche : Willy Wonka (thème = tête de Wonka avec ses lunettes blanches, envoyée par Marie (Marie : dans le rond, on doit voir la tête du personnage), `theme-wonka.webp`, `resultat-wonka.webp`).
+  5e Carte blanche : Harry Potter (`theme-harry-potter.webp` = tête de Harry, `resultat-harry-potter.webp`). Toy Story : `theme-toy-story.webp` (Woody) prêt, en attente de la photo des ongles.
     Marie n'aimait pas les couleurs de l'image d'inspi, et on n'utilise pas d'images Pinterest (droits) ; résultat = `creations/creation-04.webp`).
 - Agenda / réservation en ligne : plus tard.
 
