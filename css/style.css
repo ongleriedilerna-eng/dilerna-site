@@ -1532,3 +1532,7 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 .menu__call svg { width: 14px; height: 14px; fill: currentColor; }
 .menu__call small { font: 600 11px/1 var(--font-body); letter-spacing: .02em; text-transform: none; color: #AB9680; }
 .menu__call:active, .menu__call:hover { background: #F2E8E1; }
+
+/* mentions obligatoires : petite phrase sous les avis Google, lien vers les mentions légales */
+.avis-note { margin: 10px auto 0; max-width: 34em; text-align: center; font-size: 12px; line-height: 1.4; color: var(--muted); }
+.footer__legal a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }

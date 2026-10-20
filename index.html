@@ -34,14 +34,12 @@
   <link rel="icon" href="assets/logo/favicon.png">
   <link rel="apple-touch-icon" href="assets/logo/favicon.png">
 
-  <!-- Polices : Gloock (titres, serif contrastée comme les cadres DILERNA du salon), DM Sans (textes), Sacramento (néon) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..900,0..100,0..1;1,9..144,400..900,0..100,0..1&family=Allura&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Sacramento&display=swap" rel="stylesheet">
+  <!-- Polices : Gloock (titres, serif contrastée comme les cadres DILERNA du salon), DM Sans (textes), Sacramento (néon) — servies par le site lui-même (css/fonts.css) : rien n'est envoyé à Google -->
+  <link rel="stylesheet" href="css/fonts.css?v=20261021w">
 
-  <link rel="stylesheet" href="css/style.css?v=20261021u">
+  <link rel="stylesheet" href="css/style.css?v=20261021w">
   <!-- Version ordinateur : chargée seulement sur les grands écrans, un téléphone ne la lit jamais -->
-  <link rel="stylesheet" href="css/ordinateur.css?v=20261021u" media="(min-width: 1024px)">
+  <link rel="stylesheet" href="css/ordinateur.css?v=20261021w" media="(min-width: 1024px)">
 
   <!-- Thème appliqué avant l'affichage (évite le flash clair/sombre) -->
   <script>
@@ -160,7 +158,7 @@
 
       <!-- PRESTATIONS : une carte par prestation, elles s'empilent quand on descend (tarifs au 1er janvier 2027) -->
 
-      <p class="presta-date reveal">Tarifs à partir du 1er janvier 2027</p>
+      <p class="presta-date reveal">Tarifs à partir du 1er janvier 2027 · prix TTC</p>
       <div class="presta-stack">
         <article class="presta-card" style="--i: 0">
           <h3>Pose américaine</h3>
@@ -500,6 +498,7 @@
         <p class="views__num"><span>Plus de</span> <b data-count="7400">7 400</b></p>
         <p>personnes ont vu ma page Google</p>
       </div>
+      <p class="avis-note">Une sélection d'avis publiés par des clientes sur Google, non vérifiés par Dilerna.</p>
       
     </section>
 
@@ -563,6 +562,7 @@
       </nav>
       <p class="footer__small">Onglerie Dilerna · Route de Pezza Carda Cardo, 20137 Porto-Vecchio</p>
       <p class="footer__small">© <span data-year>2026</span> Dilerna · Can't fix your life, can fix your nails.</p>
+      <p class="footer__small footer__legal"><a href="mentions-legales.html">Mentions légales et confidentialité</a></p>
     </div>
   </footer>
 
@@ -689,13 +689,11 @@
     </div>
   </dialog>
 
-  <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
-  <script async src="https://www.instagram.com/embed.js"></script>
-  <script src="js/config.js?v=20261021u"></script>
-  <script src="js/main.js?v=20261021u"></script>
-  <script src="js/pour.js?v=20261021u"></script>
-  <script src="js/club.js?v=20261021u"></script>
-  <script src="js/titles.js?v=20261021u"></script>
-  <script src="js/ordinateur.js?v=20261021u"></script>
+  <script src="js/config.js?v=20261021w"></script>
+  <script src="js/main.js?v=20261021w"></script>
+  <script src="js/pour.js?v=20261021w"></script>
+  <script src="js/club.js?v=20261021w"></script>
+  <script src="js/titles.js?v=20261021w"></script>
+  <script src="js/ordinateur.js?v=20261021w"></script>
 </body>
 </html>
