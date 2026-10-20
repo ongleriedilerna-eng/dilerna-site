@@ -37,7 +37,7 @@ avec la médaille dorée qui pend dessous ; Louise a un petit cou et une oreille
 **Pas de logo ni de barre en haut de la page** (header caché, Marie le trouvait inutile) · Menu (Club Dilerna qui brille en premier, puis Accueil, Infos, Inspi, À propos, Contact + Louise et « Prendre rendez-vous »)
 · **Accueil** : animation 3D jouée automatiquement (`js/pour.js`, images `assets/hero3d/`), infos CAP / Porto-Vecchio / avis en haut (variante `#…bas` = en bas)
 · **Prestations** : bloc Louise + « Prendre rendez-vous » tout en haut, titre, cartes empilées, devis nail art, Carte blanche
-· Les dernières du salon (Instagram, photos **non cliquables**, on les fait glisser), lien Instagram, **une ligne de nail art** qui glisse toute seule (config → `creations`, sans titre ni bouton : Marie ne veut rien de plus), puis carte « Tu as aimé ta pose ? »
+· Les dernières du salon (Instagram, photos **non cliquables**, on les fait glisser), lien Instagram, **une ligne de nail art** qui glisse toute seule (config → `creations`, 24 photos, les nouvelles en premier ; sans titre), dessous un petit bouton « Voir tous mes nail arts » qui ouvre une fenêtre avec toutes les photos en 2 colonnes (choix n°2 de Marie), puis carte « Tu as aimé ta pose ? »
 · Pet friendly · Couleur du mois · Besoin d'inspiration (Pinterest) · A propos (sans accent) + Mon salon
 · Infos pratiques (horaires, adresse, plan, « Tu es devant et tu ne trouves pas ? Appelle-moi »)
 · Avis Google (bande plus foncée ; Louise mange le mot « Google » puis le rapporte **2 fois seulement**, puis s'en va ; le mot revient toujours en entier ; les avis défilent tout seuls) · On papote ? · Bon à savoir · Réseaux · Footer
@@ -101,7 +101,7 @@ Pet friendly : Marie est dessinée bras le long du corps, mains posées sur le b
   (rond : tête de Jack envoyée par Marie, `assets/img/carte-blanche/theme-jack.webp` ;
   2e Carte blanche : Beetlejuice (`theme-beetlejuice.webp` = tête de Beetlejuice envoyée par Marie, `resultat-beetlejuice.webp`).
   3e Carte blanche : Chucky (`theme-chucky.webp` recadré sur le visage, `resultat-chucky.webp`).
-  4e Carte blanche : Willy Wonka (thème = Wonka de face au chapeau haut-de-forme, fond passé en blanc pur, envoyé par Marie (Marie : dans le rond, on doit voir la tête du personnage), `theme-wonka.webp`, `resultat-wonka.webp`).
+  4e Carte blanche : Willy Wonka (thème = Wonka de face, rond centré sur le visage (pas sur le chapeau), fond passé en blanc pur, envoyé par Marie (Marie : dans le rond, on doit voir la tête du personnage), `theme-wonka.webp`, `resultat-wonka.webp`).
   5e Carte blanche : Harry Potter (`theme-harry-potter.webp` = tête de Harry, `resultat-harry-potter.webp`). 6e : Toy Story (`theme-toy-story.webp` = tête de Woody, `resultat-toy-story.webp`).
     Marie n'aimait pas les couleurs de l'image d'inspi, et on n'utilise pas d'images Pinterest (droits) ; résultat = `creations/creation-04.webp`).
 - Agenda / réservation en ligne : plus tard.

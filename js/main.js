@@ -288,6 +288,22 @@
     });
   }
 
+  /* ---------- Tous mes nail arts : le bouton sous la ligne ouvre toutes les photos ---------- */
+  var nailall = $("[data-nailall]"), nailallBtn = $("[data-nailall-open]");
+  var nailAll = (C.creations || []).filter(function (c) { return c.src; });
+  if (nailall && nailallBtn && nailall.showModal && nailAll.length) {
+    var nwall = $("[data-nailall-wall]", nailall), nfilled = false;
+    nailallBtn.addEventListener("click", function () {
+      if (!nfilled) {
+        nailAll.forEach(function (c) { var im = document.createElement("img"); im.src = c.src; im.alt = c.alt || "Nail art fait main par Dilerna"; im.loading = "lazy"; nwall.appendChild(im); });
+        nfilled = true;
+      }
+      nailall.showModal(); nailall.focus({ preventScroll: true }); nwall.scrollTop = 0;
+    });
+    $("[data-nailall-close]", nailall).addEventListener("click", function () { nailall.close(); });
+    nailall.addEventListener("click", function (e) { if (e.target === nailall) nailall.close(); });
+  } else if (nailallBtn) nailallBtn.parentNode.hidden = true;
+
   /* ---------- Fabrique d'ongles / tuiles ---------- */
   function nail(art) {
     var n = document.createElement("span");

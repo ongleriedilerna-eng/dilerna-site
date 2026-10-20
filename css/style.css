@@ -1436,3 +1436,13 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 .nailline__track img { flex: none; width: 112px; height: 150px; object-fit: cover; border-radius: 20px; background: #E8DCCF; user-select: none; }
 @keyframes nailline { to { transform: translateX(calc(-50% - 5px)); } }
 @media (prefers-reduced-motion: reduce) { .nailline__track { animation: none; } .nailline { overflow-x: auto; } }
+
+/* bouton « Voir tous mes nail arts » et la fenêtre avec toutes les photos */
+.nailline__more { margin: 14px 0 0; }
+.nailline__btn { padding: 11px 20px; border: 1.5px solid #D5C6AF; border-radius: 999px; background: #FFFDF8; color: #6E4A32; font: 700 14px/1 var(--font-body); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.nailline__btn:active { background: #F2E8E1; }
+.nailall__inner { position: relative; display: flex; flex-direction: column; height: 90svh; padding-bottom: 0; }
+.nailall .sheet__title { margin-bottom: 14px; }
+.nailall__wall { flex: 1; min-height: 0; overflow-y: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-content: start; padding-bottom: calc(16px + env(safe-area-inset-bottom)); scrollbar-width: none; overscroll-behavior: contain; }
+.nailall__wall::-webkit-scrollbar { display: none; }
+.nailall__wall img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; background: #E8DCCF; }

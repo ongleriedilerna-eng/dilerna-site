@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..900,0..100,0..1;1,9..144,400..900,0..100,0..1&family=Allura&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Sacramento&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20261020t">
+  <link rel="stylesheet" href="css/style.css?v=20261020u">
 
   <!-- Thème appliqué avant l'affichage (évite le flash clair/sombre) -->
   <script>
@@ -234,6 +234,7 @@
       <p class="center gallery__cta reveal"><a class="btn btn--choco btn--icon" href="https://www.instagram.com/ongleriedilerna/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg>Voir tout mon univers sur Instagram</a></p>
       <!-- Une ligne de nail art (config.js → creations) qui glisse doucement, entre le lien Instagram et « Tu as aimé ta pose ? » -->
       <div class="nailline reveal" data-nailline aria-label="Mes nail arts"><div class="nailline__track"></div></div>
+      <p class="center nailline__more reveal"><button class="nailline__btn" type="button" data-nailall-open>Voir tous mes nail arts</button></p>
       <!-- Avis Google : juste après le lien Instagram -->
       <!-- lien direct « Rédiger un avis » de la fiche Google DILERNA -->
       <a class="rate rate--after-insta reveal" href="https://search.google.com/local/writereview?placeid=ChIJtRocvpiB2RIRG8ZMvOE_BQE" target="_blank" rel="noopener">
@@ -637,6 +638,16 @@
     </div>
   </dialog>
 
+  <!-- TOUS MES NAIL ARTS (bouton sous la ligne de nail art ; photos de config.js → creations) -->
+  <dialog class="sheet nailall" data-nailall aria-labelledby="nailall-title" tabindex="-1">
+    <div class="sheet__inner nailall__inner">
+      <button class="club__close" type="button" data-nailall-close aria-label="Fermer">×</button>
+      <span class="sheet__grip" aria-hidden="true"></span>
+      <p class="sheet__title t-soft" id="nailall-title">Mes nail arts</p>
+      <div class="nailall__wall" data-nailall-wall></div>
+    </div>
+  </dialog>
+
   <!-- CLUB DILERNA : l'abonnement (avantages imaginés par Marie, 15 € par mois) -->
   <dialog class="sheet club" data-club aria-labelledby="club-title" tabindex="-1">
     <span class="club__price" aria-hidden="true"><b>15 €</b><small>par mois</small></span>
@@ -665,10 +676,10 @@
 
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
   <script async src="https://www.instagram.com/embed.js"></script>
-  <script src="js/config.js?v=20261020t"></script>
-  <script src="js/main.js?v=20261020t"></script>
-  <script src="js/pour.js?v=20261020t"></script>
-  <script src="js/club.js?v=20261020t"></script>
-  <script src="js/titles.js?v=20261020t"></script>
+  <script src="js/config.js?v=20261020u"></script>
+  <script src="js/main.js?v=20261020u"></script>
+  <script src="js/pour.js?v=20261020u"></script>
+  <script src="js/club.js?v=20261020u"></script>
+  <script src="js/titles.js?v=20261020u"></script>
 </body>
 </html>
