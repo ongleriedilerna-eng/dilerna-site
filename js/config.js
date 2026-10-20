@@ -64,8 +64,8 @@ window.DILERNA = {
   ],
 
   instaPosts: [
-    { src: "assets/img/insta/post-01.webp", alt: "Pretty very scary : nail art Scream rose et noir" },
-    { src: "assets/img/insta/post-02.webp", alt: "Nail crush : rayures, pois et bijoux dorés" },
+    { src: "assets/img/insta/post-01.webp?v=hd", alt: "Pretty very scary : nail art Scream rose et noir" },
+    { src: "assets/img/insta/post-02.webp?v=hd", alt: "Nail crush : rayures, pois et bijoux dorés" },
     { src: "assets/img/insta/post-03.webp", alt: "Pretty very spooky : nail art L'Étrange Noël de Monsieur Jack" },
     { src: "assets/img/insta/post-04.webp", alt: "Ongles transparents avec strass et nail art 3D" }
   ],
