@@ -34,7 +34,7 @@ Louise (teckel, mascotte) : #6E4A32 avec collier rose pastel. Le collier fait le
 avec la médaille dorée qui pend dessous ; Louise a un petit cou et une oreille un peu plus courte pour qu'il se voie (validé par Marie).
 
 ## Structure de la page (ordre actuel)
-Header (logo en haut de l'accueil, qui part avec la page : **pas de barre fixe en haut quand on descend**, Marie n'en veut pas) · Menu (Club Dilerna qui brille en premier, puis Accueil, Infos, Inspi, À propos, Contact + Louise et « Prendre rendez-vous »)
+**Pas de logo ni de barre en haut de la page** (header caché, Marie le trouvait inutile) · Menu (Club Dilerna qui brille en premier, puis Accueil, Infos, Inspi, À propos, Contact + Louise et « Prendre rendez-vous »)
 · **Accueil** : animation 3D jouée automatiquement (`js/pour.js`, images `assets/hero3d/`), infos CAP / Porto-Vecchio / avis en haut (variante `#…bas` = en bas)
 · **Prestations** : bloc Louise + « Prendre rendez-vous » tout en haut, titre, cartes empilées, devis nail art, Carte blanche
 · Les dernières du salon (Instagram) + carte « Tu as aimé ta pose ? »
@@ -62,7 +62,7 @@ Avis Google : la carte « Tu as aimé ta pose ? » mène au lien direct « Rédi
 Le bouton « Suivre » ouvre le profil Instagram (impossible de s'abonner automatiquement depuis un site).
 
 ## Club Dilerna (abonnement, `js/club.js`)
-Prix décidé par Marie : **15 € par mois** (seulement dans la pastille ronde qui bouge, comme celle de la Carte blanche ;
+Prix décidé par Marie : **9 € par mois** (15 € au départ, passé à 9 € le 20/10/2026) (seulement dans la pastille ronde qui bouge, comme celle de la Carte blanche ;
 phrase d'intro : « Des petits plus rien que pour toi, toute l'année. »). **Places restantes** sous « Abonnement mensuel » :
 nombre réglé dans `js/config.js` → `clubPlaces` (21 au départ ; baisser de 1 à chaque inscrite ; 0 = « Complet »).
 Plus de phrase « Le club ouvre bientôt ». Tailles d'origine (Marie trouvait la version resserrée trop tassée) ; la fiche fait

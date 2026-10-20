@@ -139,8 +139,10 @@
         <svg class="menu__dog" viewBox="0 0 240 130" aria-hidden="true"><path class="teckel__tail" d="M44 66 C30 60 22 46 18 34" /><rect x="40" y="52" width="130" height="42" rx="21" /><rect x="58" y="84" width="11" height="26" rx="5" /><rect x="76" y="84" width="11" height="24" rx="5" /><rect x="136" y="84" width="11" height="26" rx="5" /><rect x="152" y="84" width="11" height="24" rx="5" /><g class="dog-head"><path d="M150 54 C 162 54, 178 58, 188 66 C 186 76, 178 86, 166 90 C 158 86, 152 72, 150 54 Z" /><ellipse cx="180" cy="50" rx="25" ry="20" /><ellipse cx="204" cy="60" rx="20" ry="11" /><path class="teckel__collar" d="M156 58 C 160 70, 172 78, 187 74" /><path d="M180 76.5 v3.5" stroke="#C9A24A" stroke-width="1.5" /><circle cx="180" cy="84" r="4.2" fill="#F2C14E" /><ellipse class="teckel__ear" cx="171" cy="55" rx="10" ry="15.5" transform="rotate(14 171 55)" /><circle class="teckel__eye" cx="188" cy="44" r="3.2" /><circle class="teckel__pupil" cx="188" cy="44" r="1.8" /><circle class="teckel__nose" cx="223" cy="57" r="5" /></g></svg>
         <button class="btn btn--choco btn--huge" type="button" data-rdv>PRENDRE RENDEZ-VOUS</button>
       </div>
+      <!-- le grand titre reste en haut de l'écran tant que les cartes des prestations s'empilent -->
+      <div class="presta-zone">
+      <h2 class="t-soft presta-title" id="prestations-title" data-fit>PRESTATIONS</h2>
       <div class="section__head reveal">
-        <h2 class="t-soft" id="prestations-title" data-fit>PRESTATIONS</h2>
         <p class="lead">Des poses soignées et solides, adaptées à tes ongles et à tes envies.</p>
       </div>
 
@@ -173,6 +175,7 @@
           </ul>
           <button class="btn btn--latte btn--small presta-card__book" type="button" data-rdv data-rdv-msg="Bonjour Marie, je voudrais réserver une pose semi renforcée.">Réserver</button>
         </article>
+      </div>
       </div>
       <div class="devis-note reveal">
         <h3 id="devis-title">Nail art</h3>
@@ -389,7 +392,7 @@
           <ul class="week" aria-label="Ouvert du lundi au vendredi">
             <li class="is-open" data-day="1">L</li><li class="is-open" data-day="2">M</li><li class="is-open" data-day="3">M</li><li class="is-open" data-day="4">J</li><li class="is-open" data-day="5">V</li><li data-day="6">S</li><li data-day="0">D</li>
           </ul>
-          <p class="hours-sticker"><b>Ouvert</b>9h – 17h</p>
+          <p class="hours-sticker" data-tease><span class="tease-tape tease-tape--l" aria-hidden="true"><i class="tease-tape__flap"></i><i class="tease-tape__base"></i></span><b>Ouvert</b>9h – 17h</p>
           <p class="hours-note">Du lundi au vendredi · les horaires peuvent varier</p>
         </div>
       </div>
@@ -602,9 +605,9 @@
     </div>
   </dialog>
 
-  <!-- CLUB DILERNA : l'abonnement (avantages imaginés par Marie, 15 € par mois) -->
+  <!-- CLUB DILERNA : l'abonnement (avantages imaginés par Marie, 9 € par mois) -->
   <dialog class="sheet club" data-club aria-labelledby="club-title" tabindex="-1">
-    <span class="club__price" aria-hidden="true"><b>15 €</b><small>par mois</small></span>
+    <span class="club__price" aria-hidden="true"><b>9 €</b><small>par mois</small></span>
     <div class="sheet__inner club__inner">
       <span class="sheet__grip" aria-hidden="true"></span>
       <p class="club__eyebrow">Abonnement mensuel<br><b data-club-places>21 places restantes</b></p>

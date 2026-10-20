@@ -172,7 +172,8 @@ button { font: inherit; color: inherit; }
 .ph { border-bottom: 1.5px dashed var(--fuchsia); color: var(--muted); }
 
 /* ---------- 4. Header + menu ---------- */
-/* le logo reste en haut de l'accueil et part avec la page quand on descend : plus de barre en haut ensuite (choix de Marie) */
+/* plus de logo en haut de la page (Marie le trouvait inutile) : le header reste dans le code mais n'est plus affiché */
+.header { display: none !important; }
 .header {
   position: absolute; inset: 0 0 auto 0; z-index: 50;
   display: flex; align-items: center; justify-content: center;
@@ -1194,7 +1195,7 @@ html { background: linear-gradient(var(--cream) 50%, var(--cocoa) 50%); }
 
 /* ---------- Accueil V2 : histoire au scroll ---------- */
 .pour { position: relative; background: var(--cream); }
-.pour__sticky { position: relative; height: 100svh; min-height: 620px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; padding: calc(64px + env(safe-area-inset-top)) 0 calc(96px + env(safe-area-inset-bottom));
+.pour__sticky { position: relative; height: 100svh; min-height: 620px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; padding: calc(16px + env(safe-area-inset-top)) 0 calc(96px + env(safe-area-inset-bottom));
   background:
     linear-gradient(rgba(248, 244, 236, 0) calc(100% - 170px), var(--cream) calc(100% - 6px)),
     radial-gradient(75% 45% at 50% 42%, #F6EEE4 0%, rgba(246, 238, 228, 0) 75%),
@@ -1276,7 +1277,7 @@ html { background: linear-gradient(var(--cream) 50%, var(--cocoa) 50%); }
 /* ===== Prise de rendez-vous en bas des prestations (comme dans le menu) ===== */
 .presta-book { margin: 34px auto 0; }
 /* le premier « Prendre rendez-vous » remonte un peu (caché derrière la barre du bas au chargement, visible dès qu'on descend) */
-.presta-book--top { position: relative; z-index: 3; margin: -46px auto 30px; }
+.presta-book--top { position: relative; z-index: 3; margin: -96px auto 30px; }
 .presta-book .menu__dog { animation: hop 2.4s ease-in-out infinite; }
 
 /* ===== Horaires : titre au-dessus du cadre (comme l'adresse), contenu centré ===== */
@@ -1356,3 +1357,34 @@ html { background: linear-gradient(var(--cream) 50%, var(--cocoa) 50%); }
 @keyframes clubShine { 0% { background-position: 100% 0; } 60%, 100% { background-position: 0% 0; } }
 @keyframes clubTwinkle { 0%, 100% { opacity: .35; transform: scale(.8) rotate(0deg); } 50% { opacity: 1; transform: scale(1.25) rotate(25deg); } }
 @media (prefers-reduced-motion: reduce) { .menu__club span, .menu__club i { animation: none; } .menu__club span { color: #4E2E22; background: none; } }
+
+/* ===== Prestations : le grand titre reste en haut pendant que les cartes s'empilent ===== */
+.presta-zone { position: relative; }
+.presta-title { position: sticky; top: 0; z-index: 6; margin: 0 calc(-1 * var(--gutter)) 6px; padding: calc(10px + env(safe-area-inset-top)) var(--gutter) 10px;
+  font-size: clamp(40px, 11vw, 72px); background: linear-gradient(var(--cream) 82%, rgba(248, 244, 236, 0)); }
+.presta-zone .section__head { margin-bottom: 22px; }
+/* les cartes se calent juste sous le titre */
+.presta-zone .presta-card { top: calc(74px + env(safe-area-inset-top) + var(--i) * 16px); }
+
+/* ===== Visionneuse : une photo des dernières du salon en grand ===== */
+.viewer { border: 0; padding: 0; margin: auto; width: 100%; max-width: 100%; height: 100%; max-height: 100%; background: transparent; display: grid; place-items: center; }
+.viewer:not([open]) { display: none; }
+.viewer:focus { outline: none; }
+.viewer::backdrop { background: rgba(33, 2, 2, .88); backdrop-filter: blur(6px); }
+.viewer img { max-width: calc(100% - 28px); max-height: calc(100% - 120px); border-radius: 22px; box-shadow: 0 20px 50px -20px rgba(0, 0, 0, .6); animation: viewerIn .35s var(--ease) both; }
+.viewer__close { position: fixed; top: calc(16px + env(safe-area-inset-top)); right: 16px; width: 44px; height: 44px; border: 0; border-radius: 50%; background: #F8F4EC; color: #4E2E22; font: 400 26px/1 var(--font-body); display: grid; place-items: center; }
+@keyframes viewerIn { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+
+/* ===== Horaires : le scotch de gauche se soulève quand on fait défiler la page (comme celui d'« A propos », mais à gauche) ===== */
+.hours-sticker { transition: --p .3s ease-out; }
+.hours-sticker::before { display: none; }
+.tease-tape--l { left: 10px; right: auto; top: -10px; width: 52px; height: 18px; transform: rotate(-8deg);
+  filter: drop-shadow(calc(var(--p) * -6px) calc(1px + var(--p) * 8px) calc(1px + var(--p) * 5px) rgba(33, 2, 2, calc(.12 + var(--p) * .2))); }
+.tease-tape--l i { background-size: 8px 8px, auto; }
+.tease-tape--l .tease-tape__base { left: auto; right: 0; width: 34px; clip-path: polygon(0 0, 100% 0, 100% 10%, 95% 22%, 100% 36%, 94% 50%, 100% 64%, 95% 78%, 100% 90%, 100% 100%, 0 100%); }
+.tease-tape--l .tease-tape__flap { left: auto; right: 33.5px; width: 18px; transform-origin: 100% 50%;
+  transform: rotate(calc(var(--p) * 27deg)) perspective(60px) rotateY(calc(var(--p) * 64deg));
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 8% 100%, 0 86%, 9% 70%, 0 54%, 8% 38%, 0 22%); }
+
+/* avis Google qui défilent tout seuls : pas d'aimantation pendant le défilement automatique */
+.reviews.is-auto { scroll-snap-type: none; }

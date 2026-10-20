@@ -175,18 +175,20 @@
   });
   $$("[data-wa]").forEach(function (el) { el.href = waLink(RDV_MSG); });
 
-  /* ---------- Sticker « A propos » ----------
-     Le bout du scotch de droite se soulève quand on fait défiler la page,
+  /* ---------- Stickers scotchés (« A propos », horaires) ----------
+     Le bout du scotch se soulève quand on fait défiler la page,
      et se recolle quand le sticker est au milieu de l'écran. */
-  var tease = $("[data-tease]");
-  if (tease && !reduceMotion) {
+  var teases = $$("[data-tease]");
+  if (teases.length && !reduceMotion) {
     var teaseRaf = 0;
     var teasePeel = function () {
       teaseRaf = 0;
-      var r = tease.getBoundingClientRect(), mid = r.top + r.height / 2;
-      if (r.bottom < -200 || r.top > innerHeight + 200) return;
-      var d = Math.abs(mid - innerHeight / 2) / (innerHeight / 2);
-      tease.style.setProperty("--p", Math.min(1, Math.max(0, (d - .15) * 1.3)).toFixed(3));
+      teases.forEach(function (t) {
+        var r = t.getBoundingClientRect(), mid = r.top + r.height / 2;
+        if (r.bottom < -200 || r.top > innerHeight + 200) return;
+        var d = Math.abs(mid - innerHeight / 2) / (innerHeight / 2);
+        t.style.setProperty("--p", Math.min(1, Math.max(0, (d - .15) * 1.3)).toFixed(3));
+      });
     };
     window.addEventListener("scroll", function () { if (!teaseRaf) teaseRaf = requestAnimationFrame(teasePeel); }, { passive: true });
     teasePeel();
@@ -315,17 +317,33 @@
     return d;
   }
 
+  /* ---------- Photo en grand (visionneuse) ---------- */
+  var viewer = null;
+  function openPhoto(src, alt) {
+    if (!viewer) {
+      viewer = document.createElement("dialog");
+      viewer.className = "viewer"; viewer.tabIndex = -1;
+      viewer.innerHTML = '<img alt=""><button class="viewer__close" type="button" aria-label="Fermer">×</button>';
+      document.body.appendChild(viewer);
+      viewer.addEventListener("click", function () { viewer.close(); });
+    }
+    var im = viewer.querySelector("img"); im.src = src; im.alt = alt || "";
+    if (viewer.showModal) { viewer.showModal(); viewer.focus({ preventScroll: true }); } else window.open(src, "_blank");
+  }
+
   /* ---------- Dernières publications Instagram (à faire glisser) ---------- */
   var postsBox = $("[data-posts]");
   if (postsBox) {
     var track = document.createElement("div");
     track.className = "posts__track";
     (C.instaPosts || []).forEach(function (p) {
+      // toucher la photo l'ouvre en grand sur le site (pas sur Instagram)
       var a = document.createElement("a");
       a.className = "post";
-      a.href = p.url || "https://www.instagram.com/ongleriedilerna/";
-      a.target = "_blank"; a.rel = "noopener";
-      a.setAttribute("aria-label", "Voir la publication sur Instagram : " + p.alt);
+      a.href = p.src;
+      a.setAttribute("aria-label", "Voir la photo en grand : " + p.alt);
+      // (après un glissement à la souris, le clic est déjà annulé plus bas : on n'ouvre rien)
+      a.addEventListener("click", function (e) { if (e.defaultPrevented) return; e.preventDefault(); openPhoto(p.src, p.alt); });
       a.innerHTML = '<span class="post__head"><b>ongleriedilerna</b><small>Porto-Vecchio</small></span>';
       var im = img(p.src, p.alt); im.draggable = false;
       var media = document.createElement("span");
@@ -543,6 +561,30 @@
     window.addEventListener("pointermove", function (e) { if (down) box.scrollLeft = startScroll - (e.clientX - startX); });
     window.addEventListener("pointerup", function () { down = false; box.classList.remove("is-dragging"); });
   });
+
+  /* ---------- Avis Google : ils défilent tout seuls (comme le Pinterest) ----------
+     On peut toujours les faire glisser : toucher arrête le défilement, il repart 4 s après. */
+  var revBox = $(".reviews"), revTrack = revBox && $(".reviews__track", revBox);
+  if (revTrack && !reduceMotion) {
+    $$(".review", revTrack).forEach(function (r) { var c = r.cloneNode(true); c.setAttribute("aria-hidden", "true"); revTrack.appendChild(c); });
+    revBox.classList.add("is-auto");
+    var revPos = 0, revPause = 0, revSeen = false, revLast = 0;
+    var revHold = function () { revPause = Date.now() + 4000; revBox.classList.remove("is-auto"); };
+    ["pointerdown", "touchstart", "wheel"].forEach(function (ev) { revBox.addEventListener(ev, revHold, { passive: true }); });
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (en) { revSeen = en[0].isIntersecting; }).observe(revBox); else revSeen = true;
+    var revTick = function (now) {
+      var dt = revLast ? Math.min(64, now - revLast) : 16; revLast = now;
+      if (revSeen && Date.now() > revPause) {
+        if (!revBox.classList.contains("is-auto")) { revBox.classList.add("is-auto"); revPos = revBox.scrollLeft; }
+        var half = revTrack.scrollWidth / 2;
+        revPos += dt * .035;
+        if (revPos >= half) revPos -= half;
+        revBox.scrollLeft = revPos;
+      } else revPos = revBox.scrollLeft;
+      requestAnimationFrame(revTick);
+    };
+    requestAnimationFrame(revTick);
+  }
 
   /* ---------- Louise croque « Google » bouchée par bouchée, puis s'enfuit ---------- */
   var munch = $("[data-munch]");
