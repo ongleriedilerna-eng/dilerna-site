@@ -99,9 +99,9 @@ Pet friendly : Marie est dessinée bras le long du corps, mains posées sur le b
   glisser une par une (petits points + « 1 / 3 »). Ne pas toucher au contenu de la carte elle-même.
   Photos dans `js/config.js` → `carteBlanche` (une ligne par Carte blanche : titre, demande = thème, resultat). 1re Carte blanche : thème L'Étrange Noël de Monsieur Jack
   (en haut : image « Tim Burton » choisie par Marie, `assets/img/carte-blanche/theme-tim-burton.webp`, légende « Le thème » ;
-  2e Carte blanche : Beetlejuice (`theme-beetlejuice.webp` recadré sur le panneau, `resultat-beetlejuice.webp`).
+  2e Carte blanche : Beetlejuice (`theme-beetlejuice.webp` = tête de Beetlejuice envoyée par Marie, `resultat-beetlejuice.webp`).
   3e Carte blanche : Chucky (`theme-chucky.webp` recadré sur le visage, `resultat-chucky.webp`).
-  4e Carte blanche : Willy Wonka (thème = affiche « Charlie et la chocolaterie » recadrée sur le visage (Marie : dans le rond, on doit voir la tête du personnage), `theme-wonka.webp`, `resultat-wonka.webp`).
+  4e Carte blanche : Willy Wonka (thème = tête de Wonka avec ses lunettes blanches, envoyée par Marie (Marie : dans le rond, on doit voir la tête du personnage), `theme-wonka.webp`, `resultat-wonka.webp`).
     Marie n'aimait pas les couleurs de l'image d'inspi, et on n'utilise pas d'images Pinterest (droits) ; résultat = `creations/creation-04.webp`).
 - Agenda / réservation en ligne : plus tard.
 
