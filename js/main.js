@@ -541,10 +541,12 @@
     for (var k = 0; k < n; k++) {
       var tile = document.createElement("a");
       tile.className = "pin-tile";
-      tile.href = "https://pin.it/Riu6KKmqk";
+      // chaque photo ouvre directement son épingle sur Pinterest (sinon, le tableau)
+      var pin = pins[k] || {}; if (typeof pin === "string") pin = { src: pin };
+      tile.href = pin.url || "https://pin.it/Riu6KKmqk";
       tile.target = "_blank"; tile.rel = "noopener";
       if (pins.length) {
-        tile.appendChild(img(pins[k], "Inspiration nail art du Pinterest de Dilerna"));
+        tile.appendChild(img(pin.src, "Inspiration nail art du Pinterest de Dilerna"));
         tile.setAttribute("aria-label", "Voir cette inspiration sur Pinterest");
       } else {
         tile.classList.add("pin-tile--empty");

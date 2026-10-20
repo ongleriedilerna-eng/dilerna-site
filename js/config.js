@@ -116,35 +116,26 @@ window.DILERNA = {
     { src: "assets/img/salon/salon-coin-affiches.webp", alt: "Le coin affiches Lana Del Rey et plantes du salon" }
   ],
 
-  /* Bandeau Pinterest : inspirations de poses que Marie rêve de faire
+  /* Bandeau Pinterest : inspirations de poses que Marie rêve de faire.
+     Chaque photo ouvre SON épingle (url), pas le tableau entier : très important pour Marie.
      (tableau https://fr.pinterest.com/mariefleandri/nail-art-inspi/). */
   pinterest: [
-    "assets/img/pinterest/inspi-01.webp",
-    "assets/img/pinterest/inspi-02.webp",
-    "assets/img/pinterest/inspi-03.webp",
-    "assets/img/pinterest/inspi-04.webp",
-    "assets/img/pinterest/inspi-05.webp",
-    "assets/img/pinterest/inspi-06.webp",
-    "assets/img/pinterest/inspi-07.webp",
-    "assets/img/pinterest/inspi-08.webp",
-    "assets/img/pinterest/inspi-09.webp",
-    "assets/img/pinterest/inspi-10.webp",
-    "assets/img/pinterest/inspi-11.webp",
-    "assets/img/pinterest/inspi-12.webp",
-    "assets/img/pinterest/inspi-13.webp",
-    "assets/img/pinterest/inspi-14.webp",
-    "assets/img/pinterest/inspi-15.webp",
-    "assets/img/pinterest/inspi-16.webp",
-    "assets/img/pinterest/inspi-17.webp",
-    "assets/img/pinterest/inspi-18.webp",
-    "assets/img/pinterest/inspi-19.webp",
-    "assets/img/pinterest/inspi-20.webp",
-    "assets/img/pinterest/inspi-21.webp",
-    "assets/img/pinterest/inspi-22.webp",
-    "assets/img/pinterest/inspi-23.webp",
-    "assets/img/pinterest/inspi-24.webp",
-    "assets/img/pinterest/inspi-25.webp",
-    "assets/img/pinterest/inspi-26.webp",
+    { src: "assets/img/pinterest/inspi-01.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShwJJ5Sj7rZe9IA9AdMrR_Bev6BNWetguR8TsR5h05EjQP6F/" },
+    { src: "assets/img/pinterest/inspi-02.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShwd5IStwwOt5W7-XuUSo1CwQGnvUS9FluWUQoFcKUjhISfA/" },
+    { src: "assets/img/pinterest/inspi-03.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShyQPHbk3rtUkH-j_Kx1fDPE9wjkfi9q54WbKVlYMRvm3LWP/" },
+    { src: "assets/img/pinterest/inspi-04.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShztsvcbasoB1iOGYp0T2sRvUE74ZSmTdnqGSuem072rYlCV/" },
+    { src: "assets/img/pinterest/inspi-05.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShyBMOJDKrybmCBzghxEBhVJRDInTZWdUKQaLHa9bXHVU--n/" },
+    { src: "assets/img/pinterest/inspi-06.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShxTixNbBroe08Ykyw3Zg1xzMEpsCH-wqtHLZ1JOmM_Vmow-/" },
+    { src: "assets/img/pinterest/inspi-07.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShzgxgGEcZ6r9EzInv7Mxfz0ngqM7fISsg8_uKCm3oUtPKuN/" },
+    { src: "assets/img/pinterest/inspi-08.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShyiz6Vf1Es9EU7cHel8VdXA-GhxDvb4zpMT_SdVOilyoVH7/" },
+    { src: "assets/img/pinterest/inspi-09.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShzQR8-qUTuYEffxgLHpIq4WdSYeP0vzbTEYe4TYmKZnOVRu/" },
+    { src: "assets/img/pinterest/inspi-10.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShwSmmO7Sgasbu6hZ8jwkLuTozJXVRJYtpUn1JZeq4cWjxZB/" },
+    { src: "assets/img/pinterest/inspi-11.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShxK_YPZSCNg2YsMhb4Saextm-kLpHxQBQSoY_Az71_78qVC/" },
+    { src: "assets/img/pinterest/inspi-12.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShxQ6cqa_OFd3fAsu8mdhkYWU-RqpoN4wH66Qz2d05PSeOiN/" },
+    { src: "assets/img/pinterest/inspi-13.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShz3JYSmmvPrlBOD3stN6LIWI55bbviRXPvEtKv_j78zDsDQ/" },
+    { src: "assets/img/pinterest/inspi-14.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShycqYd9IzU3XApmpLyHkXpQM27_C-CE2DS4pgxudtT9bSIp/" },
+    { src: "assets/img/pinterest/inspi-15.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShyBZpvjjhgyh08inUMDtFAD2phUDf_vcuj1C8QnTiJY6C3u/" },
+    { src: "assets/img/pinterest/inspi-16.webp", url: "https://fr.pinterest.com/pin/e1_AfqPShy1PUz7pnfgrSB8fPXB41kmD2L5_YIPE25hwdMyVZi6exQi/" },
   ],
 
   /* Ongles qui gravitent autour du néon : vide = dessins inspirés des
