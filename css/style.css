@@ -1518,3 +1518,11 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 .post__cap { display: block; padding: 2px 10px 11px; font-size: 11.5px; line-height: 1.3; color: #4E2E22; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .post__cap b { font-weight: 700; }
 @media (prefers-reduced-motion: reduce) { .post__like.is-pop svg { animation: none; } }
+
+/* sticker des horaires quand le salon est fermé */
+.hours-sticker b.is-shut { background: #EADFD2; color: #8A6A52; }
+/* « On papote ? » : plus de bulle « Appeler », un petit téléphone rond à droite de « En ligne » */
+.chat__top > div { flex: 1; min-width: 0; }
+.chat__call { margin-left: auto; flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #4E2E22; color: #F8F4EC; -webkit-tap-highlight-color: transparent; transition: background .2s, transform .2s var(--ease); }
+.chat__call svg { width: 19px; height: 19px; fill: currentColor; }
+.chat__call:active, .chat__call:hover { background: #6E4A32; transform: scale(.95); }

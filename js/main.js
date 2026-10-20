@@ -1082,6 +1082,9 @@
     var open = day >= 1 && day <= 5 && mins >= 540 && mins < 1020;
     var st = $("[data-status]");
     if (st) { st.textContent = open ? "Ouvert maintenant" : "Fermé"; st.classList.add(open ? "open" : "shut"); }
+    // sticker des horaires : « Ouvert » du lundi au vendredi de 9h à 17h (heure de Corse), « Fermé » le reste du temps
+    var badge = $("[data-open-badge]");
+    if (badge) { badge.textContent = open ? "Ouvert" : "Fermé"; badge.classList.toggle("is-shut", !open); }
   })();
 
   (function () {

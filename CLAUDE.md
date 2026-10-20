@@ -46,6 +46,8 @@ avec la médaille dorée qui pend dessous ; Louise a un petit cou et une oreille
 ## Horaires
 Carte des horaires : jours L→D en ronds, puis un sticker crème penché (washi à pois) avec le rond « Ouvert » et « 9h – 17h »
 (choix de Marie parmi 10 écritures). Jour d'aujourd'hui entouré en beige.
+Le rond dit « Ouvert » du lundi au vendredi de 9h à 17h (heure de Corse) et « Fermé » le reste du temps (`data-open-badge`, main.js).
+« On papote ? » : pas de bulle « Appeler » (Marie la trouvait nulle), mais un petit téléphone rond chocolat à droite de « Marie · En ligne » (`.chat__call`, tel:).
 
 ## Prise de rendez-vous (`js/main.js`, fenêtre « On se fait les ongles ? »)
 **Instagram ne permet pas d'écrire le message à l'avance** dans la conversation (aucun site ne peut le faire ; testé par Marie,
