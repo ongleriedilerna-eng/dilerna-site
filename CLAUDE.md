@@ -170,4 +170,4 @@ pour que les téléphones rechargent la nouvelle version au lieu d'une ancienne 
   « Une surprise arrive bientôt… ». Prix, places, avantages et bouton sont gardés dans le HTML (`data-later`) ;
   pour les remettre, retirer la classe `club--soon` du `<dialog>` (Marie les remettra plus tard, avec les nouvelles conditions).
 - 21/10/2026 : le bouton rond du téléphone est **revenu à « Club Dilerna »** (`data-club-open`, demande de Marie). Au clic, la fiche
-  club affiche seulement « Club Dilerna » + « Une surprise arrive très bientôt… ». La prise de rendez-vous reste dans le reste du site.
+  club affiche seulement « Club Dilerna » + « Une nouveauté arrive très bientôt… » (21/10 : plus le mot « surprise », le club sera payant). La prise de rendez-vous reste dans le reste du site.
