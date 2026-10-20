@@ -295,6 +295,12 @@
     nailallBtn.addEventListener("click", function () {
       if (!nfilled) {
         nailAll.forEach(function (c) { var im = document.createElement("img"); im.src = c.src; im.alt = c.alt || "Nail art fait main par Dilerna"; im.loading = "lazy"; nwall.appendChild(im); });
+        // à la fin : une case qui invite à voir la suite sur Instagram
+        var more = document.createElement("a"); more.className = "nailall__more";
+        more.href = "https://www.instagram.com/ongleriedilerna/"; more.target = "_blank"; more.rel = "noopener";
+        more.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg>' +
+          '<b class="t-soft">Tu en veux encore ?</b><span>Tous mes autres nail arts t\'attendent sur Instagram</span><em>@ongleriedilerna</em>';
+        nwall.appendChild(more);
         nfilled = true;
       }
       nailall.showModal(); nailall.focus({ preventScroll: true }); nwall.scrollTop = 0;

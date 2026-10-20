@@ -1469,3 +1469,18 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 .rdv-sticker::before { left: -12px; transform: rotate(-28deg); }
 .rdv-sticker::after { right: -12px; transform: rotate(24deg); }
 .rdv-sticker:active { transform: rotate(-2deg) scale(.98); }
+
+/* dernière case de « Mes nail arts » : la suite sur Instagram */
+.nailall__more { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; aspect-ratio: 4 / 5; padding: 14px 10px; border-radius: 18px; overflow: hidden; text-align: center; text-decoration: none; color: #F8F4EC;
+  background: radial-gradient(120% 80% at 50% 0%, #6E4A32, #4E2E22 55%, #210202); box-shadow: inset 0 0 0 1.5px rgba(213, 198, 175, .35); -webkit-tap-highlight-color: transparent; }
+.nailall__more::before { content: ""; position: absolute; inset: 7px; border: 1.5px dashed rgba(213, 198, 175, .45); border-radius: 13px; pointer-events: none; }
+.nailall__more svg { width: 34px; height: 34px; fill: none; stroke: #D5C6AF; stroke-width: 1.8; }
+.nailall__more b { font-size: 19px; line-height: 1.05; color: #F8F4EC; }
+.nailall__more span { font: 500 12px/1.3 var(--font-body); color: #E9DFD2; }
+.nailall__more em { margin-top: 2px; padding: 7px 11px; border-radius: 999px; background: #F8F4EC; color: #4E2E22; font: 700 11.5px/1 var(--font-body); font-style: normal; }
+.nailall__more:active em { background: #D5C6AF; }
+
+/* « Les dernières du salon » : le titre, puis les nail arts, puis la partie Instagram */
+#creations .nailline { margin-top: 0; }
+#creations .insta-head { margin: 34px 0 22px; }
+#creations .rate--after-insta { margin-top: 30px; }

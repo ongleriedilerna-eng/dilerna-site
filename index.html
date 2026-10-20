@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..900,0..100,0..1;1,9..144,400..900,0..100,0..1&family=Allura&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Sacramento&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20261020z">
+  <link rel="stylesheet" href="css/style.css?v=20261021b">
 
   <!-- Thème appliqué avant l'affichage (évite le flash clair/sombre) -->
   <script>
@@ -225,15 +225,18 @@
       <div class="section__head reveal">
         <p class="eyebrow">@ongleriedilerna</p>
         <h2 class="t-soft" id="creations-title" data-fit>LES DERNIÈRES DU SALON</h2>
+      </div>
+      <!-- Mes nail arts : une ligne qui glisse toute seule (config.js → creations) + « Voir tous mes nail arts » -->
+      <div class="nailline reveal" data-nailline aria-label="Mes nail arts"><div class="nailline__track"></div></div>
+      <p class="center nailline__more reveal"><button class="nailline__btn" type="button" data-nailall-open>Voir tous mes nail arts</button></p>
+      <!-- Puis Instagram : mes dernières publications, le compte, le lien -->
+      <div class="section__head insta-head reveal">
         <p class="lead">Mes dernières publications Instagram, en direct du salon ! Fais glisser pour les voir, et suis-moi sur Insta pour ne rien rater !</p>
         <a class="follow" href="https://www.instagram.com/ongleriedilerna/" target="_blank" rel="noopener"><img src="assets/logo/favicon.png" alt="" width="36" height="36"><span><b>ongleriedilerna</b><small>Onglerie · Porto-Vecchio</small></span><span class="follow__btn">Suivre</span></a>
       </div>
       <!-- Publications Instagram à faire glisser (générées depuis config.js → instaPosts) -->
       <div class="posts reveal" data-posts data-drag tabindex="0" aria-label="Mes dernières publications Instagram, fais glisser pour voir les autres"></div>
       <p class="center gallery__cta reveal"><a class="btn btn--choco btn--icon" href="https://www.instagram.com/ongleriedilerna/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg>Voir tout mon univers sur Instagram</a></p>
-      <!-- Une ligne de nail art (config.js → creations) qui glisse doucement, entre le lien Instagram et « Tu as aimé ta pose ? » -->
-      <div class="nailline reveal" data-nailline aria-label="Mes nail arts"><div class="nailline__track"></div></div>
-      <p class="center nailline__more reveal"><button class="nailline__btn" type="button" data-nailall-open>Voir tous mes nail arts</button></p>
       <!-- Avis Google : juste après le lien Instagram -->
       <!-- lien direct « Rédiger un avis » de la fiche Google DILERNA -->
       <a class="rate rate--after-insta reveal" href="https://search.google.com/local/writereview?placeid=ChIJtRocvpiB2RIRG8ZMvOE_BQE" target="_blank" rel="noopener">
@@ -675,10 +678,10 @@
 
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
   <script async src="https://www.instagram.com/embed.js"></script>
-  <script src="js/config.js?v=20261020z"></script>
-  <script src="js/main.js?v=20261020z"></script>
-  <script src="js/pour.js?v=20261020z"></script>
-  <script src="js/club.js?v=20261020z"></script>
-  <script src="js/titles.js?v=20261020z"></script>
+  <script src="js/config.js?v=20261021b"></script>
+  <script src="js/main.js?v=20261021b"></script>
+  <script src="js/pour.js?v=20261021b"></script>
+  <script src="js/club.js?v=20261021b"></script>
+  <script src="js/titles.js?v=20261021b"></script>
 </body>
 </html>
