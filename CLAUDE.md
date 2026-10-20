@@ -13,6 +13,14 @@ Site statique : `index.html`, `css/style.css`, `js/*.js`, `assets/`. Hébergé s
 - Elle aime : les formes arrondies, la typo **« pâte à modeler »** (Fraunces, axe SOFT 100, classe `.t-soft`), Louise la mascotte, les animations soignées.
 - Mode clair uniquement.
 
+## Version ordinateur (« version web ») — NE JAMAIS TOUCHER LA VERSION MOBILE
+Marie a validé la version téléphone : elle ne doit plus bouger quand on travaille la version ordinateur (dit le 20/10/2026, « très important »).
+- Tout ce qui est pour l'ordinateur va dans `css/ordinateur.css`, chargé avec `media="(min-width: 1024px)"` : un téléphone ne le lit jamais.
+  Ne pas modifier les règles existantes de `css/style.css` pour l'ordinateur.
+- Un changement JS pour l'ordinateur passe par `matchMedia("(min-width: 1024px)")` ; le comportement sur téléphone reste identique.
+- Pas de changement de texte, de photo ou de HTML visible sur téléphone : un élément ajouté pour l'ordinateur est caché sur téléphone.
+- Avant chaque mise en ligne : captures du téléphone (390 px) avant/après, comparées pixel à pixel ; si une seule différence apparaît, on ne publie pas.
+
 ## Infos réelles
 - Adresse : Rte de Pezza Carda Cardo, 20137 Porto-Vecchio (41.6176338, 9.300044)
 - Horaires : du lundi au vendredi, 9h–17h
