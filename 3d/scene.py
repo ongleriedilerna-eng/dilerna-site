@@ -413,3 +413,11 @@ if os.environ.get('DESK'):
     for _m in bpy.data.materials:
         if _m.node_tree and 'Principled BSDF' in _m.node_tree.nodes and any(_m.name.startswith(n) for n in ('polish', 'brushpolish', 'stream')):
             _m.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value = srgb(os.environ.get('DESK_POLISH', '#6B3418'))
+    # DESK_HQ=1 : qualité maximale (moins de bruit, débruitage le plus précis) pour l'accueil sur ordinateur
+    if os.environ.get('DESK_HQ'):
+        sc.cycles.adaptive_threshold = 0.004
+        sc.cycles.adaptive_min_samples = 64
+        sc.cycles.denoising_prefilter = 'ACCURATE'
+        try: sc.cycles.denoising_quality = 'HIGH'
+        except Exception: pass
+        sc.cycles.denoising_use_gpu = True

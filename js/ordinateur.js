@@ -86,6 +86,8 @@
     var copies = Math.max(2, Math.ceil(2 * 1600 / (orig.length * 312)));
     for (var c = 1; c < copies; c++) orig.forEach(function (p) { var q = p.cloneNode(true); q.setAttribute("aria-hidden", "true"); postsTrack.appendChild(q); });
     postsTrack.style.setProperty("--n", copies);
+    // rien à toucher : on regarde défiler (pas de clic, pas de cœur, pas de tabulation)
+    $$("a, button, [tabindex]", postsTrack).forEach(function (b) { b.setAttribute("tabindex", "-1"); });
     postsTrack.parentNode.classList.add("is-running");
   }
 
@@ -176,6 +178,13 @@
       li.style.setProperty("--f", (3.2 + (i % 5) * 0.45).toFixed(2) + "s");
       li.style.setProperty("--r", ((i % 2 ? 1 : -1) * (2 + (i % 3))) + "deg");
     });
+    // sur une seule ligne qui défile doucement, dans l'espace de Mon salon (plus de bulles qui flottent et descendent)
+    var line = document.createElement("div"); line.className = "comfort-line"; line.setAttribute("aria-label", "Au salon, gratuitement");
+    var lt = document.createElement("ul"); lt.className = "comfort-line__track";
+    var uniq = $$(".comfort-track li:not(.is-copy)", comforts);
+    for (var lr = 0; lr < 2; lr++) uniq.forEach(function (li) { var c = li.cloneNode(true); c.removeAttribute("style"); c.className = ""; if (lr) c.setAttribute("aria-hidden", "true"); lt.appendChild(c); });
+    line.appendChild(lt); comforts.parentNode.insertBefore(line, comforts);
+    comforts.classList.add("is-desktop-hidden");
     // les photos du salon défilent toutes seules, comme les avis Google (et plus vite)
     var sScroll = $("[data-salon-scroll]", deck);
     if (sScroll) {
@@ -211,8 +220,47 @@
         requestAnimationFrame(function () { requestAnimationFrame(function () { pop.classList.add("is-in"); }); });
         setTimeout(function () { pop.classList.remove("is-in"); }, 1500 + Math.random() * 900);
       }
-      setTimeout(show, 7000 + Math.random() * 7000);
+      setTimeout(showAny, 7000 + Math.random() * 7000);
     };
-    setTimeout(show, 4500);
+    // Louise se promène aussi : en bas de l'écran, ou sur le haut d'un bloc (carrés, photos, cartes)
+    var walker = document.createElement("div"); walker.className = "louise-walk"; walker.setAttribute("aria-hidden", "true");
+    var wsvg = tpl.cloneNode(true);
+    $$("rect", wsvg).forEach(function (r) {
+      if (r.getAttribute("width") !== "11") return;
+      var x = r.getAttribute("x"); r.classList.add("leg", x === "58" || x === "152" ? "leg--a" : "leg--b");
+    });
+    walker.appendChild(wsvg); document.body.appendChild(walker);
+    var SPOTS = ".infos-sq, .end-sq, .salon-marquee, .cb-flip, .insta-row, .about__photo, .stack > *, .pet, .colors, .pin__grid, .avis-cta, .comfort-line";
+    var walking = false;
+    var walk = function () {
+      walking = true;
+      var vw = document.documentElement.clientWidth, vh = window.innerHeight, DW = 124, FEET = 57, dir = Math.random() < .5 ? 1 : -1;
+      var spots = $$(SPOTS).filter(function (el) { var r = el.getBoundingClientRect(); return r.width > 300 && r.top > 150 && r.top < vh - 90 && r.left >= 0 && r.right <= vw; });
+      var x0, x1, frames;
+      if (spots.length && Math.random() < .6) {
+        // sur le haut d'un bloc : elle arrive, traverse, et repart
+        var r = spots[Math.floor(Math.random() * spots.length)].getBoundingClientRect();
+        walker.className = "louise-walk is-on";
+        walker.style.top = (r.top + window.scrollY - FEET) + "px";
+        var a = r.left + 18, b = r.right - DW - 18; x0 = dir > 0 ? a : b; x1 = dir > 0 ? b : a;
+        frames = [{ transform: "translateX(" + x0 + "px)", opacity: 0 }, { opacity: 1, offset: .08 }, { opacity: 1, offset: .92 }, { transform: "translateX(" + x1 + "px)", opacity: 0 }];
+      } else {
+        // en bas de l'écran, d'un bord à l'autre
+        walker.className = "louise-walk is-bottom";
+        walker.style.top = "";
+        x0 = dir > 0 ? -DW - 10 : vw + 10; x1 = dir > 0 ? vw + 10 : -DW - 10;
+        frames = [{ transform: "translateX(" + x0 + "px)" }, { transform: "translateX(" + x1 + "px)" }];
+      }
+      walker.classList.toggle("is-left", dir < 0);
+      walker.classList.add("is-walking");
+      var an = walker.animate(frames, { duration: Math.abs(x1 - x0) / 150 * 1000, easing: "linear", fill: "forwards" });
+      an.onfinish = function () { an.cancel(); walker.className = "louise-walk"; walking = false; };
+    };
+    // une fois sur deux à peu près elle se promène, sinon elle passe la tête
+    var showAny = function () {
+      if (!document.hidden && !document.querySelector("dialog[open]") && !walking && Math.random() < .6) { walk(); setTimeout(showAny, 9000 + Math.random() * 7000); }
+      else show();
+    };
+    setTimeout(showAny, 4500);
   }
 })();

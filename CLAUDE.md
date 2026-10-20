@@ -42,6 +42,11 @@ Marie a validé la version téléphone : elle ne doit plus bouger quand on trava
 - 6e version (21/10/2026) : accueil sur ordinateur = nouvelle animation 3D en largeur, 2048×1152, **vernis marron chocolat** (#6B3418),
   dans `assets/hero3d-ordi/` (`pour.js` la prend à partir de 1024 px ; le téléphone garde `assets/hero3d/`). Rendu : `DESK=1 DESK_LENS=50
   DESK_LOOKZ=2.25 DESK_CAMZ=2.45 GPU=1 SAMPLES=48 python anim.py -- 2048 0..99` (voir `3d/README.md`).
+- 7e version (20/10/2026) : Mon salon sur une colonne (titre, photos qui défilent, puis les gratuités sur **une seule ligne** qui défile,
+  plus de bulles qui flottent et descendent) ; Infos pratiques : titre au milieu ; publications Insta qui défilent **sans aucune
+  interaction** (pas d'arrêt au survol, pas de clic, pas de cœur) ; Louise **se promène** (en bas de l'écran ou sur le haut des blocs,
+  pattes qui trottinent) en plus de passer la tête ; curseur (flacon et main) en **vernis marron** #6B3418, plus de rose.
+  Les 3 publications Insta sans photo HD : on ne les met pas (choix de Marie).
 - Vérification du téléphone : `cdpsig.py` (empreinte de la position/taille de chaque élément à 390 px), à comparer avant/après.
 
 ## Obligations légales (21/10/2026)

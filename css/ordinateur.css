@@ -277,3 +277,40 @@ html.is-desktop .end-sq--socials .handles a b, html.is-desktop .end-sq--socials 
 
 /* Accueil : l'animation en largeur (assets/hero3d-ordi), un fondu plus court en bas pour garder le logo bien net */
 html.is-desktop .pour__stage::after { height: 110px; }
+
+/* ---------- 7e version ---------- */
+/* Le curseur : le flacon et l'ongle de la main en vernis marron (comme l'accueil), plus de rose */
+html.is-desktop { --cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg transform='rotate(-38 16 16)'%3E%3Crect x='12.5' y='1' width='7' height='11' rx='2' fill='%234E2E22'/%3E%3Crect x='13.5' y='11.5' width='5' height='3' fill='%23BBAB9F'/%3E%3Crect x='7.5' y='14' width='17' height='16' rx='5' fill='%236B3418' stroke='%234E2E22' stroke-width='1.5'/%3E%3Crect x='10' y='16.5' width='3' height='8' rx='1.5' fill='%23fff' opacity='.6'/%3E%3C/g%3E%3C/svg%3E") 3 3, auto; --cursor-pointer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M12.5 13V7.5a2.5 2.5 0 0 1 5 0V16l1-.3a2.3 2.3 0 0 1 2.6 1l.4-.1a2.3 2.3 0 0 1 2.7 1.3 2.2 2.2 0 0 1 2.8 2V24a7 7 0 0 1-7 7h-2a7 7 0 0 1-6-3.4L8.4 22a2.2 2.2 0 0 1 3.6-2.5l.5.6Z' fill='%23F3D3C2' stroke='%234E2E22' stroke-width='1.4'/%3E%3Cpath d='M12.6 8.5C12.4 4.5 15 .8 15 .8s2.6 3.7 2.4 7.7Z' fill='%236B3418' stroke='%234E2E22' stroke-width='1'/%3E%3C/svg%3E") 15 1, pointer; }
+html.is-desktop:not(.in-frame) .pour__canvas { cursor: var(--cursor-pointer) !important; }
+
+/* Mon salon : titre, photos qui défilent, puis les gratuités sur une seule ligne qui défile, juste dessous */
+html.is-desktop .salon-row { grid-template-columns: minmax(0, 1fr); gap: 18px; align-items: start; }
+html.is-desktop .salon-row__free { padding-top: 0; gap: 2px; }
+html.is-desktop .salon-row .comforts__title { text-align: center; }
+.comfort-line { margin-top: 12px; overflow: hidden; pointer-events: none; padding: 4px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.comfort-line__track { list-style: none; margin: 0; padding: 0; display: flex; gap: 10px; width: max-content; animation: lineRun 46s linear infinite; }
+.comfort-line__track li { flex: none; display: inline-flex; align-items: center; gap: 7px; padding: 9px 16px 9px 12px; border-radius: 999px; background: #FFFDF8; box-shadow: 0 0 0 1px #EADFD2; font-size: 15px; font-weight: 600; color: #4E2E22; }
+.comfort-line__track svg { width: 18px; height: 18px; fill: none; stroke: var(--bordeaux); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+@keyframes lineRun { to { transform: translateX(calc(-50% - 5px)); } }
+@media (prefers-reduced-motion: reduce) { .comfort-line__track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; } }
+
+/* Infos pratiques : le titre au milieu */
+html.is-desktop #infos .section__head { text-align: center; }
+html.is-desktop #infos .infos-sq .infos__h { text-align: center; }
+
+/* Instagram : ça défile tout seul, on ne peut rien toucher (ni arrêter, ni glisser, ni cliquer) */
+html.is-desktop #creations .posts.is-running { pointer-events: none; user-select: none; }
+html.is-desktop #creations .posts.is-running:hover .posts__track { animation-play-state: running; }
+
+/* Louise se promène : en bas de l'écran ou sur le haut des blocs, les pattes qui trottinent */
+.louise-walk { position: absolute; left: 0; top: 0; z-index: 64; width: 124px; pointer-events: none; opacity: 0; }
+.louise-walk.is-on, .louise-walk.is-bottom { opacity: 1; }
+.louise-walk.is-bottom { position: fixed; top: auto; bottom: -6px; }
+.louise-walk svg { display: block; width: 100%; fill: var(--teckel); overflow: visible; filter: drop-shadow(0 3px 4px rgba(33, 2, 2, .22)); }
+.louise-walk.is-left svg { transform: scaleX(-1); }
+.louise-walk .leg { transform-box: fill-box; transform-origin: 50% 0; }
+.louise-walk.is-walking .leg--a { animation: trotA .32s ease-in-out infinite alternate; }
+.louise-walk.is-walking .leg--b { animation: trotA .32s ease-in-out infinite alternate-reverse; }
+.louise-walk .teckel__tail { animation: wag .3s ease-in-out infinite alternate; }
+@keyframes trotA { from { transform: rotate(-22deg); } to { transform: rotate(22deg); } }
