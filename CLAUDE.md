@@ -161,3 +161,8 @@ Pet friendly : Marie est dessinée bras le long du corps, mains posées sur le b
 ## Mise en ligne
 Après chaque modification de `css/` ou `js/`, changer le numéro `?v=…` des liens dans `index.html` (ex. `?v=20261020b`)
 pour que les téléphones rechargent la nouvelle version au lieu d'une ancienne gardée en mémoire.
+
+## Bouton rond du téléphone (20/10/2026)
+- Le bouton rond au milieu de la barre du bas affiche **« Prendre rendez-vous »** et ouvre la fiche de rendez-vous (`data-rdv`),
+  à la place de « Club Dilerna » (demande de Marie, « pour l'instant »). Le club reste accessible par le Menu et, sur ordinateur,
+  par la bande du haut (`ordinateur.js` ouvre maintenant le club via `.menu__club`).

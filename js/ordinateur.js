@@ -31,7 +31,7 @@
     '<button class="topbar__rdv" type="button">Prendre rendez-vous</button>';
   document.body.insertBefore(bar, document.body.firstChild);
   // les boutons de la bande ouvrent les mêmes fenêtres que ceux du site
-  $(".topbar__club", bar).addEventListener("click", function () { var b = $(".tab-rdv[data-club-open]"); if (b) b.click(); });
+  $(".topbar__club", bar).addEventListener("click", function () { var b = $(".menu__club[data-club-open]"); if (b) b.click(); });
   $(".topbar__rdv", bar).addEventListener("click", function () { var b = $("#prestations [data-rdv]"); if (b) b.click(); });
   var onScroll = function () { bar.classList.toggle("is-scrolled", window.scrollY > 10); };
   window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
