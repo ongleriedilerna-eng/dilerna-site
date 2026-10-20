@@ -471,16 +471,33 @@
       // les photos ne sont pas cliquables (choix de Marie) : on les fait juste glisser
       var a = document.createElement("div");
       a.className = "post";
-      a.innerHTML = '<span class="post__head"><b>ongleriedilerna</b><small>Porto-Vecchio</small></span>';
+      a.innerHTML = '<span class="post__head"><img class="post__avatar" src="assets/logo/favicon.png" alt=""><span><b>ongleriedilerna</b><small>Porto-Vecchio</small></span></span>';
       var im = img(p.src, p.alt); im.draggable = false;
       var media = document.createElement("span");
       media.className = "post__media";
       media.style.setProperty("--bg-img", "url('" + p.src + "')");
       media.appendChild(im);
       a.appendChild(media);
+      // en dessous, comme une vraie publication Instagram : cœur, commentaire, partage, enregistrer, puis la légende
+      var bar = document.createElement("span"); bar.className = "post__bar";
+      bar.innerHTML = '<button class="post__ico post__like" type="button" aria-label="J\'aime" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 20.3 4.6 13a4.7 4.7 0 0 1 6.6-6.7l.8.8.8-.8A4.7 4.7 0 0 1 19.4 13Z"/></svg></button>' +
+        '<span class="post__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.6 7.2L4 20l1.3-4.2A8 8 0 1 1 20 11.5Z"/></svg></span>' +
+        '<span class="post__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 3 10 13.5M21 3l-6.8 18-4.2-7.5L2.5 9.3Z"/></svg></span>' +
+        '<span class="post__ico post__save" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5h12v17l-6-4.3-6 4.3Z"/></svg></span>';
+      a.appendChild(bar);
+      var cap = document.createElement("span"); cap.className = "post__cap";
+      cap.innerHTML = "<b>ongleriedilerna</b> ";
+      cap.appendChild(document.createTextNode((p.alt || "").split(" : ")[0]));
+      a.appendChild(cap);
       track.appendChild(a);
     });
     postsBox.appendChild(track);
+    // le petit cœur se remplit quand on le touche (juste pour le plaisir : rien n'est envoyé à Instagram)
+    postsBox.addEventListener("click", function (e) {
+      var h = e.target.closest(".post__like"); if (!h) return;
+      var on = h.getAttribute("aria-pressed") !== "true"; h.setAttribute("aria-pressed", on ? "true" : "false");
+      h.classList.remove("is-pop"); void h.offsetWidth; if (on) h.classList.add("is-pop");
+    });
     // Un clic après un glissement à la souris ne doit pas ouvrir le lien
     var moved = 0;
     postsBox.addEventListener("pointerdown", function (e) { moved = e.clientX; });
