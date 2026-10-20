@@ -194,6 +194,34 @@
     teasePeel();
   }
 
+  /* ---------- Carte blanche : avant / après ----------
+     Pour chaque Carte blanche (config.js → carteBlanche) : la demande de la cliente à gauche, le résultat à droite,
+     on fait glisser le rond pour passer de l'un à l'autre. Rien ne s'affiche tant que la liste est vide. */
+  var cbBox = $("[data-cb-ba]"), cbList = C.carteBlanche || [];
+  if (cbBox && cbList.length) {
+    var cbRow = document.createElement("div"); cbRow.className = "cb-ba__row";
+    cbList.forEach(function (it, k) {
+      var fr = document.createElement("div"); fr.className = "cb-ba__frame";
+      var after = img(it.resultat, "Le résultat : la Carte blanche réalisée par Marie"); after.className = "cb-ba__after"; after.draggable = false;
+      var before = document.createElement("div"); before.className = "cb-ba__before";
+      if (it.demande) { var bi = img(it.demande, "La demande de la cliente"); bi.draggable = false; before.appendChild(bi); }
+      else { before.classList.add("cb-ba__before--theme"); before.innerHTML = "<small>Le thème</small><b></b>"; before.querySelector("b").textContent = it.theme || ""; }
+      var tagA = document.createElement("span"); tagA.className = "cb-ba__tag cb-ba__tag--a"; tagA.textContent = "La demande";
+      var tagB = document.createElement("span"); tagB.className = "cb-ba__tag cb-ba__tag--b"; tagB.textContent = "Le résultat";
+      var bar = document.createElement("span"); bar.className = "cb-ba__bar";
+      var knob = document.createElement("span"); knob.className = "cb-ba__knob";
+      var range = document.createElement("input"); range.type = "range"; range.min = 0; range.max = 100; range.value = 50;
+      range.setAttribute("aria-label", "Glisse pour comparer la demande et le résultat" + (cbList.length > 1 ? " (" + (k + 1) + ")" : ""));
+      range.addEventListener("input", function () { fr.style.setProperty("--x", range.value + "%"); });
+      [after, before, tagA, tagB, bar, knob, range].forEach(function (el) { fr.appendChild(el); });
+      cbRow.appendChild(fr);
+    });
+    cbBox.appendChild(cbRow);
+    var cbHint = document.createElement("p"); cbHint.className = "cb-ba__hint"; cbHint.textContent = "Fais glisser le rond pour voir le résultat";
+    cbBox.appendChild(cbHint);
+    cbBox.hidden = false;
+  }
+
   /* ---------- Fabrique d'ongles / tuiles ---------- */
   function nail(art) {
     var n = document.createElement("span");

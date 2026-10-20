@@ -1388,3 +1388,22 @@ html { background: linear-gradient(var(--cream) 50%, var(--cocoa) 50%); }
 
 /* avis Google qui défilent tout seuls : pas d'aimantation pendant le défilement automatique */
 .reviews.is-auto { scroll-snap-type: none; }
+
+/* ===== Carte blanche : avant / après (curseur), choix de Marie parmi 5 idées ===== */
+.cb-ba { margin: 18px 0 16px; }
+.cb-ba__row { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 -24px; padding: 0 24px; }
+.cb-ba__row::-webkit-scrollbar { display: none; }
+.cb-ba__frame { --x: 50%; position: relative; flex: 0 0 100%; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; scroll-snap-align: center; touch-action: pan-y; background: #4E2E22; }
+.cb-ba__row:has(.cb-ba__frame + .cb-ba__frame) .cb-ba__frame { flex-basis: 88%; }
+.cb-ba__after, .cb-ba__before img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cb-ba__before { position: absolute; inset: 0; z-index: 1; clip-path: inset(0 calc(100% - var(--x)) 0 0); }
+.cb-ba__before--theme { display: grid; place-content: center; gap: 8px; padding: 24px; text-align: center; background: #F2E8E1; color: #4E2E22; }
+.cb-ba__before--theme small { font: 700 11px/1 var(--font-body); letter-spacing: .22em; text-transform: uppercase; color: #9A8270; }
+.cb-ba__before--theme b { font: 800 26px/1.15 "Fraunces", var(--font-display); font-variation-settings: "SOFT" 100, "opsz" 144; }
+.cb-ba__tag { position: absolute; z-index: 2; bottom: 10px; padding: 6px 11px; border-radius: 999px; background: rgba(248, 244, 236, .92); color: #4E2E22; font: 700 11px/1 var(--font-body); letter-spacing: .08em; pointer-events: none; }
+.cb-ba__tag--a { left: 10px; } .cb-ba__tag--b { right: 10px; }
+.cb-ba__bar { position: absolute; z-index: 3; top: 0; bottom: 0; left: var(--x); width: 3px; margin-left: -1.5px; background: #F8F4EC; pointer-events: none; }
+.cb-ba__knob { position: absolute; z-index: 4; top: 50%; left: var(--x); width: 42px; height: 42px; margin: -21px 0 0 -21px; border-radius: 50%; background: #F8F4EC; box-shadow: 0 6px 14px -6px rgba(0, 0, 0, .6); display: grid; place-items: center; pointer-events: none; }
+.cb-ba__knob::before { content: ""; width: 2px; height: 14px; border-radius: 2px; background: #AB9680; box-shadow: 6px 0 #AB9680, -6px 0 #AB9680; }
+.cb-ba__frame input { position: absolute; z-index: 5; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+.cb-ba__hint { margin: 10px 0 0; text-align: center; font: 600 12.5px/1.3 var(--font-body); color: #E9DFD2 !important; }

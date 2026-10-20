@@ -55,6 +55,14 @@ window.DILERNA = {
 
   /* Dernières publications Instagram (Créations récentes), à faire glisser.
      url = lien de la publication (sinon, lien vers le profil). */
+  /* Carte blanche : avant / après (curseur à faire glisser). Une ligne par Carte blanche :
+     demande = la photo d'inspiration envoyée par la cliente, resultat = la photo du nail art fini (mains uniquement),
+     theme = le thème demandé, si la cliente a donné un thème plutôt qu'une photo (sinon laisser "").
+     Tant que la liste est vide, rien ne s'affiche sur le site. */
+  carteBlanche: [
+    // { demande: "assets/img/carte-blanche/demande-1.webp", resultat: "assets/img/carte-blanche/resultat-1.webp", theme: "" },
+  ],
+
   instaPosts: [
     { src: "assets/img/insta/post-01.webp", alt: "Pretty very scary : nail art Scream rose et noir" },
     { src: "assets/img/insta/post-02.webp", alt: "Nail crush : rayures, pois et bijoux dorés" },
