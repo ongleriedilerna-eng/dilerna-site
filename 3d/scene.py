@@ -400,3 +400,16 @@ sc.cycles.samples = 64
 w.node_tree.nodes['Background'].inputs[1].default_value = 0.5
 w.node_tree.nodes['Background'].inputs[0].default_value = srgb('#FFF1E2')
 sc.view_settings.exposure = 0.55
+
+# ---------------- version ordinateur (DESK=1) : image en largeur 16:9 et vernis marron ----------------
+# (la version téléphone n'est pas touchée : sans DESK, rien ne change)
+if os.environ.get('DESK'):
+    r.resolution_y = int(r.resolution_x * 9 / 16)
+    cam_d.sensor_fit = 'VERTICAL'; cam_d.sensor_height = 24
+    cam_d.lens = float(os.environ.get('DESK_LENS', '34'))
+    cam.location = (0, -13.3, float(os.environ.get('DESK_CAMZ', '2.35')))
+    look = Vector((0, 0, float(os.environ.get('DESK_LOOKZ', '1.95')))) - cam.location
+    cam.rotation_euler = look.to_track_quat('-Z', 'Y').to_euler()
+    for _m in bpy.data.materials:
+        if _m.node_tree and 'Principled BSDF' in _m.node_tree.nodes and any(_m.name.startswith(n) for n in ('polish', 'brushpolish', 'stream')):
+            _m.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value = srgb(os.environ.get('DESK_POLISH', '#6B3418'))

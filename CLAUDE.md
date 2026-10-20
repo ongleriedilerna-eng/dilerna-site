@@ -39,6 +39,9 @@ Marie a validé la version téléphone : elle ne doit plus bouger quand on trava
   d'Instagram sans connexion ne font que 640 px, trop floues pour Marie). Les publications avec un visage sont exclues. Le téléphone garde `instaPosts`.
 - 5e version (21/10/2026) : gratuités un peu plus bas (au niveau des photos du salon) ; en bas : Bon à savoir à gauche, Mes réseaux au milieu
   (Instagram, TikTok, Pinterest, Facebook avec une icône, **sans** bouton Prendre rendez-vous), la conversation « M'écrire » tout à droite, en grand.
+- 6e version (21/10/2026) : accueil sur ordinateur = nouvelle animation 3D en largeur, 2048×1152, **vernis marron chocolat** (#6B3418),
+  dans `assets/hero3d-ordi/` (`pour.js` la prend à partir de 1024 px ; le téléphone garde `assets/hero3d/`). Rendu : `DESK=1 DESK_LENS=50
+  DESK_LOOKZ=2.25 DESK_CAMZ=2.45 GPU=1 SAMPLES=48 python anim.py -- 2048 0..99` (voir `3d/README.md`).
 - Vérification du téléphone : `cdpsig.py` (empreinte de la position/taille de chaque élément à 390 px), à comparer avant/après.
 
 ## Infos réelles

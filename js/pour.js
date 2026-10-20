@@ -17,7 +17,10 @@
   var N = 100, W = 1080, H = 2340, FPS = 18, COVER = true;
   // mise en page : infos en haut (par défaut) ou en bas (#…bas dans l'adresse)
   if (/bas/.test(location.hash)) sec.classList.add("pour--bas");
-  var src = function (i) { return "assets/hero3d/f" + ("00" + i).slice(-3) + ".webp"; };
+  var dir = "assets/hero3d/";
+  // sur ordinateur (1024 px et plus) : une version en largeur, plus nette, avec le vernis marron ; le téléphone garde la sienne
+  if (window.matchMedia && window.matchMedia("(min-width: 1024px)").matches) { dir = "assets/hero3d-ordi/"; W = 2048; H = 1152; }
+  var src = function (i) { return dir + "f" + ("00" + i).slice(-3) + ".webp"; };
   var frames = new Array(N), loaded = 0;
 
   // chargement : la première image d'abord, puis toutes les autres

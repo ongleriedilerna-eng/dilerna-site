@@ -13,3 +13,12 @@ Les images actuelles du site ont été rendues avant que la capsule chocolat du 
 elle en a été effacée après coup avec `python erase_capsule.py out out_sans_capsule` (inutile pour un nouveau rendu).
 
 Les chemins sont relatifs au dossier `3d/` (le logo est lu dans `../assets/logo/`).
+
+## Version ordinateur (en largeur, vernis marron)
+
+`DESK=1` (ajouté à la fin de `scene.py`) : image 16:9, caméra plus large, vernis marron chocolat. Sans `DESK`, la version téléphone ne change pas.
+
+    DESK=1 DESK_LENS=50 DESK_LOOKZ=2.25 DESK_CAMZ=2.45 GPU=1 NFRAMES=100 SAMPLES=48 OUTDIR=C:/chemin/absolu python anim.py -- 2048 $(seq 0 99)
+    python encode.py C:/chemin/absolu ../assets/hero3d-ordi
+
+(`OUTDIR` doit être un chemin absolu, sinon Blender écrit les images ailleurs.) Environ 25 s par image sur la carte graphique.

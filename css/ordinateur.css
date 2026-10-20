@@ -274,3 +274,6 @@ html.is-desktop .end-sq--chat .chat__replies { gap: 10px; }
 html.is-desktop #contact .contact__inner { max-width: none; padding-left: max(28px, calc((100vw - 1180px) / 2)); padding-right: max(28px, calc((100vw - 1180px) / 2)); }
 html.is-desktop .end-row { grid-template-columns: minmax(0, 1fr) minmax(0, .95fr) minmax(0, 1.45fr); }
 html.is-desktop .end-sq--socials .handles a b, html.is-desktop .end-sq--socials .handles a { overflow-wrap: anywhere; }
+
+/* Accueil : l'animation en largeur (assets/hero3d-ordi), un fondu plus court en bas pour garder le logo bien net */
+html.is-desktop .pour__stage::after { height: 110px; }
