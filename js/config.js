@@ -65,6 +65,7 @@ window.DILERNA = {
     { titre: "Chucky", demande: "assets/img/carte-blanche/theme-chucky.webp", label: "Le thème", resultat: "assets/img/carte-blanche/resultat-chucky.webp", theme: "Chucky" },
     { titre: "Willy Wonka", demande: "assets/img/carte-blanche/theme-wonka.webp?v=3", label: "Le thème", resultat: "assets/img/carte-blanche/resultat-wonka.webp", theme: "Charlie et la chocolaterie" },
     { titre: "Harry Potter", demande: "assets/img/carte-blanche/theme-harry-potter.webp", label: "Le thème", resultat: "assets/img/carte-blanche/resultat-harry-potter.webp", theme: "Harry Potter" },
+    { titre: "Toy Story", demande: "assets/img/carte-blanche/theme-toy-story.webp", label: "Le thème", resultat: "assets/img/carte-blanche/resultat-toy-story.webp", theme: "Toy Story" },
   ],
 
   instaPosts: [
