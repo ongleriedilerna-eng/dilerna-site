@@ -26,6 +26,10 @@ Marie a validé la version téléphone : elle ne doit plus bouger quand on trava
   à côté de Suivre ; Pet friendly en bloc (texte à gauche, image à droite) ; Couleur du mois centrée ; photo de Marie un peu plus petite ;
   Mon salon (photos plus petites) avec à côté les gratuités en bulles qui « poppent » puis flottent ; plan plus petit ; On papote ? réparé ;
   Bon à savoir sur toute la ligne ; « Tu as aimé ta pose ? » avec les avis Google, tout en bas de la page.
+- 2e version (21/10/2026) : flèches rondes pour passer d'une Carte blanche à l'autre (on ne peut pas glisser à la souris) ; Louise (avis Google et
+  couleur du mois) sort vraiment de l'écran ; photos de Mon salon qui défilent toutes seules, vite, comme les avis ; à la place de « Tu as aimé ta pose ? »,
+  un simple bouton « Laisser un avis Google » sous les avis ; Infos = 2 carrés pareils (horaires jour par jour, Lundi → Dimanche, et l'adresse) ;
+  en bas, 3 carrés sur une ligne : On papote ? (la conversation), Bon à savoir, Mes réseaux + Prendre rendez-vous.
 - Vérification du téléphone : `cdpsig.py` (empreinte de la position/taille de chaque élément à 390 px), à comparer avant/après.
 
 ## Infos réelles

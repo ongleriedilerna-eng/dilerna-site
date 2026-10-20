@@ -743,6 +743,8 @@
       burpEl.classList.remove("show"); void burpEl.offsetWidth; burpEl.classList.add("show");
     };
     var rounds = 0;
+    // jusqu'où Louise s'en va : sur téléphone -460px (inchangé) ; sur ordinateur, elle sort vraiment de l'écran
+    var awayPx = function () { return window.matchMedia("(min-width: 1024px)").matches ? -(munch.getBoundingClientRect().right > 0 ? Math.round(window.innerWidth - munch.getBoundingClientRect().right + 140) : 1600) : -460; };
     var eat = function () {
       rounds++;
       // (la largeur s'arrête au début du « G » : Louise ne grignote pas la fin de « Avis »)
@@ -765,7 +767,7 @@
         munch.classList.remove("is-munching"); dog.classList.remove("is-bite");
         dog.style.transition = "right 1s ease-in, transform .2s";
         dog.style.transform = "scaleX(1)";
-        dog.style.right = "-460px";
+        dog.style.right = awayPx() + "px";
       }, 1100 + BITES * gap + 900);
       // … puis elle revient doucement et rapporte le mot, intact (un peu à l'écart du « e »)
       setTimeout(function () {
@@ -782,7 +784,7 @@
       else setTimeout(function () {
         dog.style.transition = "right 1.4s ease-in, transform .2s";
         dog.style.transform = "scaleX(1)";
-        dog.style.right = "-460px";
+        dog.style.right = awayPx() + "px";
       }, 1100 + BITES * gap + 3200 + 3200 + 1500);
     };
     var inView = false, waiting = false;

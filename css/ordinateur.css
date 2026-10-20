@@ -61,8 +61,7 @@ html.is-desktop .insta-row .follow { margin: 0; flex: 0 1 380px; }
 html.is-desktop .insta-row .gallery__cta { margin: 0; }
 html.is-desktop #creations .insta-hint { text-align: center; }
 
-/* « Tu as aimé ta pose ? » avec les avis Google */
-html.is-desktop #avis .rate { margin-top: 30px; }
+html.is-desktop .is-desktop-hidden { display: none !important; }
 
 /* ---------- Pet friendly : un bloc carré, le texte à gauche, l'image à droite ---------- */
 html.is-desktop .pet { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "head scene" "body scene"; column-gap: 48px; row-gap: 10px; align-items: start; }
@@ -80,8 +79,6 @@ html.is-desktop .color-year { max-width: 680px; margin-left: auto; margin-right:
 html.is-desktop .about__photo { width: 86%; }
 html.is-desktop .salon-row { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; margin-top: 10px; }
 html.is-desktop .salon-row .about__salon { margin-top: 0; }
-html.is-desktop .salon-row .salon-scroll { margin: 0; padding: 4px 0 10px; }
-html.is-desktop .salon-row .salon-scroll img { width: 62%; max-height: 380px; }
 html.is-desktop .salon-row__free { display: grid; gap: 4px; }
 html.is-desktop .salon-row .comforts__title { margin: 0; }
 /* les gratuités : des petites bulles qui apparaissent en « pop » un peu partout, puis flottent */
@@ -109,3 +106,56 @@ html.is-desktop .savoir .rules__grid { grid-template-columns: repeat(4, minmax(0
 
 /* ---------- On papote ? : la conversation au centre, sur une seule colonne (elle était écrasée sur ordinateur) ---------- */
 html.is-desktop .contact__inner { grid-template-columns: minmax(0, 1fr); max-width: 680px; padding-left: 0; padding-right: 0; }
+
+/* ---------- Carte blanche : les flèches pour passer d'une Carte blanche à l'autre ---------- */
+html.is-desktop .cb-flip__back { position: relative; }
+.cbc-arrow { position: absolute; z-index: 6; top: 50%; width: 48px; height: 48px; margin-top: -24px; display: grid; place-items: center; border: 0; border-radius: 50%;
+  background: rgba(248, 244, 236, .94); color: #4E2E22; box-shadow: 0 10px 22px -12px rgba(0, 0, 0, .7); cursor: pointer; transition: transform .2s var(--ease), background .2s; }
+.cbc-arrow svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.cbc-arrow.is-prev { left: 32px; } .cbc-arrow.is-next { right: 32px; }
+.cbc-arrow:hover { transform: scale(1.08); background: #FFFDF8; }
+
+/* ---------- Louise de la couleur du mois : elle sort vraiment de l'écran ---------- */
+@keyframes flee { 0% { transform: translate(6px, 0) scaleX(1); } 20% { transform: translate(6px, -8px) scaleX(-1); } 100% { transform: translate(-100vw, 0) scaleX(-1); } }
+@keyframes comeBack { 0% { transform: translate(100vw, 0) scaleX(-1); } 100% { transform: translate(92px, 0) scaleX(-1); } }
+@keyframes leaveRight { 0% { transform: translate(86px, 0) scaleX(1); opacity: 1; } 100% { transform: translate(100vw, 0) scaleX(1); opacity: 1; } }
+html.is-desktop #couleur-du-mois { overflow: hidden; }
+
+/* ---------- Mon salon : les photos défilent toutes seules ---------- */
+html.is-desktop .salon-deck.has-marquee .salon-scroll, html.is-desktop .salon-deck.has-marquee .salon-dots { display: none; }
+.salon-marquee { width: 100%; overflow: hidden; border-radius: 26px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.salon-marquee__track { display: flex; gap: 12px; width: max-content; animation: salonRun 22s linear infinite; }
+.salon-marquee__track img { flex: none; width: 210px; height: 262px; object-fit: cover; border-radius: 22px; box-shadow: var(--shadow); }
+.salon-marquee:hover .salon-marquee__track { animation-play-state: paused; }
+@keyframes salonRun { to { transform: translateX(calc(-50% - 6px)); } }
+@media (prefers-reduced-motion: reduce) { .salon-marquee__track { animation: none; } .salon-marquee { overflow-x: auto; } }
+
+/* ---------- Avis Google : un simple bouton ---------- */
+html.is-desktop .avis-cta { margin: 26px 0 0; text-align: center; }
+
+/* ---------- Infos pratiques : deux carrés pareils ---------- */
+html.is-desktop .infos-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: stretch; }
+html.is-desktop .infos-sq { display: flex; flex-direction: column; gap: 14px; padding: 26px; border-radius: 30px; background: #FFFDF8; box-shadow: 0 0 0 1px #EADFD2, 0 18px 34px -26px rgba(33, 2, 2, .45); min-height: 460px; }
+html.is-desktop .infos-sq .infos__h { margin: 0; text-align: left; }
+html.is-desktop .infos-sq .info-card--hours { flex: 1; margin: 0; padding: 0; background: none; box-shadow: none; display: flex; flex-direction: column; gap: 14px; }
+html.is-desktop .infos-sq .week { display: none; }
+html.is-desktop .days { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+html.is-desktop .days li { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-radius: 14px; background: #F8F4EC; font-size: 15px; color: #4E2E22; }
+html.is-desktop .days li b { font-weight: 700; letter-spacing: .04em; }
+html.is-desktop .days li.is-shut span { color: #AB9680; }
+html.is-desktop .days li.is-today { box-shadow: inset 0 0 0 2px #AB9680; background: #FFFDF8; }
+html.is-desktop .infos-sq .hours-sticker { align-self: center; margin: 4px 0 0; }
+html.is-desktop .infos-sq .hours-note { margin: 0; text-align: center; }
+html.is-desktop .infos-sq--addr .map { flex: 1; max-width: none; height: auto; min-height: 300px; margin: 0; }
+html.is-desktop .infos-sq--addr .map__help { margin: 0; }
+
+/* ---------- En bas : trois carrés sur une ligne ---------- */
+html.is-desktop .contact__inner { max-width: 1180px; padding-left: max(28px, calc((100vw - 1180px) / 2)); padding-right: max(28px, calc((100vw - 1180px) / 2)); }
+html.is-desktop .end-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; align-items: stretch; }
+html.is-desktop .end-sq { margin: 0 !important; border-radius: 30px; background: #FFFDF8; box-shadow: 0 0 0 1px #EADFD2, 0 18px 34px -26px rgba(33, 2, 2, .45); min-height: 440px; }
+html.is-desktop .end-row .rules { display: flex; flex-direction: column; justify-content: center; padding: 28px 24px; max-width: none; }
+html.is-desktop .end-sq--socials { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 18px; padding: 28px 22px; }
+html.is-desktop .end-sq--socials h3 { margin: 0; font-size: 30px; }
+html.is-desktop .end-sq--socials .handles { margin: 0; width: 100%; }
+html.is-desktop .end-sq--socials .contact__book { margin: 0; }
+html.is-desktop .end-row .chat { display: flex; flex-direction: column; }
