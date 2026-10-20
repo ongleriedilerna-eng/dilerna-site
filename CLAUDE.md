@@ -54,8 +54,9 @@ Marie a validé la version téléphone : elle ne doit plus bouger quand on trava
 - Aucun service tiers chargé par le site (donc pas de bandeau cookies) : polices servies par le site (`css/fonts.css`, `assets/fonts/`),
   scripts Pinterest et Instagram retirés (ils ne servaient plus). Ne pas remettre Google Fonts ni de widget tiers sans bandeau de consentement.
 - Sous les avis Google : « Une sélection d'avis publiés par des clientes sur Google, non vérifiés par Dilerna. » ; « prix TTC » à côté des tarifs.
-- À faire : conditions du Club Dilerna (abonnement : durée, résiliation, paiement) avant toute inscription ; droits des images d'inspiration
-  (Pinterest) et des personnages de films dans les ronds des Cartes blanches.
+- À faire : conditions du Club Dilerna (abonnement : durée, résiliation, paiement) avant toute inscription (Marie les prépare, 20/10/2026).
+- Droits des images d'inspiration (Pinterest) et des personnages de films dans les ronds des Cartes blanches : Marie accepte le risque
+  (20/10/2026), ne plus lui en reparler ; la page des mentions légales dit qu'on les retire sur demande.
 
 ## Infos réelles
 - Adresse : Rte de Pezza Carda Cardo, 20137 Porto-Vecchio (41.6176338, 9.300044)
