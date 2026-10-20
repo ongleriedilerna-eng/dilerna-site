@@ -175,6 +175,21 @@
   });
   $$("[data-wa]").forEach(function (el) { el.href = waLink(RDV_MSG); });
 
+  /* ---------- Haut du téléphone (heure, batterie) ----------
+     Sur l'accueil : couleur de l'animation. Plus bas : crème, comme le reste de la page. */
+  var tint = $(".status-tint"), themeMeta = $('meta[name="theme-color"]'), pourSec = $(".pour");
+  if (tint && pourSec) {
+    var tintRaf = 0;
+    var setTint = function () {
+      tintRaf = 0;
+      var onHero = pourSec.getBoundingClientRect().bottom > 40;
+      tint.classList.toggle("is-off", !onHero);
+      if (themeMeta) themeMeta.content = onHero ? "#A89A8B" : "#F8F4EC";
+    };
+    window.addEventListener("scroll", function () { if (!tintRaf) tintRaf = requestAnimationFrame(setTint); }, { passive: true });
+    setTint();
+  }
+
   /* ---------- Stickers scotchés (« A propos », horaires) ----------
      Le bout du scotch se soulève quand on fait défiler la page,
      et se recolle quand le sticker est au milieu de l'écran. */
@@ -345,18 +360,37 @@
     return d;
   }
 
-  /* ---------- Photo en grand (visionneuse) ---------- */
+  /* ---------- Photos en grand (visionneuse) ----------
+     Toutes les photos s'affichent dans un cadre de la même taille ; on fait glisser pour voir les voisines.
+     La version HD (champ « full » dans config.js) est utilisée si elle existe. */
   var viewer = null;
-  function openPhoto(src, alt) {
+  function openPhoto(list, start) {
     if (!viewer) {
       viewer = document.createElement("dialog");
       viewer.className = "viewer"; viewer.tabIndex = -1;
-      viewer.innerHTML = '<img alt=""><button class="viewer__close" type="button" aria-label="Fermer">×</button>';
+      viewer.innerHTML = '<div class="viewer__track"></div><p class="viewer__dots"></p><button class="viewer__close" type="button" aria-label="Fermer">×</button>';
       document.body.appendChild(viewer);
-      viewer.addEventListener("click", function () { viewer.close(); });
+      viewer.addEventListener("click", function (e) { if (!e.target.closest(".viewer__frame")) viewer.close(); });
+      $(".viewer__track", viewer).addEventListener("scroll", function () {
+        var t = this, k = Math.round(t.scrollLeft / t.clientWidth);
+        $$(".viewer__dots i", viewer).forEach(function (d, i) { d.classList.toggle("is-on", i === k); });
+      }, { passive: true });
     }
-    var im = viewer.querySelector("img"); im.src = src; im.alt = alt || "";
-    if (viewer.showModal) { viewer.showModal(); viewer.focus({ preventScroll: true }); } else window.open(src, "_blank");
+    var track = $(".viewer__track", viewer), dots = $(".viewer__dots", viewer);
+    track.innerHTML = ""; dots.innerHTML = "";
+    list.forEach(function (p) {
+      var sl = document.createElement("figure"); sl.className = "viewer__slide";
+      var fr = document.createElement("span"); fr.className = "viewer__frame";
+      var src = p.full || p.src;
+      fr.style.setProperty("--bg-img", "url('" + src + "')");
+      var im = document.createElement("img"); im.src = src; im.alt = p.alt || ""; im.decoding = "async"; im.draggable = false;
+      fr.appendChild(im); sl.appendChild(fr); track.appendChild(sl);
+      dots.appendChild(document.createElement("i"));
+    });
+    dots.hidden = list.length < 2;
+    if (viewer.showModal) { viewer.showModal(); viewer.focus({ preventScroll: true }); } else { window.open(list[start].full || list[start].src, "_blank"); return; }
+    track.scrollLeft = track.clientWidth * start;
+    $$("i", dots).forEach(function (d, i) { d.classList.toggle("is-on", i === start); });
   }
 
   /* ---------- Dernières publications Instagram (à faire glisser) ---------- */
@@ -364,14 +398,14 @@
   if (postsBox) {
     var track = document.createElement("div");
     track.className = "posts__track";
-    (C.instaPosts || []).forEach(function (p) {
+    (C.instaPosts || []).forEach(function (p, idx) {
       // toucher la photo l'ouvre en grand sur le site (pas sur Instagram)
       var a = document.createElement("a");
       a.className = "post";
       a.href = p.src;
       a.setAttribute("aria-label", "Voir la photo en grand : " + p.alt);
       // (après un glissement à la souris, le clic est déjà annulé plus bas : on n'ouvre rien)
-      a.addEventListener("click", function (e) { if (e.defaultPrevented) return; e.preventDefault(); openPhoto(p.src, p.alt); });
+      a.addEventListener("click", function (e) { if (e.defaultPrevented) return; e.preventDefault(); openPhoto(C.instaPosts, idx); });
       a.innerHTML = '<span class="post__head"><b>ongleriedilerna</b><small>Porto-Vecchio</small></span>';
       var im = img(p.src, p.alt); im.draggable = false;
       var media = document.createElement("span");
