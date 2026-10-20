@@ -37,7 +37,7 @@ avec la médaille dorée qui pend dessous ; Louise a un petit cou et une oreille
 **Pas de logo ni de barre en haut de la page** (header caché, Marie le trouvait inutile) · Menu (Club Dilerna qui brille en premier, puis Accueil, Infos, Inspi, À propos, Contact + Louise et « Prendre rendez-vous »)
 · **Accueil** : animation 3D jouée automatiquement (`js/pour.js`, images `assets/hero3d/`), infos CAP / Porto-Vecchio / avis en haut (variante `#…bas` = en bas)
 · **Prestations** : bloc Louise + « Prendre rendez-vous » tout en haut, titre, cartes empilées, devis nail art, Carte blanche
-· Les dernières du salon (Instagram, photos **non cliquables**, on les fait glisser) + carte « Tu as aimé ta pose ? »
+· Les dernières du salon (Instagram, photos **non cliquables**, on les fait glisser), lien Instagram, **une ligne de nail art** qui glisse toute seule (config → `creations`, sans titre ni bouton : Marie ne veut rien de plus), puis carte « Tu as aimé ta pose ? »
 · Pet friendly · Couleur du mois · Besoin d'inspiration (Pinterest) · A propos (sans accent) + Mon salon
 · Infos pratiques (horaires, adresse, plan, « Tu es devant et tu ne trouves pas ? Appelle-moi »)
 · Avis Google (bande plus foncée ; Louise mange le mot « Google » puis le rapporte **2 fois seulement**, puis s'en va ; le mot revient toujours en entier ; les avis défilent tout seuls) · On papote ? · Bon à savoir · Réseaux · Footer

@@ -276,6 +276,18 @@
     }, { passive: true });
   }
 
+  /* ---------- Une ligne de nail art ----------
+     Les photos de config → creations, écrites deux fois pour que la ligne glisse en boucle sans saut. */
+  var nailline = $("[data-nailline]"), nailList = (C.creations || []).filter(function (c) { return c.src; });
+  if (nailline && nailList.length) {
+    var ntrack = $(".nailline__track", nailline);
+    for (var rep = 0; rep < 2; rep++) nailList.forEach(function (c) {
+      var im = document.createElement("img"); im.src = c.src; im.loading = "lazy"; im.draggable = false;
+      im.alt = rep ? "" : (c.alt || "Nail art fait main par Dilerna"); if (rep) im.setAttribute("aria-hidden", "true");
+      ntrack.appendChild(im);
+    });
+  }
+
   /* ---------- Fabrique d'ongles / tuiles ---------- */
   function nail(art) {
     var n = document.createElement("span");

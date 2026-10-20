@@ -1429,3 +1429,10 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 .cbc-dots:empty { display: none; }
 .cbc-dots i { width: 8px; height: 8px; border-radius: 50%; background: #6E4A32; transition: width .3s, background .3s; }
 .cbc-dots i.on { width: 22px; border-radius: 9px; background: #F8F4EC; }
+
+/* une ligne de nail art entre le lien Instagram et « Tu as aimé ta pose ? » */
+.nailline { margin: 22px calc(-1 * var(--gutter)) 0; overflow: hidden; }
+.nailline__track { display: flex; gap: 10px; width: max-content; animation: nailline 60s linear infinite; }
+.nailline__track img { flex: none; width: 112px; height: 150px; object-fit: cover; border-radius: 20px; background: #E8DCCF; user-select: none; }
+@keyframes nailline { to { transform: translateX(calc(-50% - 5px)); } }
+@media (prefers-reduced-motion: reduce) { .nailline__track { animation: none; } .nailline { overflow-x: auto; } }
