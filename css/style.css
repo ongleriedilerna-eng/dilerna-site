@@ -1446,3 +1446,16 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 .nailall__wall { flex: 1; min-height: 0; overflow-y: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-content: start; padding-bottom: calc(16px + env(safe-area-inset-bottom)); scrollbar-width: none; overscroll-behavior: contain; }
 .nailall__wall::-webkit-scrollbar { display: none; }
 .nailall__wall img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; background: #E8DCCF; }
+
+/* dos de la Carte blanche, choix A de Marie : la photo prend toute la carte, le rond du thème et son nom en bas */
+.cb-flip .cb-flip__back { padding: 0; gap: 0; overflow: hidden; }
+.cb-flip__back .cbc-car { gap: 0; }
+.cb-flip__back .cbc-slide { border-radius: 0; }
+.cb-flip__back .cbc-slide::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 46%; background: linear-gradient(rgba(33, 2, 2, 0), rgba(33, 2, 2, .85)); pointer-events: none; }
+.cb-flip__back .cbc-round { left: 18px; bottom: 44px; width: 92px; height: 92px; background: #fff; }
+.cb-flip__back .cbc-rlab { left: 124px; right: 16px; bottom: 58px; text-shadow: none; }
+.cb-flip__back .cbc-rlab small { margin: 0; font-size: 10.5px; letter-spacing: .18em; }
+.cb-flip__back .cbc-rlab b { display: block; margin-top: 4px; font-family: "Fraunces", serif; font-weight: 800; font-variation-settings: "SOFT" 100; font-size: 25px; line-height: 1; }
+.cb-flip__back .cbc-dots { position: absolute; z-index: 4; left: 0; right: 0; bottom: 20px; gap: 6px; pointer-events: none; }
+.cb-flip__back .cbc-dots i { width: 7px; height: 7px; background: rgba(248, 244, 236, .45); }
+.cb-flip__back .cbc-dots i.on { width: 20px; background: #F8F4EC; }

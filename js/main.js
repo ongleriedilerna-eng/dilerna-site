@@ -241,10 +241,9 @@
         var t = document.createElement("img"); t.src = c.demande; t.alt = "Le thème demandé" + (c.theme ? " : " + c.theme : ""); t.loading = "lazy";
         rd.appendChild(t); sl.appendChild(rd);
         var lb = document.createElement("figcaption"); lb.className = "cbc-rlab";
-        lb.innerHTML = (c.label || "Le thème") + "<small>ce qu'on m'a demandé</small>";
+        lb.innerHTML = "<small>" + (c.label || "Le thème") + "</small><b>" + (c.titre || c.theme || "") + "</b>";
         sl.appendChild(lb);
       }
-      if (cbList.length > 1) { var n = document.createElement("span"); n.className = "cbc-count"; n.textContent = (i + 1) + " / " + cbList.length; sl.appendChild(n); }
       car.appendChild(sl);
       if (cbList.length > 1) cbDots.appendChild(document.createElement("i"));
     });
@@ -252,7 +251,7 @@
     var cbShow = function () {
       var k = Math.max(0, Math.min(cbList.length - 1, Math.round(car.scrollLeft / (car.clientWidth + 10))));
       if (k === cbAt) return; cbAt = k;
-      cbSub.textContent = subOf(cbList[k]);
+      if (cbSub) cbSub.textContent = subOf(cbList[k]);
       $$("i", cbDots).forEach(function (d, i) { d.classList.toggle("on", i === k); });
     };
     car.addEventListener("scroll", cbShow, { passive: true }); cbShow();
