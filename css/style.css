@@ -875,7 +875,7 @@ body.menu-open .burger { background: #AB9680; }
 /* Barre du bas façon appli : onglets + gros bouton rond « Prendre RDV » au centre */
 /* la place pour la barre du bas est prise dans le pied de page marron (pas de bande crème tout en bas),
    et quand on tire la page vers le haut tout en bas, c'est marron aussi */
-html { background: linear-gradient(var(--cream) 50%, var(--cocoa) 50%); }
+html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 .footer__inner { padding-bottom: calc(32px + 84px + env(safe-area-inset-bottom)) !important; }
 .tabbar { position: fixed; z-index: 60; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: 1fr 1fr 96px 1fr 1fr; align-items: end; padding: 8px max(8px, env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-right)); background: #FBF7F3; border-radius: 26px 26px 0 0; box-shadow: 0 -6px 24px -12px rgba(33, 2, 2, .3); }
 .tabbar::before { content: ""; position: absolute; left: 50%; top: -24px; width: 104px; height: 104px; margin-left: -52px; border-radius: 50%; background: #FBF7F3; box-shadow: 0 -6px 18px -12px rgba(33, 2, 2, .3); z-index: -1; }
@@ -1195,7 +1195,7 @@ html { background: linear-gradient(var(--cream) 50%, var(--cocoa) 50%); }
 
 /* ---------- Accueil V2 : histoire au scroll ---------- */
 .pour { position: relative; background: var(--cream); }
-.pour__sticky { position: relative; height: 100svh; min-height: 620px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; padding: calc(16px + env(safe-area-inset-top)) 0 calc(96px + env(safe-area-inset-bottom));
+.pour__sticky { position: relative; height: 100svh; min-height: 620px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; padding: calc(6px + env(safe-area-inset-top)) 0 calc(96px + env(safe-area-inset-bottom));
   background:
     linear-gradient(rgba(248, 244, 236, 0) calc(100% - 170px), var(--cream) calc(100% - 6px)),
     radial-gradient(75% 45% at 50% 42%, #F6EEE4 0%, rgba(246, 238, 228, 0) 75%),
@@ -1277,7 +1277,7 @@ html { background: linear-gradient(var(--cream) 50%, var(--cocoa) 50%); }
 /* ===== Prise de rendez-vous en bas des prestations (comme dans le menu) ===== */
 .presta-book { margin: 34px auto 0; }
 /* le premier « Prendre rendez-vous » remonte un peu (caché derrière la barre du bas au chargement, visible dès qu'on descend) */
-.presta-book--top { position: relative; z-index: 3; margin: -96px auto 30px; }
+.presta-book--top { position: relative; z-index: 3; margin: -76px auto 30px; }
 .presta-book .menu__dog { animation: hop 2.4s ease-in-out infinite; }
 
 /* ===== Horaires : titre au-dessus du cadre (comme l'adresse), contenu centré ===== */
