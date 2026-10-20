@@ -101,7 +101,7 @@ Pet friendly : Marie est dessinée bras le long du corps, mains posées sur le b
   (rond : tête de Jack envoyée par Marie, `assets/img/carte-blanche/theme-jack.webp` ;
   2e Carte blanche : Beetlejuice (`theme-beetlejuice.webp` = tête de Beetlejuice envoyée par Marie, `resultat-beetlejuice.webp`).
   3e Carte blanche : Chucky (`theme-chucky.webp` recadré sur le visage, `resultat-chucky.webp`).
-  4e Carte blanche : Willy Wonka (thème = Wonka au chapeau haut-de-forme (veste rouge), envoyé par Marie (Marie : dans le rond, on doit voir la tête du personnage), `theme-wonka.webp`, `resultat-wonka.webp`).
+  4e Carte blanche : Willy Wonka (thème = Wonka de face au chapeau haut-de-forme, fond passé en blanc pur, envoyé par Marie (Marie : dans le rond, on doit voir la tête du personnage), `theme-wonka.webp`, `resultat-wonka.webp`).
   5e Carte blanche : Harry Potter (`theme-harry-potter.webp` = tête de Harry, `resultat-harry-potter.webp`). 6e : Toy Story (`theme-toy-story.webp` = tête de Woody, `resultat-toy-story.webp`).
     Marie n'aimait pas les couleurs de l'image d'inspi, et on n'utilise pas d'images Pinterest (droits) ; résultat = `creations/creation-04.webp`).
 - Agenda / réservation en ligne : plus tard.
