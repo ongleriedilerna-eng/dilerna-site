@@ -60,7 +60,7 @@ window.DILERNA = {
      theme = le thème demandé ; label = le mot affiché sur la photo du haut (« La demande » par défaut, « Le thème » pour une illustration).
      Tant que la liste est vide, la carte ne se retourne pas. */
   carteBlanche: [
-    { demande: "assets/img/carte-blanche/theme-tim-burton.webp", label: "Le thème", resultat: "assets/img/creations/creation-04.webp", theme: "L'Étrange Noël de Monsieur Jack" },
+    { titre: "Tim Burton", demande: "assets/img/carte-blanche/theme-tim-burton.webp", label: "Le thème", resultat: "assets/img/creations/creation-04.webp", theme: "L'Étrange Noël de Monsieur Jack" },
   ],
 
   instaPosts: [

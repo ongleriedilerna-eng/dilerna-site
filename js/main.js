@@ -225,26 +225,52 @@
   }
 
   /* ---------- Carte blanche : la carte se retourne ----------
-     On touche le bouton (ou on fait glisser la carte sur le côté) : au dos, la demande en haut et le résultat en bas. */
-  var cbFlip = $("[data-cb-flip]"), cbFirst = (C.carteBlanche || [])[0];
-  if (cbFlip && cbFirst && cbFirst.resultat) {
-    var dem = $("[data-cb-demande]", cbFlip), res = $("[data-cb-resultat]", cbFlip), back = $(".cb-flip__back", cbFlip), front = $(".cb-flip__front", cbFlip);
-    if (cbFirst.demande) { dem.src = cbFirst.demande; dem.alt = "La demande de la cliente" + (cbFirst.theme ? " : " + cbFirst.theme : ""); }
-    else dem.closest("figure").hidden = true;
-    res.src = cbFirst.resultat; res.alt = "Le résultat : la Carte blanche réalisée par Marie";
-    $("figcaption", dem.closest("figure")).textContent = (cbFirst.label || "La demande") + (cbFirst.theme ? " : " + cbFirst.theme : "");
-    var cbBtn = $(".cb-flip__btn", cbFlip); cbBtn.hidden = false;
+     On touche le bouton (ou on fait glisser la carte sur le côté) : au dos, le résultat en grand avec le thème
+     dans un petit rond ; s'il y a plusieurs Cartes blanches, on les fait glisser une par une (petits points en bas). */
+  var cbFlip = $("[data-cb-flip]"), cbList = (C.carteBlanche || []).filter(function (c) { return c.resultat; });
+  if (cbFlip && cbList.length) {
+    var back = $(".cb-flip__back", cbFlip), front = $(".cb-flip__front", cbFlip);
+    var car = $("[data-cb-car]", cbFlip), cbDots = $("[data-cb-dots]", cbFlip), cbSub = $("[data-cb-sub]", cbFlip);
+    var subOf = function (c) { return "Carte blanche" + (c.titre || c.theme ? " · " + (c.titre || c.theme) : ""); };
+    cbList.forEach(function (c, i) {
+      var sl = document.createElement("figure"); sl.className = "cbc-slide";
+      var r = document.createElement("img"); r.src = c.resultat; r.alt = "Le résultat : la Carte blanche réalisée par Marie" + (c.theme ? " (" + c.theme + ")" : ""); r.loading = "lazy";
+      sl.appendChild(r);
+      if (c.demande) {
+        var rd = document.createElement("span"); rd.className = "cbc-round";
+        var t = document.createElement("img"); t.src = c.demande; t.alt = "Le thème demandé" + (c.theme ? " : " + c.theme : ""); t.loading = "lazy";
+        rd.appendChild(t); sl.appendChild(rd);
+        var lb = document.createElement("figcaption"); lb.className = "cbc-rlab";
+        lb.innerHTML = (c.label || "Le thème") + "<small>ce qu'on m'a demandé</small>";
+        sl.appendChild(lb);
+      }
+      if (cbList.length > 1) { var n = document.createElement("span"); n.className = "cbc-count"; n.textContent = (i + 1) + " / " + cbList.length; sl.appendChild(n); }
+      car.appendChild(sl);
+      if (cbList.length > 1) cbDots.appendChild(document.createElement("i"));
+    });
+    var cbAt = -1;
+    var cbShow = function () {
+      var k = Math.max(0, Math.min(cbList.length - 1, Math.round(car.scrollLeft / (car.clientWidth + 10))));
+      if (k === cbAt) return; cbAt = k;
+      cbSub.textContent = subOf(cbList[k]);
+      $$("i", cbDots).forEach(function (d, i) { d.classList.toggle("on", i === k); });
+    };
+    car.addEventListener("scroll", cbShow, { passive: true }); cbShow();
+    var cbBtn = $(".cb-flip__btn", cbFlip), cbBtnTxt = cbList.length > 1 ? "Touche pour voir mes Cartes blanches" : "Touche pour voir une Carte blanche";
+    cbBtn.textContent = cbBtnTxt; cbBtn.hidden = false;
     cbFlip.classList.add("is-ready");
     var turn = function () {
       var on = cbFlip.classList.toggle("is-flipped");
       back.setAttribute("aria-hidden", on ? "false" : "true"); front.setAttribute("aria-hidden", on ? "true" : "false");
-      cbBtn.textContent = on ? "Revoir la carte" : "Touche pour voir une Carte blanche";
+      cbBtn.textContent = on ? "Revoir la carte" : cbBtnTxt;
+      if (on) { car.scrollLeft = 0; cbAt = -1; cbShow(); }
     };
     $$("[data-cb-turn]", cbFlip).forEach(function (b) { b.addEventListener("click", turn); });
-    // glisser la carte sur le côté la retourne aussi
+    // glisser la carte sur le côté la retourne aussi (au dos, s'il y en a plusieurs, on fait glisser les Cartes blanches)
     var sx = 0, sy = 0;
     cbFlip.addEventListener("touchstart", function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
     cbFlip.addEventListener("touchend", function (e) {
+      if (cbFlip.classList.contains("is-flipped") && cbList.length > 1) return;
       var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
       if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) turn();
     }, { passive: true });

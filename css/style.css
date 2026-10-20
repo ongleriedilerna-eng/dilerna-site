@@ -1394,9 +1394,6 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 .cb-flip__front, .cb-flip__back { -webkit-backface-visibility: hidden; backface-visibility: hidden; }
 .cb-flip__back { position: absolute; inset: 0; transform: rotateY(180deg); display: flex; flex-direction: column; gap: 10px; padding: 16px; }
 .cb-flip:not(.is-ready) .cb-flip__back { display: none; }
-.cb-back__ph { position: relative; flex: 1; min-height: 0; margin: 0; border-radius: 20px; overflow: hidden; background: #2A1810; }
-.cb-back__ph img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.cb-back__ph figcaption { position: absolute; left: 10px; bottom: 10px; max-width: calc(100% - 20px); padding: 7px 12px; border-radius: 999px; background: rgba(248, 244, 236, .94); color: #4E2E22; font: 700 12px/1.2 var(--font-body); }
 .cb-flip__btn { display: block; margin: 16px auto 0; padding: 12px 22px; border: 0; border-radius: 999px; background: #4E2E22; color: #F8F4EC; font: 700 14px/1 var(--font-body); letter-spacing: .02em; cursor: pointer; }
 .cb-flip__btn[hidden] { display: none; }
 @keyframes cbPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(78, 46, 34, .35); } 60% { box-shadow: 0 0 0 10px rgba(78, 46, 34, 0); } }
@@ -1415,3 +1412,20 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 .igmsg__go { display: flex; width: 100%; }
 .igmsg__note { margin: 10px 0 0; font-size: 13px; color: #AB9680; }
 .igmsg .sheet__close { margin-top: 4px; }
+
+/* dos de la Carte blanche : le résultat en grand, le thème dans un petit rond (choix D1 de Marie : on fait glisser) */
+.cbc-lab { margin: 4px 0 0; text-align: center; font: 400 24px/1 var(--font-display); color: #F8F4EC; }
+.cbc-lab small { display: block; margin-top: 6px; font: 700 10.5px/1.2 var(--font-body); letter-spacing: .16em; text-transform: uppercase; color: #D5C6AF; }
+.cbc-car { flex: 1; min-height: 0; display: flex; gap: 10px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.cbc-car::-webkit-scrollbar { display: none; }
+.cbc-slide { position: relative; flex: 0 0 100%; margin: 0; border-radius: 20px; overflow: hidden; background: #2A1810; scroll-snap-align: center; }
+.cbc-slide > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cbc-round { position: absolute; z-index: 2; left: 12px; bottom: 12px; width: 96px; height: 96px; border-radius: 50%; overflow: hidden; border: 4px solid #F8F4EC; box-shadow: 0 10px 20px -10px rgba(0, 0, 0, .7); background: #2A1810; }
+.cbc-round img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cbc-rlab { position: absolute; z-index: 3; left: 120px; right: 10px; bottom: 26px; text-align: left; font: 400 16px/1 var(--font-display); color: #F8F4EC; text-shadow: 0 1px 8px rgba(0, 0, 0, .6); }
+.cbc-rlab small { display: block; margin-top: 5px; font: 700 10px/1 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: #E9DFD2; }
+.cbc-count { position: absolute; z-index: 3; right: 12px; top: 12px; padding: 6px 11px; border-radius: 999px; background: rgba(33, 2, 2, .65); color: #F8F4EC; font: 700 12px/1 var(--font-body); }
+.cbc-dots { display: flex; justify-content: center; gap: 7px; }
+.cbc-dots:empty { display: none; }
+.cbc-dots i { width: 8px; height: 8px; border-radius: 50%; background: #6E4A32; transition: width .3s, background .3s; }
+.cbc-dots i.on { width: 22px; border-radius: 9px; background: #F8F4EC; }

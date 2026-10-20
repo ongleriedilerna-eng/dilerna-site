@@ -94,8 +94,10 @@ Pet friendly : Marie est dessinée bras le long du corps, mains posées sur le b
   est au milieu de l'écran (`[data-tease]`, `--p` réglé dans main.js). Elle n'a aimé ni le décollement en boucle, ni le scotch
   qui lâche et se balance. Ne pas changer le texte.
 - Carte blanche : **toute la carte se retourne** (bouton « Touche pour voir une Carte blanche » sous la carte, ou on la fait
-  glisser) ; au dos, **la demande en haut et le résultat en bas**. Ne pas toucher au contenu de la carte elle-même.
-  Photos dans `js/config.js` → `carteBlanche` (la 1re est affichée). 1re Carte blanche : thème L'Étrange Noël de Monsieur Jack
+  glisser) ; au dos (choix D1 de Marie) : **le résultat en grand**, le thème dans un **petit rond** en bas à gauche
+  (« Le thème · ce qu'on m'a demandé »), titre « Le résultat » + « Carte blanche · {titre} ». S'il y en a plusieurs, on les fait
+  glisser une par une (petits points + « 1 / 3 »). Ne pas toucher au contenu de la carte elle-même.
+  Photos dans `js/config.js` → `carteBlanche` (une ligne par Carte blanche : titre, demande = thème, resultat). 1re Carte blanche : thème L'Étrange Noël de Monsieur Jack
   (en haut : image « Tim Burton » choisie par Marie, `assets/img/carte-blanche/theme-tim-burton.webp`, légende « Le thème » ;
   Marie n'aimait pas les couleurs de l'image d'inspi, et on n'utilise pas d'images Pinterest (droits) ; résultat = `creations/creation-04.webp`).
 - Agenda / réservation en ligne : plus tard.
