@@ -147,9 +147,9 @@
   /* La fenêtre a deux pages : d'abord « pour quoi ? » (les prestations), puis « où m'écrire ? ».
      Un bouton qui sait déjà la prestation (cartes des prestations, Carte blanche, Club…) ouvre directement la 2e page. */
   var RDV_PRESTA = [
-    ["Pose américaine", "une pose américaine"], ["Gainage", "un gainage"], ["Remplissage", "un remplissage gainage"],
-    ["Semi renforcé", "une pose semi renforcée"], ["Nail art", "un nail art. Je t'envoie la photo de ce que j'aimerais, pour avoir un devis"],
-    ["Carte blanche", "une Carte blanche ! Je t'envoie mon thème et mes photos d'inspiration"], ["Dépose", "une dépose"]
+    ["Pose américaine", "une pose américaine", "60 €"], ["Gainage", "un gainage", "60 €"], ["Remplissage", "un remplissage gainage", "50 €"],
+    ["Semi renforcé", "une pose semi renforcée", "40 €"], ["Nail art", "un nail art. Je t'envoie la photo de ce que j'aimerais, pour avoir un devis", "sur devis"],
+    ["Carte blanche", "une Carte blanche ! Je t'envoie mon thème et mes photos d'inspiration", "120 €"], ["Dépose", "une dépose", "dès 15 €"]
   ];
   function rdvStep(which) { $$("[data-rdv-step]", sheet).forEach(function (st) { st.classList.toggle("is-on", st.getAttribute("data-rdv-step") === which); }); }
   function rdvNameOf(msg) {

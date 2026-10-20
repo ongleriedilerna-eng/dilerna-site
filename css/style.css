@@ -1497,3 +1497,8 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 .sheet[data-sheet] .sheet__actions .btn { min-height: 56px; font-size: 15px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .sheet[data-sheet] .sheet__close { letter-spacing: .12em; text-transform: uppercase; font-size: 12.5px; }
 .sheet__title[data-rdv-name] { font-size: clamp(26px, 8.4vw, 36px); text-transform: uppercase; }
+
+/* choix n°1 de Marie : les prestations en deux colonnes égales, la dernière sur toute la largeur, sans prix */
+.rdv-pills { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.rdv-pill { display: flex; align-items: center; justify-content: center; padding: 15px 4px; font-size: 13px; letter-spacing: .05em; white-space: nowrap; }
+.rdv-pill:last-child:nth-child(odd) { grid-column: span 2; }
