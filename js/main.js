@@ -163,12 +163,30 @@
   if (sheet) {
     $("[data-sheet-close]", sheet).addEventListener("click", function () { sheet.close(); });
     sheet.addEventListener("click", function (e) { if (e.target === sheet) sheet.close(); });
-    $("[data-sheet-ig]").addEventListener("click", function () { copyForInsta(sheetMsg); });
+    $("[data-sheet-ig]").addEventListener("click", function (e) { if (openIgMsg(sheetMsg)) { e.preventDefault(); sheet.close(); } });
+  }
+  // fenêtre « Ton message » : la cliente voit son message, un bouton le copie et ouvre Instagram
+  var igmsg = $("[data-igmsg]"), igMsgText = RDV_MSG;
+  function openIgMsg(msg) {
+    if (!igmsg || !igmsg.showModal) return false;
+    igMsgText = msg || RDV_MSG;
+    $("[data-igmsg-text]", igmsg).textContent = igMsgText;
+    $("[data-igmsg-go]", igmsg).href = igLink(igMsgText);
+    igmsg.showModal(); igmsg.focus({ preventScroll: true });
+    return true;
+  }
+  if (igmsg) {
+    $("[data-igmsg-go]", igmsg).addEventListener("click", function () {
+      if (navigator.clipboard) navigator.clipboard.writeText(igMsgText).catch(function () {});
+      setTimeout(function () { igmsg.close(); }, 400);
+    });
+    $("[data-igmsg-close]", igmsg).addEventListener("click", function () { igmsg.close(); });
+    igmsg.addEventListener("click", function (e) { if (e.target === igmsg) igmsg.close(); });
   }
   // bulle « Écrire sur Instagram » de la partie contact
   $$("[data-ig-copy]").forEach(function (el) {
     el.href = igLink(RDV_MSG);
-    el.addEventListener("click", function () { copyForInsta(RDV_MSG); });
+    el.addEventListener("click", function (e) { if (openIgMsg(RDV_MSG)) e.preventDefault(); else copyForInsta(RDV_MSG); });
   });
   $$("[data-wa]").forEach(function (el) { el.href = waLink(RDV_MSG); });
 

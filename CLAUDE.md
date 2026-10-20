@@ -50,6 +50,8 @@ Carte des horaires : jours L→D en ronds, puis un sticker crème penché (washi
 ## Prise de rendez-vous (`js/main.js`, fenêtre « On se fait les ongles ? »)
 **Instagram ne permet pas d'écrire le message à l'avance** dans la conversation (aucun site ne peut le faire ; testé par Marie,
 le `?text=` non officiel est ignoré par l'appli). Le message est copié et une consigne dit de le coller.
+Avant d'ouvrir Instagram, une fenêtre « Ton message » (choix n°1 de Marie) montre le message et un seul bouton
+« Copier et ouvrir Instagram » (+ « Dans Instagram : appuie dans la barre puis « Coller ». »).
 **WhatsApp le permet** (`wa.me/33745073235?text=…`) : bouton « Écrire sur WhatsApp » dans la fenêtre et dans « On papote ? ».
 Message par défaut : « Bonjour Marie, j'aimerais prendre rendez-vous. Quelles sont tes disponibilités ? » (général : Marie
 propose plusieurs prestations).

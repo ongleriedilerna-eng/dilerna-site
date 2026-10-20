@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..900,0..100,0..1;1,9..144,400..900,0..100,0..1&family=Allura&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Sacramento&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20261020d">
+  <link rel="stylesheet" href="css/style.css?v=20261020e">
 
   <!-- Thème appliqué avant l'affichage (évite le flash clair/sombre) -->
   <script>
@@ -622,6 +622,18 @@
     </div>
   </dialog>
 
+  <!-- FENÊTRE « TON MESSAGE » : Instagram ne laisse pas pré-écrire le message, on le copie avant d'ouvrir l'appli -->
+  <dialog class="sheet igmsg" data-igmsg aria-labelledby="igmsg-title" tabindex="-1">
+    <div class="sheet__inner">
+      <span class="sheet__grip" aria-hidden="true"></span>
+      <p class="sheet__title t-soft" id="igmsg-title">Ton message</p>
+      <p class="igmsg__msg" data-igmsg-text></p>
+      <a class="btn btn--choco btn--ig igmsg__go" href="https://ig.me/m/ongleriedilerna" target="_blank" rel="noopener" data-igmsg-go>Copier et ouvrir Instagram</a>
+      <p class="igmsg__note">Dans Instagram : appuie dans la barre puis « Coller ».</p>
+      <button class="sheet__close" type="button" data-igmsg-close>Fermer</button>
+    </div>
+  </dialog>
+
   <!-- CLUB DILERNA : l'abonnement (avantages imaginés par Marie, 15 € par mois) -->
   <dialog class="sheet club" data-club aria-labelledby="club-title" tabindex="-1">
     <span class="club__price" aria-hidden="true"><b>15 €</b><small>par mois</small></span>
@@ -650,10 +662,10 @@
 
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
   <script async src="https://www.instagram.com/embed.js"></script>
-  <script src="js/config.js?v=20261020d"></script>
-  <script src="js/main.js?v=20261020d"></script>
-  <script src="js/pour.js?v=20261020d"></script>
-  <script src="js/club.js?v=20261020d"></script>
-  <script src="js/titles.js?v=20261020d"></script>
+  <script src="js/config.js?v=20261020e"></script>
+  <script src="js/main.js?v=20261020e"></script>
+  <script src="js/pour.js?v=20261020e"></script>
+  <script src="js/club.js?v=20261020e"></script>
+  <script src="js/titles.js?v=20261020e"></script>
 </body>
 </html>
