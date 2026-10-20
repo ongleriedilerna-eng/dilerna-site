@@ -217,7 +217,7 @@
     if (cbFirst.demande) { dem.src = cbFirst.demande; dem.alt = "La demande de la cliente" + (cbFirst.theme ? " : " + cbFirst.theme : ""); }
     else dem.closest("figure").hidden = true;
     res.src = cbFirst.resultat; res.alt = "Le résultat : la Carte blanche réalisée par Marie";
-    if (cbFirst.theme) $("figcaption", dem.closest("figure")).textContent = "La demande : " + cbFirst.theme;
+    $("figcaption", dem.closest("figure")).textContent = (cbFirst.label || "La demande") + (cbFirst.theme ? " : " + cbFirst.theme : "");
     var cbBtn = $(".cb-flip__btn", cbFlip); cbBtn.hidden = false;
     cbFlip.classList.add("is-ready");
     var turn = function () {

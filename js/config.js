@@ -57,10 +57,10 @@ window.DILERNA = {
      url = lien de la publication (sinon, lien vers le profil). */
   /* Carte blanche : la carte se retourne et montre, au dos, la demande (en haut) et le résultat (en bas). Une ligne par Carte blanche (la 1re est affichée) :
      demande = la photo d'inspiration envoyée par la cliente, resultat = la photo du nail art fini (mains uniquement),
-     theme = le thème demandé, si la cliente a donné un thème plutôt qu'une photo (sinon laisser "").
+     theme = le thème demandé ; label = le mot affiché sur la photo du haut (« La demande » par défaut, « Le thème » pour une illustration).
      Tant que la liste est vide, la carte ne se retourne pas. */
   carteBlanche: [
-    { demande: "assets/img/carte-blanche/demande-1.webp", resultat: "assets/img/creations/creation-04.webp", theme: "L'Étrange Noël de Monsieur Jack" },
+    { demande: "assets/img/carte-blanche/theme-jack.svg", label: "Le thème", resultat: "assets/img/creations/creation-04.webp", theme: "L'Étrange Noël de Monsieur Jack" },
   ],
 
   instaPosts: [
