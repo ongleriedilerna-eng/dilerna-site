@@ -161,20 +161,20 @@ window.DILERNA = {
     "assets/img/ongles-orbite/ongle-07.webp",
   ],
 
-  /* Couleur du mois : une par mois (janvier → décembre).
-     Palette rouge, marron, rose, pâle, crème. */
+  /* Couleur du mois : une par mois (janvier → décembre), choisies par Marie le 20/10/2026.
+     Le site prend tout seul la couleur du mois en cours (heure du téléphone de la cliente). */
   colors: [
-    { name: "Bleu glacier",     hex: "#7FA7D3" },   // janvier
-    { name: "Vert pistache",    hex: "#8DB580" },   // février
-    { name: "Rose dragée",      hex: "#E39AAE" },   // mars
-    { name: "Nude rosé",        hex: "#D7AE9F" },   // avril
-    { name: "Fraise écrasée",   hex: "#C9445C" },   // mai
-    { name: "Coquillage",       hex: "#E8C9B0" },   // juin
-    { name: "Rouge tomate",     hex: "#C2302E" },   // juillet
-    { name: "Jaune soleil",     hex: "#F2C14E" },   // août
-    { name: "Praline",          hex: "#9A6A52" },   // septembre
-    { name: "Chocolat chaud",   hex: "#6E4A32" },   // octobre
-    { name: "Bordeaux velours", hex: "#6D1F2E" },   // novembre
-    { name: "Cerise noire",     hex: "#8E1B2F" }    // décembre
+    { name: "Milky",           hex: "#EEE6DA" },   // janvier : blanc laiteux
+    { name: "Bleu porcelaine", hex: "#8FA9C4" },   // février
+    { name: "Vert sauge",      hex: "#9DAE8F" },   // mars
+    { name: "Nude rosé",       hex: "#D7AE9F" },   // avril
+    { name: "Pêche",           hex: "#E8B293" },   // mai
+    { name: "Terracotta",      hex: "#B5694A" },   // juin
+    { name: "Jaune pastel",    hex: "#F3DC8C" },   // juillet
+    { name: "Rose",            hex: "#E07A9A" },   // août : un vrai rose
+    { name: "Praline",         hex: "#9A6A52" },   // septembre (pas encore choisi par Marie : on garde Praline)
+    { name: "Chocolat chaud",  hex: "#6E4A32" },   // octobre
+    { name: "Bordeaux",        hex: "#6D1F2E" },   // novembre
+    { name: "Rouge myrte",     hex: "#A3192B" }    // décembre : le vrai rouge de Noël
   ]
 };
