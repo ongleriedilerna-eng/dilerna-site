@@ -1399,25 +1399,23 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 /* avis Google qui défilent tout seuls : pas d'aimantation pendant le défilement automatique */
 .reviews.is-auto { scroll-snap-type: none; }
 
-/* ===== Carte blanche : avant / après (curseur), choix de Marie parmi 5 idées ===== */
-.cb-ba { margin: 18px 0 16px; }
-.cb-ba__row { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 -24px; padding: 0 24px; }
-.cb-ba__row::-webkit-scrollbar { display: none; }
-.cb-ba__frame { --x: 50%; position: relative; flex: 0 0 100%; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; scroll-snap-align: center; touch-action: pan-y; background: #4E2E22; }
-.cb-ba__row:has(.cb-ba__frame + .cb-ba__frame) .cb-ba__frame { flex-basis: 88%; }
-.cb-ba__after, .cb-ba__before img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.cb-ba__before { position: absolute; inset: 0; z-index: 1; clip-path: inset(0 calc(100% - var(--x)) 0 0); }
-.cb-ba__before--theme { display: grid; place-content: center; gap: 8px; padding: 24px; text-align: center; background: #F2E8E1; color: #4E2E22; }
-.cb-ba__before--theme small { font: 700 11px/1 var(--font-body); letter-spacing: .22em; text-transform: uppercase; color: #9A8270; }
-.cb-ba__before--theme b { font: 800 26px/1.15 "Fraunces", var(--font-display); font-variation-settings: "SOFT" 100, "opsz" 144; }
-.cb-ba__tag { position: absolute; z-index: 2; bottom: 10px; padding: 6px 11px; border-radius: 999px; background: rgba(248, 244, 236, .92); color: #4E2E22; font: 700 11px/1 var(--font-body); letter-spacing: .08em; pointer-events: none; }
-.cb-ba__tag--a { left: 10px; } .cb-ba__tag--b { right: 10px; }
-.cb-ba__bar { position: absolute; z-index: 3; top: 0; bottom: 0; left: var(--x); width: 3px; margin-left: -1.5px; background: #F8F4EC; pointer-events: none; }
-.cb-ba__knob { position: absolute; z-index: 4; top: 50%; left: var(--x); width: 42px; height: 42px; margin: -21px 0 0 -21px; border-radius: 50%; background: #F8F4EC; box-shadow: 0 6px 14px -6px rgba(0, 0, 0, .6); display: grid; place-items: center; pointer-events: none; }
-.cb-ba__knob::before { content: ""; width: 2px; height: 14px; border-radius: 2px; background: #AB9680; box-shadow: 6px 0 #AB9680, -6px 0 #AB9680; }
-.cb-ba__frame input { position: absolute; z-index: 5; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
-.cb-ba__hint { margin: 10px 0 0; text-align: center; font: 600 12.5px/1.3 var(--font-body); color: #E9DFD2 !important; }
 
 /* ===== Haut du téléphone (heure, batterie) sur l'accueil : même couleur que l'animation, pas de trait clair ===== */
 .status-tint { position: fixed; z-index: 70; top: 0; left: 0; right: 0; height: max(2px, env(safe-area-inset-top)); background: #A89A8B; pointer-events: none; transition: opacity .3s; }
 .status-tint.is-off { opacity: 0; }
+
+/* ===== Carte blanche : toute la carte se retourne ; au dos, la demande en haut et le résultat en bas ===== */
+.cb-flip { position: relative; max-width: 560px; margin: 34px auto 0; perspective: 1600px; }
+.cb-flip .carte-blanche { margin: 0; }
+.cb-flip__in { position: relative; transform-style: preserve-3d; transition: transform .9s cubic-bezier(.3, 1.15, .4, 1); }
+.cb-flip.is-flipped .cb-flip__in { transform: rotateY(180deg); }
+.cb-flip__front, .cb-flip__back { -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+.cb-flip__back { position: absolute; inset: 0; transform: rotateY(180deg); display: flex; flex-direction: column; gap: 10px; padding: 16px; }
+.cb-flip:not(.is-ready) .cb-flip__back { display: none; }
+.cb-back__ph { position: relative; flex: 1; min-height: 0; margin: 0; border-radius: 20px; overflow: hidden; background: #2A1810; }
+.cb-back__ph img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cb-back__ph figcaption { position: absolute; left: 10px; bottom: 10px; max-width: calc(100% - 20px); padding: 7px 12px; border-radius: 999px; background: rgba(248, 244, 236, .94); color: #4E2E22; font: 700 12px/1.2 var(--font-body); }
+.cb-flip__btn { display: block; margin: 16px auto 0; padding: 12px 22px; border: 0; border-radius: 999px; background: #4E2E22; color: #F8F4EC; font: 700 14px/1 var(--font-body); letter-spacing: .02em; cursor: pointer; animation: cbPulse 2.6s ease-in-out infinite; }
+.cb-flip__btn[hidden] { display: none; }
+@keyframes cbPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(78, 46, 34, .35); } 60% { box-shadow: 0 0 0 10px rgba(78, 46, 34, 0); } }
+@media (prefers-reduced-motion: reduce) { .cb-flip__in { transition: none; } .cb-flip__btn { animation: none; } }

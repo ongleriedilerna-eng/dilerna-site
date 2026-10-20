@@ -91,8 +91,8 @@ Pet friendly : Marie est dessinée bras le long du corps, mains posées sur le b
   chocolat**, bords déchirés. Le bout du scotch de droite **se soulève quand on fait défiler la page** et se recolle quand le sticker
   est au milieu de l'écran (`[data-tease]`, `--p` réglé dans main.js). Elle n'a aimé ni le décollement en boucle, ni le scotch
   qui lâche et se balance. Ne pas changer le texte.
-- Carte blanche : Marie a choisi le **curseur avant / après** (à gauche la demande de la cliente, à droite le résultat,
-  on fait glisser le rond). Code prêt (`[data-cb-ba]`, main.js), photos à mettre dans `js/config.js` → `carteBlanche`
-  (`demande`, `resultat`, `theme`). Rien ne s'affiche tant que la liste est vide. **En attente des vraies photos de Marie**
-  (elle dit les avoir envoyées depuis son téléphone dans une autre discussion : à lui redemander ici), ne rien inventer.
+- Carte blanche : **toute la carte se retourne** (bouton « Touche pour voir une Carte blanche » sous la carte, ou on la fait
+  glisser) ; au dos, **la demande en haut et le résultat en bas**. Ne pas toucher au contenu de la carte elle-même.
+  Photos dans `js/config.js` → `carteBlanche` (la 1re est affichée). 1re Carte blanche : thème L'Étrange Noël de Monsieur Jack
+  (illustration envoyée par Marie → `assets/img/carte-blanche/demande-1.webp`, résultat = `creations/creation-04.webp`).
 - Agenda / réservation en ligne : plus tard.

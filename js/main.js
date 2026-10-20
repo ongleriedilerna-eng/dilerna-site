@@ -209,32 +209,30 @@
     teasePeel();
   }
 
-  /* ---------- Carte blanche : avant / après ----------
-     Pour chaque Carte blanche (config.js → carteBlanche) : la demande de la cliente à gauche, le résultat à droite,
-     on fait glisser le rond pour passer de l'un à l'autre. Rien ne s'affiche tant que la liste est vide. */
-  var cbBox = $("[data-cb-ba]"), cbList = C.carteBlanche || [];
-  if (cbBox && cbList.length) {
-    var cbRow = document.createElement("div"); cbRow.className = "cb-ba__row";
-    cbList.forEach(function (it, k) {
-      var fr = document.createElement("div"); fr.className = "cb-ba__frame";
-      var after = img(it.resultat, "Le résultat : la Carte blanche réalisée par Marie"); after.className = "cb-ba__after"; after.draggable = false;
-      var before = document.createElement("div"); before.className = "cb-ba__before";
-      if (it.demande) { var bi = img(it.demande, "La demande de la cliente"); bi.draggable = false; before.appendChild(bi); }
-      else { before.classList.add("cb-ba__before--theme"); before.innerHTML = "<small>Le thème</small><b></b>"; before.querySelector("b").textContent = it.theme || ""; }
-      var tagA = document.createElement("span"); tagA.className = "cb-ba__tag cb-ba__tag--a"; tagA.textContent = "La demande";
-      var tagB = document.createElement("span"); tagB.className = "cb-ba__tag cb-ba__tag--b"; tagB.textContent = "Le résultat";
-      var bar = document.createElement("span"); bar.className = "cb-ba__bar";
-      var knob = document.createElement("span"); knob.className = "cb-ba__knob";
-      var range = document.createElement("input"); range.type = "range"; range.min = 0; range.max = 100; range.value = 50;
-      range.setAttribute("aria-label", "Glisse pour comparer la demande et le résultat" + (cbList.length > 1 ? " (" + (k + 1) + ")" : ""));
-      range.addEventListener("input", function () { fr.style.setProperty("--x", range.value + "%"); });
-      [after, before, tagA, tagB, bar, knob, range].forEach(function (el) { fr.appendChild(el); });
-      cbRow.appendChild(fr);
-    });
-    cbBox.appendChild(cbRow);
-    var cbHint = document.createElement("p"); cbHint.className = "cb-ba__hint"; cbHint.textContent = "Fais glisser le rond pour voir le résultat";
-    cbBox.appendChild(cbHint);
-    cbBox.hidden = false;
+  /* ---------- Carte blanche : la carte se retourne ----------
+     On touche le bouton (ou on fait glisser la carte sur le côté) : au dos, la demande en haut et le résultat en bas. */
+  var cbFlip = $("[data-cb-flip]"), cbFirst = (C.carteBlanche || [])[0];
+  if (cbFlip && cbFirst && cbFirst.resultat) {
+    var dem = $("[data-cb-demande]", cbFlip), res = $("[data-cb-resultat]", cbFlip), back = $(".cb-flip__back", cbFlip), front = $(".cb-flip__front", cbFlip);
+    if (cbFirst.demande) { dem.src = cbFirst.demande; dem.alt = "La demande de la cliente" + (cbFirst.theme ? " : " + cbFirst.theme : ""); }
+    else dem.closest("figure").hidden = true;
+    res.src = cbFirst.resultat; res.alt = "Le résultat : la Carte blanche réalisée par Marie";
+    if (cbFirst.theme) $("figcaption", dem.closest("figure")).textContent = "La demande : " + cbFirst.theme;
+    var cbBtn = $(".cb-flip__btn", cbFlip); cbBtn.hidden = false;
+    cbFlip.classList.add("is-ready");
+    var turn = function () {
+      var on = cbFlip.classList.toggle("is-flipped");
+      back.setAttribute("aria-hidden", on ? "false" : "true"); front.setAttribute("aria-hidden", on ? "true" : "false");
+      cbBtn.textContent = on ? "Revoir la carte" : "Touche pour voir une Carte blanche";
+    };
+    $$("[data-cb-turn]", cbFlip).forEach(function (b) { b.addEventListener("click", turn); });
+    // glisser la carte sur le côté la retourne aussi
+    var sx = 0, sy = 0;
+    cbFlip.addEventListener("touchstart", function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    cbFlip.addEventListener("touchend", function (e) {
+      var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) turn();
+    }, { passive: true });
   }
 
   /* ---------- Fabrique d'ongles / tuiles ---------- */

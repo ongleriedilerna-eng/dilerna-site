@@ -187,7 +187,11 @@
       </div>
 
       <!-- Carte blanche : nail art à prix fixe -->
-      <article class="carte-blanche reveal" id="carte-blanche" aria-labelledby="cb-title">
+      <!-- Carte blanche : la carte se retourne (on la touche ou on la fait glisser) ; au dos, une vraie Carte blanche de Marie :
+           la demande en haut, le résultat en bas (photos dans config.js → carteBlanche). Sans photo, la carte ne se retourne pas. -->
+      <div class="cb-flip reveal" data-cb-flip>
+        <div class="cb-flip__in">
+      <article class="carte-blanche cb-flip__front" id="carte-blanche" aria-labelledby="cb-title">
         <span class="carte-blanche__price" aria-hidden="true"><b>120 €</b><small>prix fixe</small></span>
         <p class="eyebrow">Ton inspi, mon idée</p>
         <h3 id="cb-title">Carte blanche</h3>
@@ -197,10 +201,15 @@
           <li><b>2</b><span>Je te réserve un créneau, rien que pour ta création.</span></li>
           <li><b>3</b><span>Tu découvres le résultat.</span></li>
         </ol>
-        <!-- Avant / après des Cartes blanches de Marie (photos dans config.js → carteBlanche) : caché tant qu'il n'y en a pas -->
-        <div class="cb-ba" data-cb-ba hidden></div>
         <button class="btn btn--creme btn--cb" type="button" data-rdv data-rdv-msg="Bonjour Marie, je souhaiterais prendre rendez-vous pour une Carte blanche ! Je t'envoie mon thème et mes photos d'inspiration."><small>Prendre rendez-vous</small><b>Carte blanche</b></button>
       </article>
+          <div class="carte-blanche cb-flip__back" aria-hidden="true">
+            <figure class="cb-back__ph"><img data-cb-demande alt=""><figcaption>La demande</figcaption></figure>
+            <figure class="cb-back__ph"><img data-cb-resultat alt=""><figcaption>Le résultat</figcaption></figure>
+          </div>
+        </div>
+        <button class="cb-flip__btn" type="button" data-cb-turn hidden>Touche pour voir une Carte blanche</button>
+      </div>
 
 
     </section>
