@@ -159,3 +159,67 @@ html.is-desktop .end-sq--socials h3 { margin: 0; font-size: 30px; }
 html.is-desktop .end-sq--socials .handles { margin: 0; width: 100%; }
 html.is-desktop .end-sq--socials .contact__book { margin: 0; }
 html.is-desktop .end-row .chat { display: flex; flex-direction: column; }
+
+/* ---------- 3e version ---------- */
+/* Carte blanche : un cadre plus petit, le rond 120 € bien visible (plus coupé) */
+html.is-desktop .cb-flip { max-width: 960px; margin-left: auto; margin-right: auto; }
+html.is-desktop .cb-flip__front { padding: 34px 34px 30px; }
+html.is-desktop .cb-flip__front h3 { font-size: 42px; padding-right: 110px; }
+html.is-desktop .cb-flip .carte-blanche__price { top: 22px; right: 22px; }
+html.is-desktop .cb-flip__back { padding: 14px; }
+html.is-desktop .cb-flip__back .cbc-car { min-height: 340px; }
+html.is-desktop .cbc-arrow { width: 42px; height: 42px; margin-top: -21px; }
+html.is-desktop .cbc-arrow.is-prev { left: 26px; } html.is-desktop .cbc-arrow.is-next { right: 26px; }
+
+/* Instagram : les publications défilent toutes seules */
+html.is-desktop #creations .posts.is-running { overflow: hidden; scroll-snap-type: none; cursor: default; -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
+html.is-desktop #creations .posts.is-running .posts__track { animation: postsRun calc(var(--n, 2) * 14s) linear infinite; }
+html.is-desktop #creations .posts.is-running:hover .posts__track { animation-play-state: paused; }
+@keyframes postsRun { to { transform: translateX(calc(-100% / var(--n, 2))); } }
+@media (prefers-reduced-motion: reduce) { html.is-desktop #creations .posts.is-running .posts__track { animation: none; } }
+
+/* Louise qui passe la tête un peu partout */
+.louise-pop { position: fixed; z-index: 65; width: 92px; pointer-events: none; transition: transform .5s cubic-bezier(.34, 1.4, .5, 1); }
+.louise-pop svg { display: block; width: 100%; fill: var(--teckel); overflow: visible; filter: drop-shadow(0 4px 6px rgba(33, 2, 2, .25)); }
+.louise-pop.is-left { left: 0; top: var(--y, 50%); transform: translateX(-104%); }
+.louise-pop.is-left.is-in { transform: translateX(-60%); }
+.louise-pop.is-right { right: 0; top: var(--y, 50%); transform: translateX(104%); }
+.louise-pop.is-right.is-in { transform: translateX(60%); }
+.louise-pop.is-right svg { transform: scaleX(-1); }
+.louise-pop.is-left.is-bum svg { transform: scaleX(-1); } .louise-pop.is-right.is-bum svg { transform: none; }
+.louise-pop.is-bottom { bottom: 0; left: var(--x, 50%); transform: translateY(110%) rotate(-90deg); transform-origin: 50% 100%; }
+.louise-pop.is-bottom.is-in { transform: translateY(26%) rotate(-90deg); }
+.louise-pop .teckel__tail { animation: wag .35s ease-in-out infinite alternate; }
+
+/* A propos : la photo plus petite à gauche ; à droite le titre, « Mais qui est donc cette baddie… » puis le texte, en rectangle */
+html.is-desktop .about { grid-template-columns: 300px minmax(0, 560px); grid-template-areas: "photo head" "photo text" "salon salon"; justify-content: center; column-gap: 56px; row-gap: 10px; align-items: start; }
+html.is-desktop .about__head { grid-area: head; text-align: left; align-self: end; }
+html.is-desktop .about__head .about__title { text-align: left; }
+html.is-desktop .about__head .about__tease { margin: 14px 0 6px !important; }
+html.is-desktop .about__media { grid-area: photo; align-self: center; }
+html.is-desktop .about__photo { width: 100%; max-width: 300px; margin: 0; }
+html.is-desktop .about__text { grid-area: text; }
+html.is-desktop .about__text p { font-size: 16px; }
+html.is-desktop .salon-row { grid-area: salon; }
+
+/* Infos pratiques : tout en bas de la page, et tout tient sur un écran */
+html.is-desktop #infos { order: 2; padding-top: 48px; padding-bottom: 48px; }
+html.is-desktop #infos .section__head { margin-bottom: 18px; }
+html.is-desktop #infos .section__head h2 { margin-bottom: 0; }
+html.is-desktop .infos-row { max-width: 980px; margin: 0 auto; }
+html.is-desktop .infos-sq { min-height: 0; padding: 20px 22px; gap: 10px; }
+html.is-desktop .days { gap: 4px; }
+html.is-desktop .days li { padding: 7px 14px; font-size: 14px; }
+html.is-desktop .infos-sq .hours-sticker { transform: scale(.9); margin: 0; }
+html.is-desktop .infos-sq--addr .map { min-height: 0; height: 100%; max-height: 360px; }
+
+/* On papote ?, Bon à savoir, Mes réseaux : tout tient sur un écran */
+html.is-desktop #contact .contact__inner { padding-top: 40px; padding-bottom: 36px; gap: 12px; }
+html.is-desktop .end-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, .85fr); gap: 18px; }
+html.is-desktop .end-sq { min-height: 0; }
+html.is-desktop .end-row .rules { padding: 22px 22px; }
+html.is-desktop .end-row .rules h3 { font-size: 24px; margin-bottom: 8px; }
+html.is-desktop .end-row .rules__list { gap: 8px; }
+html.is-desktop .end-row .rules__list li { font-size: 13.5px; line-height: 1.4; }
+html.is-desktop .end-row .chat__thread { padding-bottom: 14px; }
+html.is-desktop .end-sq--socials h3 { font-size: 26px; }

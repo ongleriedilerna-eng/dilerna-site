@@ -64,6 +64,17 @@
     }
   }
 
+  /* ---------- Les publications Instagram défilent toutes seules (en boucle) ---------- */
+  var postsTrack = $("#creations .posts__track");
+  if (postsTrack && postsTrack.children.length) {
+    var orig = $$(".post", postsTrack);
+    // assez de publications pour remplir l'écran et boucler sans trou
+    var copies = Math.max(2, Math.ceil(2 * 1600 / (orig.length * 312)));
+    for (var c = 1; c < copies; c++) orig.forEach(function (p) { var q = p.cloneNode(true); q.setAttribute("aria-hidden", "true"); postsTrack.appendChild(q); });
+    postsTrack.style.setProperty("--n", copies);
+    postsTrack.parentNode.classList.add("is-running");
+  }
+
   /* ---------- Instagram : « Voir tout mon univers sur Instagram » à côté de la carte Suivre ---------- */
   var instaHead = $("#creations .insta-head"), instaCta = $("#creations .gallery__cta");
   if (instaHead && instaCta) {
@@ -158,5 +169,25 @@
       }, { threshold: 0.3 });
       io.observe(comforts);
     } else comforts.classList.add("is-popped");
+  }
+
+  /* ---------- Louise passe la tête un peu partout (sur les côtés et par le bas de l'écran) ---------- */
+  var tpl = $("[data-louise] svg");
+  if (tpl && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var pop = document.createElement("div"); pop.className = "louise-pop"; pop.setAttribute("aria-hidden", "true");
+    pop.appendChild(tpl.cloneNode(true)); document.body.appendChild(pop);
+    var sides = ["left", "right", "bottom"];
+    var show = function () {
+      if (!document.hidden && !document.querySelector("dialog[open]")) {
+        var side = sides[Math.floor(Math.random() * sides.length)];
+        pop.className = "louise-pop is-" + side + (Math.random() < .4 ? " is-bum" : "");
+        if (side === "bottom") pop.style.setProperty("--x", (12 + Math.random() * 70).toFixed(0) + "%");
+        else pop.style.setProperty("--y", (18 + Math.random() * 62).toFixed(0) + "%");
+        requestAnimationFrame(function () { requestAnimationFrame(function () { pop.classList.add("is-in"); }); });
+        setTimeout(function () { pop.classList.remove("is-in"); }, 1500 + Math.random() * 900);
+      }
+      setTimeout(show, 7000 + Math.random() * 7000);
+    };
+    setTimeout(show, 4500);
   }
 })();

@@ -30,6 +30,10 @@ Marie a validé la version téléphone : elle ne doit plus bouger quand on trava
   couleur du mois) sort vraiment de l'écran ; photos de Mon salon qui défilent toutes seules, vite, comme les avis ; à la place de « Tu as aimé ta pose ? »,
   un simple bouton « Laisser un avis Google » sous les avis ; Infos = 2 carrés pareils (horaires jour par jour, Lundi → Dimanche, et l'adresse) ;
   en bas, 3 carrés sur une ligne : On papote ? (la conversation), Bon à savoir, Mes réseaux + Prendre rendez-vous.
+- 3e version (21/10/2026) : Carte blanche plus petite (960 px), rond 120 € descendu dans la carte ; publications Insta qui défilent en boucle ;
+  Louise passe la tête un peu partout (côtés et bas de l'écran, toutes les 7 à 14 s) ; A propos : photo 300 px à gauche, à droite le titre,
+  le sticker « Mais qui est donc cette baddie… » puis le texte en rectangle ; Infos pratiques **tout en bas** et compactes (tiennent sur un écran) ;
+  On papote ? / Bon à savoir / Mes réseaux plus compacts (tiennent sur un écran). Chaque bloc doit tenir sur un écran (Marie ne veut pas défiler).
 - Vérification du téléphone : `cdpsig.py` (empreinte de la position/taille de chaque élément à 390 px), à comparer avant/après.
 
 ## Infos réelles
