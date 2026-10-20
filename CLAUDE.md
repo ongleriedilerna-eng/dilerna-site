@@ -62,7 +62,7 @@ Avis Google : la carte « Tu as aimé ta pose ? » mène au lien direct « Rédi
 Le bouton « Suivre » ouvre le profil Instagram (impossible de s'abonner automatiquement depuis un site).
 
 ## Club Dilerna (abonnement, `js/club.js`)
-Prix décidé par Marie : **9 € par mois** (15 € au départ, passé à 9 € le 20/10/2026) (seulement dans la pastille ronde qui bouge, comme celle de la Carte blanche ;
+Prix décidé par Marie : **15 € par mois** (passé à 9 € puis remis à 15 € le 20/10/2026) (seulement dans la pastille ronde qui bouge, comme celle de la Carte blanche ;
 phrase d'intro : « Des petits plus rien que pour toi, toute l'année. »). **Places restantes** sous « Abonnement mensuel » :
 nombre réglé dans `js/config.js` → `clubPlaces` (21 au départ ; baisser de 1 à chaque inscrite ; 0 = « Complet »).
 Plus de phrase « Le club ouvre bientôt ». Tailles d'origine (Marie trouvait la version resserrée trop tassée) ; la fiche fait
@@ -97,3 +97,7 @@ Pet friendly : Marie est dessinée bras le long du corps, mains posées sur le b
   (en haut : illustration originale aux couleurs de la pose, `assets/img/carte-blanche/theme-jack.svg`, légende « Le thème » ;
   Marie n'aimait pas les couleurs de l'image d'inspi, et on n'utilise pas d'images Pinterest (droits) ; résultat = `creations/creation-04.webp`).
 - Agenda / réservation en ligne : plus tard.
+
+## Mise en ligne
+Après chaque modification de `css/` ou `js/`, changer le numéro `?v=…` des liens dans `index.html` (ex. `?v=20261020b`)
+pour que les téléphones rechargent la nouvelle version au lieu d'une ancienne gardée en mémoire.
