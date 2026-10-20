@@ -179,7 +179,6 @@
   function openRdv(msg) {
     setRdvMsg(msg);
     if (rdvPills) { if (msg) { $("[data-rdv-name]", sheet).textContent = rdvNameOf(msg); rdvStep("ou"); } else rdvStep("quoi"); }
-    $("[data-sheet-tel]").hidden = !isTouch;
     $("[data-sheet-sms]").hidden = !isTouch;
     if (sheet.showModal) { sheet.showModal(); sheet.focus({ preventScroll: true }); } else { copyForInsta(sheetMsg); window.open(igLink(sheetMsg), "_blank", "noopener"); }
   }
