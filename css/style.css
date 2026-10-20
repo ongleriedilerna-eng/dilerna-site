@@ -1526,3 +1526,9 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 .chat__call { margin-left: auto; flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #4E2E22; color: #F8F4EC; -webkit-tap-highlight-color: transparent; transition: background .2s, transform .2s var(--ease); }
 .chat__call svg { width: 19px; height: 19px; fill: currentColor; }
 .chat__call:active, .chat__call:hover { background: #6E4A32; transform: scale(.95); }
+
+/* menu : petit bouton Appeler sous « Prendre rendez-vous » */
+.menu__call { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 7px; margin-top: 10px; padding: 9px 15px; border: 1.5px solid #D5C6AF; border-radius: 999px; background: #FFFDF8; color: #4E2E22; font: 700 11.5px/1 var(--font-body); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+.menu__call svg { width: 14px; height: 14px; fill: currentColor; }
+.menu__call small { font: 600 11px/1 var(--font-body); letter-spacing: .02em; text-transform: none; color: #AB9680; }
+.menu__call:active, .menu__call:hover { background: #F2E8E1; }
