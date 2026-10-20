@@ -1401,3 +1401,11 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 .cb-flip__btn[hidden] { display: none; }
 @keyframes cbPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(78, 46, 34, .35); } 60% { box-shadow: 0 0 0 10px rgba(78, 46, 34, 0); } }
 @media (prefers-reduced-motion: reduce) { .cb-flip__in { transition: none; } .cb-flip__btn { animation: none; } }
+
+/* « gratuitement » : un peu de place en haut et en bas pour que le contour des pastilles ne soit pas coupé */
+.comforts { padding-block: 3px; }
+.comfort-track { padding-block: 2px !important; }
+
+/* Carte blanche : le rond « 120 € » disparaît pendant que la carte se retourne (il ne doit pas buguer au dos) */
+.cb-flip .carte-blanche__price { -webkit-backface-visibility: hidden; backface-visibility: hidden; transition: opacity .25s; }
+.cb-flip.is-flipped .carte-blanche__price { opacity: 0; animation: none; }

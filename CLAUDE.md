@@ -94,7 +94,7 @@ Pet friendly : Marie est dessinée bras le long du corps, mains posées sur le b
 - Carte blanche : **toute la carte se retourne** (bouton « Touche pour voir une Carte blanche » sous la carte, ou on la fait
   glisser) ; au dos, **la demande en haut et le résultat en bas**. Ne pas toucher au contenu de la carte elle-même.
   Photos dans `js/config.js` → `carteBlanche` (la 1re est affichée). 1re Carte blanche : thème L'Étrange Noël de Monsieur Jack
-  (en haut : photo de Jack choisie par Marie, `assets/img/carte-blanche/theme-jack.webp`, légende « Le thème » ;
+  (en haut : image « Tim Burton » choisie par Marie, `assets/img/carte-blanche/theme-tim-burton.webp`, légende « Le thème » ;
   Marie n'aimait pas les couleurs de l'image d'inspi, et on n'utilise pas d'images Pinterest (droits) ; résultat = `creations/creation-04.webp`).
 - Agenda / réservation en ligne : plus tard.
 

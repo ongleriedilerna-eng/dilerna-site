@@ -620,7 +620,8 @@
     var rounds = 0;
     var eat = function () {
       rounds++;
-      var W = goo.offsetWidth + 6, BITES = 7, gap = 1300;
+      // (la largeur s'arrête au début du « G » : Louise ne grignote pas la fin de « Avis »)
+      var W = goo.offsetWidth + 2, BITES = 7, gap = 1300;
       cover.style.opacity = "1";
       var place = function (w) { cover.style.width = w + "px"; dog.style.right = (w - 40) + "px"; };
       dog.style.transition = "none"; dog.style.opacity = "1"; dog.style.transform = "scaleX(-1)"; dog.style.right = "-90px";
