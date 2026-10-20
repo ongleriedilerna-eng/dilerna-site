@@ -20,6 +20,13 @@ Marie a validé la version téléphone : elle ne doit plus bouger quand on trava
 - Un changement JS pour l'ordinateur passe par `matchMedia("(min-width: 1024px)")` ; le comportement sur téléphone reste identique.
 - Pas de changement de texte, de photo ou de HTML visible sur téléphone : un élément ajouté pour l'ordinateur est caché sur téléphone.
 - Avant chaque mise en ligne : captures du téléphone (390 px) avant/après, comparées pixel à pixel ; si une seule différence apparaît, on ne publie pas.
+- Ce qui est fait (21/10/2026, 1re version) : longue bande en haut (logo, Accueil, Prestations, Inspo, Club Dilerna, Infos, À propos, Contact,
+  Prendre rendez-vous) à la place de la barre du bas ; prestations en 4 carrés (Nail art inclus) ; Carte blanche en grand, fond chocolat plus clair,
+  les vraies Cartes blanches à droite à faire glisser (plus de carte qui se retourne) ; publications Insta plus grandes, « Voir tout mon univers »
+  à côté de Suivre ; Pet friendly en bloc (texte à gauche, image à droite) ; Couleur du mois centrée ; photo de Marie un peu plus petite ;
+  Mon salon (photos plus petites) avec à côté les gratuités en bulles qui « poppent » puis flottent ; plan plus petit ; On papote ? réparé ;
+  Bon à savoir sur toute la ligne ; « Tu as aimé ta pose ? » avec les avis Google, tout en bas de la page.
+- Vérification du téléphone : `cdpsig.py` (empreinte de la position/taille de chaque élément à 390 px), à comparer avant/après.
 
 ## Infos réelles
 - Adresse : Rte de Pezza Carda Cardo, 20137 Porto-Vecchio (41.6176338, 9.300044)
