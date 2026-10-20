@@ -122,7 +122,7 @@
      Chaque bouton a son message déjà écrit : il s'écrit tout seul dans le SMS ;
      pour Instagram, il est passé dans le lien (?text=, non officiel : reconnu par
      certaines versions de l'appli) et copié en secours si l'appli l'ignore. */
-  var RDV_MSG = "Bonjour Marie, je souhaiterais prendre rendez-vous pour une pose. Quelles sont tes disponibilités ?";
+  var RDV_MSG = "Bonjour Marie, j'aimerais prendre rendez-vous. Quelles sont tes disponibilités ?";
   function igLink(msg) { return "https://ig.me/m/ongleriedilerna?text=" + encodeURIComponent(msg); }
   var sheet = $("[data-sheet]");
   var sheetMsg = RDV_MSG;
@@ -133,12 +133,12 @@
     if (!toastEl) { toastEl = document.createElement("p"); toastEl.className = "toast"; toastEl.setAttribute("role", "status"); document.body.appendChild(toastEl); }
     toastEl.textContent = text;
     toastEl.classList.add("is-on");
-    clearTimeout(toastT); toastT = setTimeout(function () { toastEl.classList.remove("is-on"); }, 4200);
+    clearTimeout(toastT); toastT = setTimeout(function () { toastEl.classList.remove("is-on"); }, 6000);
   }
   function copyForInsta(msg) {
     if (!navigator.clipboard) return;
     navigator.clipboard.writeText(msg).then(function () {
-      toast("Ton message est prêt ! S'il n'apparaît pas dans Instagram, appuie dans la zone de texte puis « Coller ».");
+      toast("Message copié ✓ Dans Instagram, appuie dans la barre d'écriture, choisis « Coller », puis envoie !");
     }).catch(function () {});
   }
 
