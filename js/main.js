@@ -124,6 +124,8 @@
      certaines versions de l'appli) et copié en secours si l'appli l'ignore. */
   var RDV_MSG = "Bonjour Marie, j'aimerais prendre rendez-vous. Quelles sont tes disponibilités ?";
   function igLink(msg) { return "https://ig.me/m/ongleriedilerna?text=" + encodeURIComponent(msg); }
+  // WhatsApp, lui, accepte officiellement le message dans le lien : il s'écrit tout seul, il n'y a plus qu'à envoyer
+  function waLink(msg) { return "https://wa.me/33745073235?text=" + encodeURIComponent(msg); }
   var sheet = $("[data-sheet]");
   var sheetMsg = RDV_MSG;
 
@@ -149,6 +151,7 @@
     box.textContent = "« " + sheetMsg + " »";
     $("[data-sheet-sms]").href = "sms:+33745073235?&body=" + encodeURIComponent(sheetMsg);
     $("[data-sheet-ig]").href = igLink(sheetMsg);
+    $("[data-sheet-wa]").href = waLink(sheetMsg);
     $("[data-sheet-tel]").hidden = !isTouch;
     $("[data-sheet-sms]").hidden = !isTouch;
     if (sheet.showModal) { sheet.showModal(); sheet.focus({ preventScroll: true }); } else { copyForInsta(sheetMsg); window.open(igLink(sheetMsg), "_blank", "noopener"); }
@@ -170,6 +173,7 @@
     el.href = igLink(RDV_MSG);
     el.addEventListener("click", function () { copyForInsta(RDV_MSG); });
   });
+  $$("[data-wa]").forEach(function (el) { el.href = waLink(RDV_MSG); });
 
   /* ---------- Sticker « A propos » ----------
      Le bout du scotch de droite se soulève quand on fait défiler la page,
