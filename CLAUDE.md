@@ -166,3 +166,6 @@ pour que les téléphones rechargent la nouvelle version au lieu d'une ancienne 
 - Le bouton rond au milieu de la barre du bas affiche **« Prendre rendez-vous »** et ouvre la fiche de rendez-vous (`data-rdv`),
   à la place de « Club Dilerna » (demande de Marie, « pour l'instant »). Le club reste accessible par le Menu et, sur ordinateur,
   par la bande du haut (`ordinateur.js` ouvre maintenant le club via `.menu__club`).
+- Club Dilerna en mode « bientôt » (20/10/2026, demande de Marie) : la fiche n'affiche que « Club Dilerna » et
+  « Une surprise arrive bientôt… ». Prix, places, avantages et bouton sont gardés dans le HTML (`data-later`) ;
+  pour les remettre, retirer la classe `club--soon` du `<dialog>` (Marie les remettra plus tard, avec les nouvelles conditions).

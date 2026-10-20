@@ -37,7 +37,7 @@
   <!-- Polices : Gloock (titres, serif contrastée comme les cadres DILERNA du salon), DM Sans (textes), Sacramento (néon) — servies par le site lui-même (css/fonts.css) : rien n'est envoyé à Google -->
   <link rel="stylesheet" href="css/fonts.css?v=20261021x">
 
-  <link rel="stylesheet" href="css/style.css?v=20261021y">
+  <link rel="stylesheet" href="css/style.css?v=20261021z">
   <!-- Version ordinateur : chargée seulement sur les grands écrans, un téléphone ne la lit jamais -->
   <link rel="stylesheet" href="css/ordinateur.css?v=20261021x" media="(min-width: 1024px)">
 
@@ -664,14 +664,15 @@
   </dialog>
 
   <!-- CLUB DILERNA : l'abonnement (avantages imaginés par Marie, 15 € par mois) -->
-  <dialog class="sheet club" data-club aria-labelledby="club-title" tabindex="-1">
-    <span class="club__price" aria-hidden="true"><b>15 €</b><small>par mois</small></span>
+  <dialog class="sheet club club--soon" data-club aria-labelledby="club-title" tabindex="-1">
+    <span class="club__price" data-later aria-hidden="true"><b>15 €</b><small>par mois</small></span>
     <div class="sheet__inner club__inner">
       <span class="sheet__grip" aria-hidden="true"></span>
-      <p class="club__eyebrow">Abonnement mensuel<br><b data-club-places>21 places restantes</b></p>
+      <p class="club__eyebrow" data-later>Abonnement mensuel<br><b data-club-places>21 places restantes</b></p>
       <p class="club__title t-soft" id="club-title">Club Dilerna</p>
-      <p class="club__lead">Des petits plus rien que pour toi, toute l'année.</p>
-      <ul class="club__perks">
+      <p class="club__soon t-soft">Une surprise arrive bientôt…</p>
+      <p class="club__lead" data-later>Des petits plus rien que pour toi, toute l'année.</p>
+      <ul class="club__perks" data-later>
         <li><span class="club__ico" aria-hidden="true">💅</span><b>La French offerte</b>, à chaque fois que tu en veux une</li>
         <li><span class="club__ico" aria-hidden="true">🩹</span><b>Toutes les déposes offertes</b>, même si tu dois enlever tes ongles sans repose (hôpital, imprévu…)</li>
         <li><span class="club__ico" aria-hidden="true">🎨</span><b>Un nuancier privé</b>, avec des couleurs réservées aux membres</li>
@@ -682,7 +683,7 @@
         <li><span class="club__ico" aria-hidden="true">🧴</span><b>Une huile offerte</b> à ta première prestation au club</li>
         <li><span class="club__ico" aria-hidden="true">💌</span><b>Parrainage</b> : une copine qui vient, c'est −10 %. Une amie qui s'abonne, c'est un mois offert pour toi</li>
       </ul>
-      <div class="sheet__actions">
+      <div class="sheet__actions" data-later>
         <button class="btn btn--choco" type="button" data-club-join data-rdv data-rdv-msg="Bonjour Marie, je suis intéressée par le Club Dilerna ! Tu peux me prévenir à l'ouverture ?">Je veux faire partie du club</button>
       </div>
       <button class="club__close" type="button" data-club-close aria-label="Fermer">×</button>
