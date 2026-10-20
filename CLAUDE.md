@@ -36,7 +36,7 @@ avec la médaille dorée qui pend dessous ; Louise a un petit cou et une oreille
 ## Structure de la page (ordre actuel)
 **Pas de logo ni de barre en haut de la page** (header caché, Marie le trouvait inutile) · Menu (Club Dilerna qui brille en premier, puis Accueil, Infos, Inspi, À propos, Contact + Louise et « Prendre rendez-vous »)
 · **Accueil** : animation 3D jouée automatiquement (`js/pour.js`, images `assets/hero3d/`), infos CAP / Porto-Vecchio / avis en haut (variante `#…bas` = en bas)
-· **Prestations** : bloc Louise + « Prendre rendez-vous » tout en haut (en essai : sticker crème penché tenu par 2 washi à pois, « Je réponds vite ! » dessous, classe `.rdv-sticker` ; avant c'était un gros bouton chocolat `btn--choco btn--huge`), titre, cartes empilées, devis nail art, Carte blanche
+· **Prestations** : bloc Louise + « Prendre rendez-vous » tout en haut (**sticker crème penché** tenu par 2 washi à pois, « Je réponds vite ! » dessous, classe `.rdv-sticker`, validé par Marie le 20/10/2026 ; avant : gros bouton chocolat), titre, cartes empilées, devis nail art, Carte blanche
 · Les dernières du salon (Instagram, photos **non cliquables**, on les fait glisser), lien Instagram, **une ligne de nail art** qui glisse toute seule (config → `creations`, 24 photos, les nouvelles en premier ; sans titre), dessous un petit bouton « Voir tous mes nail arts » qui ouvre une fenêtre avec toutes les photos en 2 colonnes (choix n°2 de Marie), puis carte « Tu as aimé ta pose ? »
 · Pet friendly · Couleur du mois · Besoin d'inspiration (Pinterest) · A propos (sans accent) + Mon salon
 · Infos pratiques (horaires, adresse, plan, « Tu es devant et tu ne trouves pas ? Appelle-moi »)

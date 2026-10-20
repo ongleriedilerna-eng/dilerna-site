@@ -1460,7 +1460,7 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 .cb-flip__back .cbc-dots i { width: 7px; height: 7px; background: rgba(248, 244, 236, .45); }
 .cb-flip__back .cbc-dots i.on { width: 20px; background: #F8F4EC; }
 
-/* bouton « Prendre rendez-vous » en haut des prestations : sticker crème penché tenu par deux bouts de washi à pois (essai n°2 de Marie) */
+/* bouton « Prendre rendez-vous » en haut des prestations : sticker crème penché tenu par deux bouts de washi à pois (choix n°2 de Marie, validé) */
 .rdv-sticker { position: relative; z-index: 2; width: 92%; max-width: 340px; padding: 18px 16px 16px; border: 0; border-radius: 18px; background: #FFFDF8; color: #4E2E22; text-align: center; cursor: pointer; transform: rotate(-2deg); box-shadow: 0 14px 24px -16px rgba(78, 46, 34, .7), 0 0 0 1px #EADFD2; transition: transform .2s var(--ease); -webkit-tap-highlight-color: transparent; }
 .rdv-sticker b { display: block; font-size: clamp(20px, 6vw, 24px); font-weight: 800; line-height: 1; white-space: nowrap; color: #4E2E22; }
 .rdv-sticker small { display: block; margin-top: 6px; font: 600 13px/1.2 var(--font-body); color: #AB9680; }
