@@ -1484,3 +1484,4 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 #creations .nailline { margin-top: 0; }
 #creations .insta-head { margin: 34px 0 22px; }
 #creations .rate--after-insta { margin-top: 30px; }
+#creations .insta-hint { margin: 10px 0 0; text-align: center; font-size: 14px; color: #8A7666; }
