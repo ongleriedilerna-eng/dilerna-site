@@ -144,11 +144,41 @@
     }).catch(function () {});
   }
 
-  function openRdv(msg) {
+  /* La fenêtre a deux pages : d'abord « pour quoi ? » (les prestations), puis « où m'écrire ? ».
+     Un bouton qui sait déjà la prestation (cartes des prestations, Carte blanche, Club…) ouvre directement la 2e page. */
+  var RDV_PRESTA = [
+    ["Pose américaine", "une pose américaine"], ["Gainage", "un gainage"], ["Remplissage", "un remplissage gainage"],
+    ["Semi renforcé", "une pose semi renforcée"], ["Nail art", "un nail art. Je t'envoie la photo de ce que j'aimerais, pour avoir un devis"],
+    ["Carte blanche", "une Carte blanche ! Je t'envoie mon thème et mes photos d'inspiration"], ["Dépose", "une dépose"]
+  ];
+  function rdvStep(which) { $$("[data-rdv-step]", sheet).forEach(function (st) { st.classList.toggle("is-on", st.getAttribute("data-rdv-step") === which); }); }
+  function rdvNameOf(msg) {
+    var m = (msg || "").toLowerCase();
+    if (m.indexOf("club") > -1) return "Club Dilerna";
+    for (var i = 0; i < RDV_PRESTA.length; i++) if (m.indexOf(RDV_PRESTA[i][1].split(/[.!]/)[0].toLowerCase()) > -1 || m.indexOf(RDV_PRESTA[i][0].toLowerCase()) > -1) return RDV_PRESTA[i][0];
+    return "On se fait les ongles ?";
+  }
+  var rdvPills = sheet && $("[data-rdv-pills]", sheet);
+  if (rdvPills) {
+    RDV_PRESTA.forEach(function (p) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "rdv-pill"; b.textContent = p[0];
+      b.addEventListener("click", function () {
+        setRdvMsg("Bonjour Marie, j'aimerais prendre rendez-vous pour " + p[1] + (p[1].slice(-1) === "!" || p[1].indexOf("devis") > -1 || p[1].indexOf("inspiration") > -1 ? "." : ". Quelles sont tes disponibilités ?"));
+        $("[data-rdv-name]", sheet).textContent = p[0]; rdvStep("ou"); sheet.focus({ preventScroll: true });
+      });
+      rdvPills.appendChild(b);
+    });
+    $("[data-rdv-back]", sheet).addEventListener("click", function () { rdvStep("quoi"); });
+  }
+  function setRdvMsg(msg) {
     sheetMsg = msg || RDV_MSG;
     $("[data-sheet-sms]").href = "sms:+33745073235?&body=" + encodeURIComponent(sheetMsg);
     $("[data-sheet-ig]").href = igLink(sheetMsg);
     $("[data-sheet-wa]").href = waLink(sheetMsg);
+  }
+  function openRdv(msg) {
+    setRdvMsg(msg);
+    if (rdvPills) { if (msg) { $("[data-rdv-name]", sheet).textContent = rdvNameOf(msg); rdvStep("ou"); } else rdvStep("quoi"); }
     $("[data-sheet-tel]").hidden = !isTouch;
     $("[data-sheet-sms]").hidden = !isTouch;
     if (sheet.showModal) { sheet.showModal(); sheet.focus({ preventScroll: true }); } else { copyForInsta(sheetMsg); window.open(igLink(sheetMsg), "_blank", "noopener"); }

@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..900,0..100,0..1;1,9..144,400..900,0..100,0..1&family=Allura&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Sacramento&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20261021c">
+  <link rel="stylesheet" href="css/style.css?v=20261021d">
 
   <!-- Thème appliqué avant l'affichage (évite le flash clair/sombre) -->
   <script>
@@ -617,12 +617,23 @@
   <dialog class="sheet" data-sheet aria-labelledby="sheet-title" tabindex="-1">
     <div class="sheet__inner">
       <span class="sheet__grip" aria-hidden="true"></span>
-      <p class="sheet__title t-soft" id="sheet-title">On se fait les ongles ?</p>
+      <!-- 1re page : pour quoi ? (choix n°2 de Marie, en gros et en majuscules) -->
+      <div class="rdv-step is-on" data-rdv-step="quoi">
+        <p class="sheet__title t-soft" id="sheet-title">On se fait les ongles ?</p>
+        <p class="rdv-ask">Choisis ta prestation</p>
+        <div class="rdv-pills" data-rdv-pills></div>
+      </div>
+      <!-- 2e page : où m'écrire ? -->
+      <div class="rdv-step" data-rdv-step="ou">
+        <button class="rdv-back" type="button" data-rdv-back>Changer de prestation</button>
+        <p class="sheet__title t-soft" data-rdv-name>On se fait les ongles ?</p>
+        <p class="rdv-ask">Où tu préfères m'écrire ?</p>
       <div class="sheet__actions">
         <a class="btn btn--choco btn--ig" href="https://ig.me/m/ongleriedilerna" target="_blank" rel="noopener" data-sheet-ig>Écrire sur Instagram</a>
         <a class="btn btn--ghost" href="https://wa.me/33745073235" target="_blank" rel="noopener" data-sheet-wa>Écrire sur WhatsApp</a>
         <a class="btn btn--ghost" href="tel:+33745073235" data-sheet-tel>Appeler</a>
         <a class="btn btn--ghost" href="sms:+33745073235" data-sheet-sms>Envoyer un SMS</a>
+      </div>
       </div>
       <button class="sheet__close" type="button" data-sheet-close>Fermer</button>
     </div>
@@ -678,10 +689,10 @@
 
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
   <script async src="https://www.instagram.com/embed.js"></script>
-  <script src="js/config.js?v=20261021c"></script>
-  <script src="js/main.js?v=20261021c"></script>
-  <script src="js/pour.js?v=20261021c"></script>
-  <script src="js/club.js?v=20261021c"></script>
-  <script src="js/titles.js?v=20261021c"></script>
+  <script src="js/config.js?v=20261021d"></script>
+  <script src="js/main.js?v=20261021d"></script>
+  <script src="js/pour.js?v=20261021d"></script>
+  <script src="js/club.js?v=20261021d"></script>
+  <script src="js/titles.js?v=20261021d"></script>
 </body>
 </html>

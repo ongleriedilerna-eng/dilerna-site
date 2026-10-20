@@ -57,7 +57,7 @@ Message par défaut : « Bonjour Marie, j'aimerais prendre rendez-vous. Quelles 
 propose plusieurs prestations).
 Chaque bouton a un message déjà écrit (`data-rdv-msg`, sinon message par défaut : pose + disponibilités) : il s'écrit tout seul
 dans le SMS, et il est copié pour Instagram (Instagram ne permet pas de pré-remplir un message ; un petit message dit de le coller).
-Messages dédiés : chaque prestation, devis nail art, Carte blanche, Club. La fenêtre n'affiche plus ni phrase ni aperçu du message : juste le titre et les boutons. Bouton Instagram marron, sans mouvement, rose pastel
+Messages dédiés : chaque prestation, devis nail art, Carte blanche, Club. **La fenêtre a 2 pages (choix n°2 de Marie, tout en gros et en MAJUSCULES)** : 1) « On se fait les ongles ? » + « CHOISIS TA PRESTATION » avec des pastilles (Pose américaine, Gainage, Remplissage, Semi renforcé, Nail art, Carte blanche, Dépose ; pas de « Je ne sais pas encore ») ; 2) le nom de la prestation en grand, « OÙ TU PRÉFÈRES M'ÉCRIRE ? », les boutons Instagram / WhatsApp / Appeler / SMS et « Changer de prestation ». Un bouton qui connaît déjà la prestation (`data-rdv-msg`) ouvre directement la 2e page. Pas d'aperçu du message. Bouton Instagram marron, sans mouvement, rose pastel
 au toucher (Marie n'aime pas le rose vif). Titre de la fenêtre dans l'écriture du titre « Club Dilerna » (`t-soft`).
 Avis Google : la carte « Tu as aimé ta pose ? » mène au lien direct « Rédiger un avis »
 (https://search.google.com/local/writereview?placeid=ChIJtRocvpiB2RIRG8ZMvOE_BQE) et a un bouton « Laisser mon avis ».

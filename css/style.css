@@ -1485,3 +1485,15 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 #creations .insta-head { margin: 34px 0 22px; }
 #creations .rate--after-insta { margin-top: 30px; }
 #creations .insta-hint { margin: 10px 0 0; text-align: center; font-size: 14px; color: #8A7666; }
+
+/* Prendre rendez-vous : 1re page « pour quoi ? », 2e page « où m'écrire ? » — en gros et en majuscules (choix de Marie) */
+.rdv-step { display: none; } .rdv-step.is-on { display: block; animation: rdvIn .35s var(--ease) both; }
+@keyframes rdvIn { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+.rdv-ask { margin: 2px 0 16px; font: 700 12px/1.2 var(--font-body); letter-spacing: .2em; text-transform: uppercase; color: #AB9680; }
+.rdv-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; }
+.rdv-pill { padding: 14px 18px; border: 2px solid #D5C6AF; border-radius: 999px; background: #FFFDF8; color: #4E2E22; font: 800 14.5px/1 var(--font-body); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background .2s, color .2s, border-color .2s; }
+.rdv-pill:active, .rdv-pill:hover { border-color: #4E2E22; background: #4E2E22; color: #F8F4EC; }
+.rdv-back { display: block; margin: 0 auto 10px; padding: 8px 14px; border: 0; border-radius: 999px; background: #F2E8E1; color: #6E4A32; font: 700 11.5px/1 var(--font-body); letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
+.sheet[data-sheet] .sheet__actions .btn { min-height: 56px; font-size: 15px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.sheet[data-sheet] .sheet__close { letter-spacing: .12em; text-transform: uppercase; font-size: 12.5px; }
+.sheet__title[data-rdv-name] { font-size: clamp(26px, 8.4vw, 36px); text-transform: uppercase; }
