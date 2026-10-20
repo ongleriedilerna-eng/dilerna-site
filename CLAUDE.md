@@ -37,6 +37,8 @@ Marie a validé la version téléphone : elle ne doit plus bouger quand on trava
 - 4e version (21/10/2026) : Carte blanche beaucoup plus petite (760 px, « obèse » avant) ; sur ordinateur, les publications Insta viennent de
   `config.js` → `instaPostsOrdinateur` : 8 dernières publications en HD (originaux retrouvés dans les photos iCloud de Marie ; les miniatures
   d'Instagram sans connexion ne font que 640 px, trop floues pour Marie). Les publications avec un visage sont exclues. Le téléphone garde `instaPosts`.
+- 5e version (21/10/2026) : gratuités un peu plus bas (au niveau des photos du salon) ; en bas : Bon à savoir à gauche, Mes réseaux au milieu
+  (Instagram, TikTok, Pinterest, Facebook avec une icône, **sans** bouton Prendre rendez-vous), la conversation « M'écrire » tout à droite, en grand.
 - Vérification du téléphone : `cdpsig.py` (empreinte de la position/taille de chaque élément à 390 px), à comparer avant/après.
 
 ## Infos réelles

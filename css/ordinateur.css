@@ -246,3 +246,31 @@ html.is-desktop .cb-flip__back .cbc-rlab b { font-size: 19px; }
 html.is-desktop .cbc-arrow { width: 36px; height: 36px; margin-top: -18px; }
 html.is-desktop .cbc-arrow svg { width: 18px; height: 18px; }
 html.is-desktop .cbc-arrow.is-prev { left: 18px; } html.is-desktop .cbc-arrow.is-next { right: 18px; }
+
+/* ---------- 5e version ---------- */
+/* les gratuités un peu plus bas, au niveau des photos du salon */
+html.is-desktop .salon-row { align-items: start; }
+html.is-desktop .salon-row__free { padding-top: 78px; }
+
+/* En bas : Bon à savoir à gauche, Mes réseaux au milieu, la conversation « M'écrire » tout à droite, en grand */
+html.is-desktop .end-row { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr) minmax(0, 1.45fr); align-items: stretch; }
+html.is-desktop .end-sq--socials { justify-content: center; gap: 16px; padding: 26px 22px; }
+html.is-desktop .end-sq--socials .handles { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+html.is-desktop .end-sq--socials .handles a { display: grid; grid-template-columns: 40px minmax(0, 1fr); grid-template-rows: auto auto; align-items: center; column-gap: 12px; row-gap: 1px;
+  padding: 11px 16px; border-radius: 18px; text-align: left; font-size: 14px; background: #F8F4EC; box-shadow: none; transition: background .2s, transform .2s var(--ease); }
+html.is-desktop .end-sq--socials .handles a:hover { background: #F2E8E1; transform: translateX(3px); }
+html.is-desktop .end-sq--socials .handle-ico { grid-row: 1 / 3; width: 40px; height: 40px; padding: 9px; border-radius: 50%; background: #4E2E22; fill: none; stroke: #F8F4EC; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+html.is-desktop .end-sq--socials .handles small { grid-column: 2; align-self: end; }
+html.is-desktop .end-sq--chat .chat__top { padding: 20px 22px; gap: 16px; }
+html.is-desktop .end-sq--chat .chat__avatar { width: 64px; height: 64px; }
+html.is-desktop .end-sq--chat .chat__name { font-size: 20px !important; }
+html.is-desktop .end-sq--chat .chat__online { font-size: 13px; }
+html.is-desktop .end-sq--chat .chat__num { font-size: 16px; }
+html.is-desktop .end-sq--chat .chat__top p { font-size: 14px; }
+html.is-desktop .end-sq--chat .chat__call { width: 48px; height: 48px; }
+html.is-desktop .end-sq--chat .chat__thread { flex: 1; align-content: center; gap: 12px; padding: 24px 24px 26px; }
+html.is-desktop .end-sq--chat .bubble { font-size: 16.5px; padding: 14px 20px; }
+html.is-desktop .end-sq--chat .chat__replies { gap: 10px; }
+html.is-desktop #contact .contact__inner { max-width: none; padding-left: max(28px, calc((100vw - 1180px) / 2)); padding-right: max(28px, calc((100vw - 1180px) / 2)); }
+html.is-desktop .end-row { grid-template-columns: minmax(0, 1fr) minmax(0, .95fr) minmax(0, 1.45fr); }
+html.is-desktop .end-sq--socials .handles a b, html.is-desktop .end-sq--socials .handles a { overflow-wrap: anywhere; }

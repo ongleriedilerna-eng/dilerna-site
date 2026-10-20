@@ -136,9 +136,20 @@
     var erow = document.createElement("div"); erow.className = "end-row";
     var soc = document.createElement("div"); soc.className = "end-sq end-sq--socials";
     soc.innerHTML = '<h3 class="t-soft">Mes réseaux</h3>';
-    soc.appendChild(handles); if (book) soc.appendChild(book);
-    chat.classList.add("end-sq"); rules.classList.add("end-sq");
-    erow.appendChild(chat); erow.appendChild(rules); erow.appendChild(soc);
+    soc.appendChild(handles);
+    if (book) book.classList.add("is-desktop-hidden");   // pas de bouton « Prendre rendez-vous » dans Mes réseaux
+    // une petite icône devant chaque réseau
+    var ICO = { instagram: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/>',
+      tiktok: '<path d="M14 3.5v10.2a3.8 3.8 0 1 1-3.8-3.8"/><path d="M14 3.5c.6 2.6 2.4 4.2 5 4.4"/>',
+      pinterest: '<circle cx="12" cy="12" r="8.5"/><path d="M10.6 20.2 12.4 12M12.4 12c-.5-1.8.4-3.6 2-3.6 1.4 0 2 1.1 1.7 2.6-.3 1.7-1.4 3.2-2.9 3.2-1.1 0-1.8-.8-1.6-1.9"/>',
+      facebook: '<path d="M14.5 8.5H16V5.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.7 1.4-3.7 4v2.2H7.6v3.4H10V21h3.3v-6.1h2.5l.4-3.4h-2.9V9.6c0-.7.3-1.1 1.2-1.1Z"/>' };
+    $$("a", handles).forEach(function (a) {
+      var k = (a.querySelector("small") || {}).textContent || ""; k = k.trim().toLowerCase();
+      if (ICO[k]) a.insertAdjacentHTML("afterbegin", '<svg class="handle-ico" viewBox="0 0 24 24" aria-hidden="true">' + ICO[k] + '</svg>');
+    });
+    chat.classList.add("end-sq", "end-sq--chat"); rules.classList.add("end-sq");
+    // Bon à savoir à gauche, Mes réseaux au milieu, et « M'écrire » (la conversation) tout à droite, en grand
+    erow.appendChild(rules); erow.appendChild(soc); erow.appendChild(chat);
     cInner.appendChild(erow);
     $("#bon-a-savoir").classList.add("is-desktop-hidden"); $(".socials-end").classList.add("is-desktop-hidden");
   }
