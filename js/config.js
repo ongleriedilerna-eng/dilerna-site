@@ -172,7 +172,7 @@ window.DILERNA = {
     { name: "Terracotta",      hex: "#B5694A" },   // juin
     { name: "Jaune pastel",    hex: "#F3DC8C" },   // juillet
     { name: "Rose",            hex: "#E07A9A" },   // août : un vrai rose
-    { name: "Praline",         hex: "#9A6A52" },   // septembre (pas encore choisi par Marie : on garde Praline)
+    { name: "Figue",           hex: "#7A4E5E" },   // septembre
     { name: "Chocolat chaud",  hex: "#6E4A32" },   // octobre
     { name: "Bordeaux",        hex: "#6D1F2E" },   // novembre
     { name: "Rouge myrte",     hex: "#A3192B" }    // décembre : le vrai rouge de Noël
