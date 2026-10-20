@@ -43,7 +43,16 @@ Header (logo en haut de l'accueil, qui part avec la page : **pas de barre fixe e
 · Avis Google (bande de couleur plus foncée, Louise mange le mot « Google » puis le rapporte, en boucle) · On papote ? · Bon à savoir · Réseaux · Footer
 · Barre du bas façon appli : Accueil, Inspo, bouton rond **CLUB DILERNA** (ouvre la fiche du club), Infos, Menu.
 
+## Horaires
+Carte des horaires : jours L→D en ronds, puis un sticker crème penché (washi à pois) avec le rond « Ouvert » et « 9h – 17h »
+(choix de Marie parmi 10 écritures). Jour d'aujourd'hui entouré en beige.
+
 ## Prise de rendez-vous (`js/main.js`, fenêtre « On se fait les ongles ? »)
+**Instagram ne permet pas d'écrire le message à l'avance** dans la conversation (aucun site ne peut le faire ; testé par Marie,
+le `?text=` non officiel est ignoré par l'appli). Le message est copié et une consigne dit de le coller.
+**WhatsApp le permet** (`wa.me/33745073235?text=…`) : bouton « Écrire sur WhatsApp » dans la fenêtre et dans « On papote ? ».
+Message par défaut : « Bonjour Marie, j'aimerais prendre rendez-vous. Quelles sont tes disponibilités ? » (général : Marie
+propose plusieurs prestations).
 Chaque bouton a un message déjà écrit (`data-rdv-msg`, sinon message par défaut : pose + disponibilités) : il s'écrit tout seul
 dans le SMS, et il est copié pour Instagram (Instagram ne permet pas de pré-remplir un message ; un petit message dit de le coller).
 Messages dédiés : chaque prestation, devis nail art, Carte blanche, Club. Bouton Instagram marron, sans mouvement, rose pastel
