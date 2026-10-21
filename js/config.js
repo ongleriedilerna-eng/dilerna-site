@@ -41,6 +41,7 @@ window.DILERNA = {
      MAINS UNIQUEMENT : tout post où l'on voit un visage est exclu.
      Les plus récents en premier. alt = description pour le SEO. */
   creations: [
+    { src: "assets/img/creations/creation-44.webp", alt: "French blanche classique en amande" },
     { src: "assets/img/creations/creation-26.webp", alt: "Ongles nude pastel, rose et jaune, avec feuilles argentées" },
     { src: "assets/img/creations/creation-36.webp", alt: "French ambre transparente" },
     { src: "assets/img/creations/creation-31.webp", alt: "Ongles effet écaille et bleu canard avec étoiles dorées" },
@@ -53,7 +54,9 @@ window.DILERNA = {
     { src: "assets/img/creations/creation-33.webp", alt: "Ongles rose fluo avec strass et papillons en relief" },
     { src: "assets/img/creations/creation-34.webp", alt: "Ongles rose pâle : fleurs fuchsia en relief, zèbre, léopard et strass dorés" },
     { src: "assets/img/creations/creation-30.webp", alt: "Nail art lilas et argent : bijoux, strass et arabesques" },
+    { src: "assets/img/creations/creation-46.webp", alt: "Ongles nude, arabesques noires, strass et croix en strass" },
     { src: "assets/img/creations/creation-40.webp", alt: "Ongles bordeaux : coquillages, perles et fils dorés" },
+    { src: "assets/img/creations/creation-45.webp", alt: "Nail art de Noël rouge et vert : sapin doré, houx, nœud et flocons" },
     { src: "assets/img/creations/creation-37.webp", alt: "French blanche et bordeaux, vagues et pois" },
     { src: "assets/img/creations/creation-41.webp", alt: "Rayures et pois bordeaux, rose, bleu et jaune avec soleil doré" },
     { src: "assets/img/creations/creation-43.webp", alt: "Nail art clown : ballons, spirale et strass" },
