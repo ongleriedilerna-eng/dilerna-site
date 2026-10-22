@@ -19,7 +19,11 @@
   if (/bas/.test(location.hash)) sec.classList.add("pour--bas");
   var dir = "assets/hero3d/";
   // sur ordinateur (1024 px et plus) : une version en largeur, plus nette, avec le vernis marron ; le téléphone garde la sienne
-  if (window.matchMedia && window.matchMedia("(min-width: 1024px)").matches) { dir = "assets/hero3d-ordi/"; W = 2048; H = 1152; }
+  // qualité maximale : rendu en 4K ; 2560×1440 pour la plupart des écrans, la vraie 4K pour les grands écrans et les écrans Retina
+  if (window.matchMedia && window.matchMedia("(min-width: 1024px)").matches) {
+    var big = window.innerWidth * Math.min(window.devicePixelRatio || 1, 3) > 2700;
+    dir = big ? "assets/hero3d-ordi-4k/" : "assets/hero3d-ordi/"; W = big ? 3840 : 2560; H = big ? 2160 : 1440;
+  }
   var src = function (i) { return dir + "f" + ("00" + i).slice(-3) + ".webp"; };
   var frames = new Array(N), loaded = 0;
 

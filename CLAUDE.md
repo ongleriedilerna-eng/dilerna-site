@@ -47,6 +47,9 @@ Marie a validé la version téléphone : elle ne doit plus bouger quand on trava
   interaction** (pas d'arrêt au survol, pas de clic, pas de cœur) ; Louise **se promène** (en bas de l'écran ou sur le haut des blocs,
   pattes qui trottinent) en plus de passer la tête ; curseur (flacon et main) en **vernis marron** #6B3418, plus de rose.
   Les 3 publications Insta sans photo HD : on ne les met pas (choix de Marie).
+- 8e version (22/10/2026) : accueil 3D en **qualité maximale** (demande de Marie) : rendu en 3840×2160, 192 échantillons, `DESK_HQ=1`
+  (bruit et débruitage au plus fin). `assets/hero3d-ordi/` = 2560×1440 (réduit depuis la 4K), `assets/hero3d-ordi-4k/` = 3840×2160 pour les
+  écrans de plus de 2700 pixels réels (grands écrans, Retina) ; choix dans `pour.js`. Environ 3 min par image sur le PC de Marie (≈ 5 h en tout).
 - Vérification du téléphone : `cdpsig.py` (empreinte de la position/taille de chaque élément à 390 px), à comparer avant/après.
 
 ## Obligations légales (21/10/2026)

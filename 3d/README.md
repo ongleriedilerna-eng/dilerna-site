@@ -22,3 +22,11 @@ Les chemins sont relatifs au dossier `3d/` (le logo est lu dans `../assets/logo/
     python encode.py C:/chemin/absolu ../assets/hero3d-ordi
 
 (`OUTDIR` doit être un chemin absolu, sinon Blender écrit les images ailleurs.) Environ 25 s par image sur la carte graphique.
+
+### Qualité maximale (accueil ordinateur actuel)
+
+    DESK=1 DESK_HQ=1 DESK_LENS=50 DESK_LOOKZ=2.25 DESK_CAMZ=2.45 GPU=1 NFRAMES=100 SAMPLES=192 OUTDIR=C:/chemin/absolu python anim.py -- 3840 $(seq 0 99)
+
+Puis encoder en deux tailles : `assets/hero3d-ordi/` (2560×1440, réduit en Lanczos, WebP qualité 92) et `assets/hero3d-ordi-4k/`
+(3840×2160, WebP qualité 90). Environ 3 min par image sur une RTX 2050. Les images sont identiques d'un lancement à l'autre
+(`random.seed(5)`), on peut donc reprendre un rendu interrompu à partir de l'image où il s'est arrêté.
