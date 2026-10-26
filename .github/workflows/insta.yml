@@ -1,0 +1,38 @@
+# Met les dernières publications Instagram sur le site, toutes les 6 heures (et à la main : onglet Actions → Instagram → Run workflow)
+name: Instagram
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: insta
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow==11.0.0
+      - name: Récupérer les publications
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: python scripts/insta_sync.py
+      - name: Mettre en ligne s'il y a du nouveau
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add -A assets/img/insta/auto js/insta-auto.js
+          if git diff --cached --quiet; then echo "Rien de nouveau"; exit 0; fi
+          git -c user.name="Dilerna (automatique)" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "Instagram : dernières publications (automatique)"
+          git push
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || true
