@@ -174,3 +174,10 @@ pour que les téléphones rechargent la nouvelle version au lieu d'une ancienne 
   pour les remettre, retirer la classe `club--soon` du `<dialog>` (Marie les remettra plus tard, avec les nouvelles conditions).
 - 21/10/2026 : le bouton rond du téléphone est **revenu à « Club Dilerna »** (`data-club-open`, demande de Marie). Au clic, la fiche
   club affiche seulement « Club Dilerna » + « Une nouveauté arrive très bientôt… » (21/10 : plus le mot « surprise », le club sera payant). La prise de rendez-vous reste dans le reste du site.
+
+## Instagram automatique (26/10/2026) — en pause
+Tout est prêt mais **désactivé** (Marie a laissé tomber pour l'instant) : `scripts/insta_sync.py` + `.github/workflows/insta.yml`
+(toutes les 6 h, API officielle d'Instagram, photos copiées dans `assets/img/insta/auto/`, liste écrite dans `js/insta-auto.js`,
+vidéos et posts avec `#perso` exclus, 4 sur téléphone / 8 sur ordinateur). Tant que `js/insta-auto.js` est vide, le site garde config.js.
+Pour l'activer : Marie crée une appli sur developers.facebook.com (elle se connecte elle-même), « Instagram API with Instagram login »,
+génère le code d'accès et le colle dans GitHub → Settings → Secrets → Actions → `IG_TOKEN` ; puis `gh workflow enable Instagram`.
