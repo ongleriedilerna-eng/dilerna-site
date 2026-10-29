@@ -181,3 +181,11 @@ Tout est prêt mais **désactivé** (Marie a laissé tomber pour l'instant) : `s
 vidéos et posts avec `#perso` exclus, 4 sur téléphone / 8 sur ordinateur). Tant que `js/insta-auto.js` est vide, le site garde config.js.
 Pour l'activer : Marie crée une appli sur developers.facebook.com (elle se connecte elle-même), « Instagram API with Instagram login »,
 génère le code d'accès et le colle dans GitHub → Settings → Secrets → Actions → `IG_TOKEN` ; puis `gh workflow enable Instagram`.
+
+## Club Dilerna en ligne (club.dilerna.fr, dépôt `ongleriedilerna-eng/club`)
+- Depuis le 29/10/2026, le bouton Club du site mène à https://club.dilerna.fr/ (page `bouton-club-mobile-v5.html`).
+- 29/10/2026, choix de Marie : la fiche s'ouvre **en plein écran** (bloc `<style id="fiche-plein-ecran">` + script à la fin de la page) :
+  en haut « Déjà membre ? Je me connecte » à gauche, « Club Dilerna » au milieu, la croix à droite ; cette barre s'efface quand on
+  descend (la croix reste) ; en bas, seulement « Je rejoins le Club Dilerna · 16,99 €/mois », qui grossit quand on descend.
+  Carte n°5 « deux couleurs » (haut chocolat, bas crème), « Tes avantages » en liste avec un trait entre chaque, Offrir le club et
+  les liens à la fin de la liste. Marie n'a aimé aucune des 5 premières façons d'ouvrir la fiche : c'est la version « refaite au propre ».
