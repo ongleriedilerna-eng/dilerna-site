@@ -22,8 +22,8 @@
   }
   window.addEventListener("resize", fit);
   document.querySelectorAll("[data-club-open]").forEach(function (b) {
-    // à l'ouverture, on sélectionne la fiche elle-même : aucun bouton n'apparaît entouré
-    b.addEventListener("click", function (e) { e.preventDefault(); if (club.showModal) { club.showModal(); club.focus({ preventScroll: true }); fit(); } });
+    // le club est ouvert (29/10/2026) : le bouton mène directement au vrai club
+    b.addEventListener("click", function (e) { e.preventDefault(); location.href = "https://club.dilerna.fr/"; });
   });
   club.querySelector("[data-club-close]").addEventListener("click", function () { club.close(); });
   club.querySelector("[data-club-join]").addEventListener("click", function () { club.close(); });
