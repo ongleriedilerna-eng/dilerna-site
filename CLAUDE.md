@@ -197,3 +197,5 @@ génère le code d'accès et le colle dans GitHub → Settings → Secrets → A
   toute seule) ; 🎁 teinté marron ; écrans pour payer compacts (« Payer par carte » visible sans défiler sur iPhone).
   Après chaque changement du club : changer `&v=…` dans `index.html` du club **et** `?v=…` du lien dans `js/club.js` du site.
 - 29/10/2026 : barre du bas du téléphone un peu moins haute (72 → 60 px, bouton rond 90 → 80 px), demande de Marie.
+- 30/10/2026 : espace membre, « Ton club » dans cet ordre : conseil de la semaine, roue du mois + quiz, Les jeux, horoscope, puis les autres.
+  Dans « Les jeux », Louise (petite, sans le mot sur le sac) trottine d'un bord à l'autre en faisant rebondir une balle sur son nez (`.jx-lou`).
