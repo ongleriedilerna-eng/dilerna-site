@@ -189,3 +189,6 @@ génère le code d'accès et le colle dans GitHub → Settings → Secrets → A
   descend (la croix reste) ; en bas, seulement « Je rejoins le Club Dilerna · 16,99 €/mois », qui grossit quand on descend.
   Carte n°5 « deux couleurs » (haut chocolat, bas crème), « Tes avantages » en liste avec un trait entre chaque, Offrir le club et
   les liens à la fin de la liste. Marie n'a aimé aucune des 5 premières façons d'ouvrir la fiche : c'est la version « refaite au propre ».
+- 29/10/2026 : **plus de page entre deux** sur club.dilerna.fr (l'ancien fond « Le Club Dilerna · Ouvrir le club · Revenir sur dilerna.fr »
+  et la fausse barre du bas sont cachés). Fermer la fiche (croix ou glisser vers le bas) ramène **directement sur dilerna.fr** ;
+  fermer l'écran de connexion ramène sur la fiche ; fermer son espace membre ramène sur dilerna.fr.
