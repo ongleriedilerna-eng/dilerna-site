@@ -199,3 +199,7 @@ génère le code d'accès et le colle dans GitHub → Settings → Secrets → A
 - 29/10/2026 : barre du bas du téléphone un peu moins haute (72 → 60 px, bouton rond 90 → 80 px), demande de Marie.
 - 30/10/2026 : espace membre, « Ton club » dans cet ordre : conseil de la semaine, roue du mois + quiz, Les jeux, horoscope, puis les autres.
   Dans « Les jeux », Louise (petite, sans le mot sur le sac) trottine d'un bord à l'autre en faisant rebondir une balle sur son nez (`.jx-lou`).
+- 30/10/2026 : **accès gratuit de Marie au club** (avec l'essai photo). Côté appli c'est en ligne (`club-reel.js` : le compte admin
+  est traité comme membre). **Reste à faire (Marie a dit « demain »)** : exécuter `DILERNA SITE/club/supabase/migrations/20261030000000_acces_marie.sql`
+  dans Supabase (projet club-dilerna → SQL Editor → Run) ; c'est Marie qui se connecte à Supabase. Pas de lien public gratuit pour les clientes
+  (l'essai photo coûte à chaque image) : Marie montre le club depuis son téléphone, connectée.
