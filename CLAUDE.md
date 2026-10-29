@@ -192,3 +192,8 @@ génère le code d'accès et le colle dans GitHub → Settings → Secrets → A
 - 29/10/2026 : **plus de page entre deux** sur club.dilerna.fr (l'ancien fond « Le Club Dilerna · Ouvrir le club · Revenir sur dilerna.fr »
   et la fausse barre du bas sont cachés). Fermer la fiche (croix ou glisser vers le bas) ramène **directement sur dilerna.fr** ;
   fermer l'écran de connexion ramène sur la fiche ; fermer son espace membre ramène sur dilerna.fr.
+- 29/10/2026 (suite) : Louise plus petite sur la carte ; « Dilerna » ne sort plus du sac quand elle se retourne (2 textes, un déjà retourné) ;
+  « Je rejoins » plus petit (13 px, 14,5 px quand il grossit) ; carte plus petite ; « Sans engagement… » sur une seule ligne (taille ajustée
+  toute seule) ; 🎁 teinté marron ; écrans pour payer compacts (« Payer par carte » visible sans défiler sur iPhone).
+  Après chaque changement du club : changer `&v=…` dans `index.html` du club **et** `?v=…` du lien dans `js/club.js` du site.
+- 29/10/2026 : barre du bas du téléphone un peu moins haute (72 → 60 px, bouton rond 90 → 80 px), demande de Marie.
