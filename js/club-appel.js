@@ -5,7 +5,7 @@
    Choix de Marie : C (Louise arrive vite et montre le bouton). Les autres restent visibles avec ?clubv=A, B ou D :
      A · une bulle « Nouveau · Le Club Dilerna » au-dessus du bouton
      B · des ondes dorées qui partent du bouton, et le bouton qui saute
-     C · Louise arrive sur la barre du bas et montre le bouton
+     C · Louise arrive sur la barre du bas et montre le bouton (une fois le bloc « Prendre rendez-vous » passé)
      D · A + B
    ========================================================================= */
 (function () {
@@ -92,6 +92,7 @@
       p.innerHTML = "Psst… viens voir <b>le Club</b> !";
       p.style.left = Math.max(8, stop - 6) + "px";
       p.addEventListener("click", ouvre); document.body.appendChild(p);
+      cache();
       requestAnimationFrame(function () { requestAnimationFrame(function () { p.classList.add("is-in"); }); });
     };
     if (reduce || !w.animate) return fin();
@@ -100,18 +101,22 @@
   }
 
   // Louise et sa bulle s'effacent quand on descend jusqu'à la Carte blanche, et reviennent quand on remonte (demande de Marie, 31/10/2026)
-  var cb = document.getElementById("carte-blanche");
+  // 31/10/2026 (Marie) : Louise n'arrive plus dès l'accueil, sinon on voit deux chiens (celui de « Prendre rendez-vous » en haut des prestations).
+  // Elle arrive quand le bloc « Prendre rendez-vous » est sorti de l'écran (en haut), et s'en va à la Carte blanche.
+  var cb = document.getElementById("carte-blanche"), rdvBloc = document.querySelector(".presta-book--top"), pret = false, arrivee = false;
   function cache() {
     var bas = !!cb && cb.getBoundingClientRect().top < window.innerHeight * .9;
-    document.querySelectorAll(".club-louise, .club-psst, .club-bulle").forEach(function (e) { e.classList.toggle("club-cache", bas); });
+    var avant = V === "C" && !!rdvBloc && rdvBloc.getBoundingClientRect().bottom > 0;
+    if (V === "C" && pret && !arrivee && !avant && !bas) { arrivee = true; louise(); }
+    document.querySelectorAll(".club-louise, .club-psst, .club-bulle").forEach(function (e) { e.classList.toggle("club-cache", bas || avant); });
   }
   addEventListener("scroll", cache, { passive: true });
 
   quandPret(function () {
+    pret = true;
     if (V === "A") bulle();
     else if (V === "B") ondes();
-    else if (V === "C") louise();
-    else { bulle(); ondes(); }
+    else if (V === "D") { bulle(); ondes(); }
     setTimeout(cache, 50);
   });
 
