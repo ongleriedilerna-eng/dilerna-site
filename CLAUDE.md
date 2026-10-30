@@ -218,3 +218,7 @@ génère le code d'accès et le colle dans GitHub → Settings → Secrets → A
 - 31/10/2026 (choix de Marie) : sous le logo « dilerna » de l'accueil, **« ARTISTE ONGULAIRE · PORTO-VECCHIO »** dans la même écriture
   que la ligne du haut (`js/artiste.js`, idée 1, posé sur le socle du logo, visible dès l'arrivée). Les autres idées restent avec `?ao=2…5`.
 - 31/10/2026 : quand Louise et sa bulle sont parties (page descendue), le bouton rond Club fait **coucou toutes les 9 s** (petit saut + onde dorée).
+- 31/10/2026 : « Artiste ongulaire » apparaît **en fondu, petit à petit** (4,5 s) pendant que le logo se remplit, à partir de l'arrivée.
+- 31/10/2026 : **bouton des Cartes blanches** (téléphone, `js/cb-voir.js`, choix de Marie : version 1 des « ronds des thèmes », sans la petite main) :
+  une carte chocolat bordée d'or sous la Carte blanche, avec les 6 ronds des thèmes qui sautillent, « Touche pour voir mes Cartes blanches »
+  et « 6 vraies créations, du thème au résultat » ; elle retourne la carte. Au dos, le bouton « Revoir la carte » reste. Autres essais : `?cbv=2…5`.
