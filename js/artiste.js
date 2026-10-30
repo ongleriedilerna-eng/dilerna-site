@@ -3,7 +3,7 @@
    Demande de Marie (30/10/2026) : qu'on comprenne tout de suite ce qu'est Dilerna.
    Ça se voit dès l'arrivée sur le site (pas à la fin de l'animation).
    Aperçu des idées (2e série) : ?ao=1 à 5 dans l'adresse.
-     1 · la ligne du haut devient « ARTISTE ONGULAIRE · PORTO-VECCHIO »
+     1 · « ARTISTE ONGULAIRE · PORTO-VECCHIO » sous le logo, dans la même écriture que la ligne du haut (CHOISI)
      2 · un sticker crème penché, tenu par deux washi à pois, sur le socle du logo
      3 · un ruban chocolat qui défile sur le socle du logo
      4 · un tampon rond qui tourne doucement, à droite du logo
@@ -15,8 +15,7 @@
   var sec = document.querySelector("[data-pour]"), stage = sec && sec.querySelector(".pour__stage"), canvas = sec && sec.querySelector("[data-canvas]");
   if (!stage || !canvas) return;
   var m = /[?&]ao=([1-5])/.exec(location.search);
-  var V = m ? m[1] : "";
-  if (!V) return;
+  var V = m ? m[1] : "1";   // choix de Marie (31/10/2026) : l'idée 1, même écriture que la ligne du haut, mais sous le logo
 
   // le logo dans l'image 3D (1080 × 2340) : centre x = 540, bas des lettres y ≈ 1695, face du socle de 1700 à 1800
   var W = 1080, H = 2340, Y = V === "4" ? 1450 : 1752, X = V === "4" ? 880 : 540;
@@ -53,22 +52,18 @@
     ".ao--5 .pc::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 35%, rgba(255, 240, 215, .45) 50%, transparent 65%) -150% 0 / 220% 100% no-repeat;",
     "  animation: aoReflet 3.2s ease-in-out infinite; }",
     "@keyframes aoReflet { 0%, 50% { background-position: -150% 0; } 85%, 100% { background-position: 150% 0; } }",
-    /* 1 · ligne du haut */
-    ".pour__place.ao-haut { font-size: 12.5px; letter-spacing: .2em; }",
-    ".pour__place.ao-haut b { color: #4E2E22; }",
+    /* 1 · même écriture que la ligne du haut (« PORTO-VECCHIO, CORSE-DU-SUD »), sous le logo */
+    ".ao--1 .ln { display: block; white-space: nowrap; font: 500 11.5px/1 var(--font-body); letter-spacing: .24em; padding-left: .24em; text-transform: uppercase; color: #6E4A32;",
+    "  transform: translateY(6px); transition: opacity .8s, transform .8s cubic-bezier(.2, .8, .2, 1); }",
+    ".ao--1 .ln b { font-weight: 800; color: #4E2E22; }",
+    ".ao--1.is-in .ln { transform: none; }",
     "@media (prefers-reduced-motion: reduce) { .ao * { animation: none !important; transition: none !important; } }"
   ].join("\n");
   var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
 
-  if (V === "1") {
-    // la 2e ligne du haut : « ARTISTE ONGULAIRE · PORTO-VECCHIO » (même place, même hauteur)
-    var ligne = sec.querySelector(".pour__place");
-    if (ligne) { ligne.classList.add("ao-haut"); ligne.innerHTML = "<b>Artiste ongulaire</b> · Porto-Vecchio"; }
-    return;
-  }
-
   var el = document.createElement("div"); el.className = "ao ao--" + V; el.setAttribute("aria-hidden", "true");
-  if (V === "2") el.innerHTML = '<span class="st"><i></i>Artiste ongulaire<i></i></span>';
+  if (V === "1") el.innerHTML = '<span class="ln"><b>Artiste ongulaire</b> · Porto-Vecchio</span>';
+  else if (V === "2") el.innerHTML = '<span class="st"><i></i>Artiste ongulaire<i></i></span>';
   else if (V === "3") {
     var bout = '<span>ARTISTE ONGULAIRE<i>✦</i></span><span>PORTO-VECCHIO<i>✦</i></span>';
     el.innerHTML = '<div class="rb">' + bout + bout + bout + bout + bout + bout + '</div>';

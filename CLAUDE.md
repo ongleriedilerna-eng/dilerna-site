@@ -215,3 +215,6 @@ génère le code d'accès et le colle dans GitHub → Settings → Secrets → A
 - 31/10/2026 : « CLUB DILERNA » en **blanc** sur le bouton rond. « Artiste ongulaire » à l'accueil : en cours de choix, `js/artiste.js`
   (rien ne s'affiche sans `?ao=1…5` ; 1re série refusée, 2e série : ligne du haut, sticker penché, ruban qui défile, tampon rond, pastille chocolat).
   `pour.js` envoie maintenant l'évènement `pour:fin` quand l'animation est finie.
+- 31/10/2026 (choix de Marie) : sous le logo « dilerna » de l'accueil, **« ARTISTE ONGULAIRE · PORTO-VECCHIO »** dans la même écriture
+  que la ligne du haut (`js/artiste.js`, idée 1, posé sur le socle du logo, visible dès l'arrivée). Les autres idées restent avec `?ao=2…5`.
+- 31/10/2026 : quand Louise et sa bulle sont parties (page descendue), le bouton rond Club fait **coucou toutes les 9 s** (petit saut + onde dorée).

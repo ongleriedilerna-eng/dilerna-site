@@ -51,6 +51,11 @@
     ".club-psst.is-in { opacity: 1; transform: scale(1); }",
     ".club-psst b { color: #6B3418; }",
     ".club-cache { opacity: 0 !important; pointer-events: none !important; transition: opacity .35s !important; }",
+    /* de temps en temps, le bouton rond fait coucou (petit saut + une onde dorée) quand Louise n'est plus là */
+    ".tab-rdv.club-coucou { animation: clubCoucou 1.3s ease-in-out 1; }",
+    ".tab-rdv.club-coucou::before, .tab-rdv.club-coucou::after { content: ''; position: absolute; inset: 4px; border-radius: 50%; border: 2.5px solid #D9A86C; opacity: 0; pointer-events: none; animation: clubOnde 1.3s ease-out 1; }",
+    ".tab-rdv.club-coucou::after { animation-delay: .35s; }",
+    "@keyframes clubCoucou { 0%, 100% { transform: none; } 20% { transform: translateY(-11px) rotate(-6deg) scale(1.06); } 42% { transform: translateY(0) rotate(4deg); } 62% { transform: translateY(-4px) rotate(-2deg); } 80% { transform: none; } }",
     "@media (prefers-reduced-motion: reduce) { .club-bulle, .club-bulle i, .tab-rdv.club-ondes::before, .tab-rdv.club-ondes::after, .tab-rdv.club-saute { animation: none !important; } }"
   ].join("\n");
   var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
@@ -109,4 +114,13 @@
     else { bulle(); ondes(); }
     setTimeout(cache, 50);
   });
+
+  // toutes les 9 secondes, si Louise et sa bulle ne sont plus là (on a descendu la page), le bouton fait coucou
+  if (!reduce) setInterval(function () {
+    if (document.hidden || document.querySelector("dialog[open]")) return;
+    var b = document.querySelector(".club-psst, .club-bulle");
+    if (b && !b.classList.contains("club-cache")) return;
+    btn.classList.remove("club-coucou"); void btn.offsetWidth; btn.classList.add("club-coucou");
+    setTimeout(function () { btn.classList.remove("club-coucou"); }, 1700);
+  }, 9000);
 })();
