@@ -206,3 +206,8 @@ génère le code d'accès et le colle dans GitHub → Settings → Secrets → A
 - 30/10/2026 : sur la fiche plein écran, petit bouton **« OFFERT »** collé à droite de « Club Dilerna » (`.fp-offert`) : il fait un petit
   saut toutes les 2,6 s, deux étoiles dorées scintillent sur le T, et il ouvre l'écran « 1 essai offert » (essai photo, débloqué avec
   l'e-mail, une fois par personne ; `window.dilernaEssai`). Marie ne voulait pas d'un gros bouton « Essayage magique » en dessous.
+- 30/10/2026 : **bouton rond Club plus visible** (`js/club-appel.js`, téléphone seulement) : choix C de Marie, Louise arrive vite sur la barre
+  du bas (≈ 1 s après l'accueil) et s'arrête à côté du bouton rond avec une bulle « Psst… viens voir le Club ! » qui ouvre le club.
+  Autres essais gardés pour comparer : `?clubv=A` (bulle « Nouveau · Le Club Dilerna »), `B` (ondes dorées), `D` (A + B).
+- 30/10/2026 (club) : « La French et les tout petits nail arts TOUJOURS offerts » (avantage, règles, conditions, Espace Marie) ;
+  « OFFERT » (essai photo offert) plus visible : plus grand, doré, halo qui pulse et reflet.
