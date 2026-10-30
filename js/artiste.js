@@ -54,7 +54,7 @@
     "@keyframes aoReflet { 0%, 50% { background-position: -150% 0; } 85%, 100% { background-position: 150% 0; } }",
     /* 1 · même écriture que la ligne du haut (« PORTO-VECCHIO, CORSE-DU-SUD »), sous le logo */
     ".ao--1 .ln { display: block; white-space: nowrap; font: 500 11.5px/1 var(--font-body); letter-spacing: .24em; padding-left: .24em; text-transform: uppercase; color: #6E4A32;",
-    "  transform: translateY(6px); transition: opacity .8s, transform .8s cubic-bezier(.2, .8, .2, 1); }",
+    "  transform: translateY(6px); transition: opacity 4.5s ease-in-out, transform 4.5s ease-out; }",   // en fondu, petit à petit, pendant que le logo se remplit (Marie, 31/10)
     ".ao--1 .ln b { font-weight: 800; color: #4E2E22; }",
     ".ao--1.is-in .ln { transform: none; }",
     "@media (prefers-reduced-motion: reduce) { .ao * { animation: none !important; transition: none !important; } }"
