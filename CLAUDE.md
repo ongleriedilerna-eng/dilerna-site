@@ -184,6 +184,10 @@ génère le code d'accès et le colle dans GitHub → Settings → Secrets → A
 
 ## Club Dilerna en ligne (club.dilerna.fr, dépôt `ongleriedilerna-eng/club`)
 - Depuis le 29/10/2026, le bouton Club du site mène à https://club.dilerna.fr/ (page `bouton-club-mobile-v5.html`).
+- 30/10/2026 : plus de « truc blanc » avant le club. Sur téléphone, `js/club.js` fait monter une fiche crème « Club Dilerna »
+  (3 petits points) puis va **directement** sur `bouton-club-mobile-v5.html?reel=1&v=…` (sans la page de passage) ; la page du club
+  se peint en crème (`html.club-boot`) et montre la fiche déjà ouverte, d'un coup. Le `v=` est à changer dans `js/club.js` (URL_CLUB).
+  Emojis du club en deux tons beige / chocolat (filtre SVG `#emo-duo`) : la main beige, le vernis marron (Marie les trouvait ternes).
 - 29/10/2026, choix de Marie : la fiche s'ouvre **en plein écran** (bloc `<style id="fiche-plein-ecran">` + script à la fin de la page) :
   en haut « Déjà membre ? Je me connecte » à gauche, « Club Dilerna » au milieu, la croix à droite ; cette barre s'efface quand on
   descend (la croix reste) ; en bas, seulement « Je rejoins le Club Dilerna · 16,99 €/mois », qui grossit quand on descend.
