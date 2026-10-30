@@ -190,6 +190,7 @@ génère le code d'accès et le colle dans GitHub → Settings → Secrets → A
   Emojis du club en deux tons beige / chocolat (filtre SVG `#emo-duo`) : la main beige, le vernis marron (Marie les trouvait ternes).
 - 30/10/2026 (choix n°1 de Marie) : « Essayage magique » s'appelle **« Essaie ta prochaine pose »** (« prends ta main en photo et vois-la
   tout de suite avec une autre forme ou une autre longueur (carré, coffin, amande…), avant même de venir »), aussi dans les règles et les conditions.
+  Sur l'écran de l'essai offert, « Un nail art inventé rien que pour toi » devient aussi « Essaie ta prochaine pose », en Fraunces SOFT 100 (choix n°1).
 - 29/10/2026, choix de Marie : la fiche s'ouvre **en plein écran** (bloc `<style id="fiche-plein-ecran">` + script à la fin de la page) :
   en haut « Déjà membre ? Je me connecte » à gauche, « Club Dilerna » au milieu, la croix à droite ; cette barre s'efface quand on
   descend (la croix reste) ; en bas, seulement « Je rejoins le Club Dilerna · 16,99 €/mois », qui grossit quand on descend.
