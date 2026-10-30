@@ -120,12 +120,26 @@
     setTimeout(cache, 50);
   });
 
-  // toutes les 9 secondes, si Louise et sa bulle ne sont plus là (on a descendu la page), le bouton fait coucou
-  if (!reduce) setInterval(function () {
+  // Le bouton fait coucou (petit saut + onde dorée), choix de Marie (31/10/2026) :
+  // dès l'ouverture du site, puis 3 s après, puis de moins en moins souvent ; plus du tout une fois que Louise est venue
+  // (« Psst… viens voir le Club ! ») ; et un tout dernier coucou en arrivant à « A propos ». Ensuite, c'est fini.
+  function coucou() {
     if (document.hidden || document.querySelector("dialog[open]")) return;
-    var b = document.querySelector(".club-psst, .club-bulle");
-    if (b && !b.classList.contains("club-cache")) return;
     btn.classList.remove("club-coucou"); void btn.offsetWidth; btn.classList.add("club-coucou");
     setTimeout(function () { btn.classList.remove("club-coucou"); }, 1700);
-  }, 9000);
+  }
+  if (!reduce) {
+    var PAUSES = [3000, 5000, 8000, 12000, 18000, 25000], n = 0;
+    var suivant = function () {
+      if (arrivee) return;   // Louise est venue : on arrête
+      coucou();
+      setTimeout(suivant, PAUSES[Math.min(n++, PAUSES.length - 1)]);
+    };
+    quandPret(function () { setTimeout(suivant, 400); });
+    var apropos = document.getElementById("a-propos"), dernier = false;
+    if (apropos) addEventListener("scroll", function () {
+      if (dernier || apropos.getBoundingClientRect().top > window.innerHeight * .8) return;
+      dernier = true; arrivee = true; coucou();
+    }, { passive: true });
+  }
 })();
