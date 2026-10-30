@@ -191,6 +191,15 @@ génère le code d'accès et le colle dans GitHub → Settings → Secrets → A
 - 30/10/2026 (choix n°1 de Marie) : « Essayage magique » s'appelle **« Essaie ta prochaine pose »** (« prends ta main en photo et vois-la
   tout de suite avec une autre forme ou une autre longueur (carré, coffin, amande…), avant même de venir »), aussi dans les règles et les conditions.
   Sur l'écran de l'essai offert, « Un nail art inventé rien que pour toi » devient aussi « Essaie ta prochaine pose », en Fraunces SOFT 100 (choix n°1).
+- 31/10/2026 : **fiche du club réécrite avec Marie** (« comme si j'étais ta cliente ») : sous le prix « Pour être encore plus chouchoutée, toute l'année. »,
+  sous la carte « En supplément de ta pose. » ; « Pourquoi tu vas l'adorer » = 4 blocs à points : Ta French, toujours offerte (pas de « 10 € » :
+  Marie offrait déjà la French) · Ta chance chaque mois (roue, cagnotte) · Tu passes avant tout le monde (planning, place libérée, « Ta ligne privée
+  avec moi sur WhatsApp ») · Zéro stress (réparation 10 j, joker, dépose seule offerte « une opération, par exemple »). Puis « Et en plus… » :
+  9 tuiles crème dans un bloc chocolat bordé d'or, qui poppent puis sautillent (choix B ; les rubans qui défilent allaient trop vite).
+  Icônes **dessinées une par une** (blanc-beige + détail marron : enveloppe blanche cœur marron, boule marron pied blanc, pied de profil couleur peau
+  avec vagues de massage, pattes de Louise marron, cadeau d'« Offrir le club » ruban marron) ; Marie a refusé tous les emojis teintés et les icônes au trait.
+  Bouton « Je prends ma place · 16,99 €/mois » + « Sans engagement : tu arrêtes quand tu veux, sans te justifier. » Code : bloc `<style id="apres">`
+  + script à la fin de `bouton-club-mobile-v5.html` (la liste d'origine est cachée, pas supprimée). Règles : la cagnotte est perdue si on se désabonne.
 - 29/10/2026, choix de Marie : la fiche s'ouvre **en plein écran** (bloc `<style id="fiche-plein-ecran">` + script à la fin de la page) :
   en haut « Déjà membre ? Je me connecte » à gauche, « Club Dilerna » au milieu, la croix à droite ; cette barre s'efface quand on
   descend (la croix reste) ; en bas, seulement « Je rejoins le Club Dilerna · 16,99 €/mois », qui grossit quand on descend.
