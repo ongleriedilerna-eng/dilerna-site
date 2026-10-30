@@ -72,7 +72,7 @@
     var i = Math.min(N - 1, Math.floor((now - start) / 1000 * FPS));
     draw(i);
     if (i < N - 1) raf = requestAnimationFrame(tick);
-    else playing = false;
+    else { playing = false; sec.dispatchEvent(new CustomEvent("pour:fin")); }   // l'animation est finie (pour « Artiste ongulaire »)
   }
   function play() {
     if (playing) return;
@@ -85,7 +85,7 @@
   reveal(true);           // les infos sont en haut dès l'arrivée
 
   if (reduce) {
-    load(N - 1, function () { draw(N - 1, true); reveal(true); });
+    load(N - 1, function () { draw(N - 1, true); reveal(true); sec.dispatchEvent(new CustomEvent("pour:fin")); });
     return;
   }
 

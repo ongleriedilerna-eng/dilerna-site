@@ -50,6 +50,7 @@
     "  transition: transform .45s cubic-bezier(.3, 1.6, .5, 1), opacity .25s; cursor: pointer; }",
     ".club-psst.is-in { opacity: 1; transform: scale(1); }",
     ".club-psst b { color: #6B3418; }",
+    ".club-cache { opacity: 0 !important; pointer-events: none !important; transition: opacity .35s !important; }",
     "@media (prefers-reduced-motion: reduce) { .club-bulle, .club-bulle i, .tab-rdv.club-ondes::before, .tab-rdv.club-ondes::after, .tab-rdv.club-saute { animation: none !important; } }"
   ].join("\n");
   var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
@@ -93,10 +94,19 @@
     w.animate([{ transform: "translateX(-90px)" }, { transform: "translateX(" + stop + "px)" }], { duration: 1100, easing: "ease-out", fill: "forwards" }).onfinish = fin;
   }
 
+  // Louise et sa bulle s'effacent quand on descend jusqu'à la Carte blanche, et reviennent quand on remonte (demande de Marie, 31/10/2026)
+  var cb = document.getElementById("carte-blanche");
+  function cache() {
+    var bas = !!cb && cb.getBoundingClientRect().top < window.innerHeight * .9;
+    document.querySelectorAll(".club-louise, .club-psst, .club-bulle").forEach(function (e) { e.classList.toggle("club-cache", bas); });
+  }
+  addEventListener("scroll", cache, { passive: true });
+
   quandPret(function () {
     if (V === "A") bulle();
     else if (V === "B") ondes();
     else if (V === "C") louise();
     else { bulle(); ondes(); }
+    setTimeout(cache, 50);
   });
 })();

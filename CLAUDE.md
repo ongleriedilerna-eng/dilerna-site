@@ -211,3 +211,7 @@ génère le code d'accès et le colle dans GitHub → Settings → Secrets → A
   Autres essais gardés pour comparer : `?clubv=A` (bulle « Nouveau · Le Club Dilerna »), `B` (ondes dorées), `D` (A + B).
 - 30/10/2026 (club) : « La French et les tout petits nail arts TOUJOURS offerts » (avantage, règles, conditions, Espace Marie) ;
   « OFFERT » (essai photo offert) plus visible : plus grand, doré, halo qui pulse et reflet.
+- 31/10/2026 : Louise et sa bulle « Psst… » s'effacent quand on descend jusqu'à la Carte blanche, et reviennent quand on remonte.
+- 31/10/2026 : « CLUB DILERNA » en **blanc** sur le bouton rond. « Artiste ongulaire » à l'accueil : en cours de choix, `js/artiste.js`
+  (rien ne s'affiche sans `?ao=1…5` ; 1re série refusée, 2e série : ligne du haut, sticker penché, ruban qui défile, tampon rond, pastille chocolat).
+  `pour.js` envoie maintenant l'évènement `pour:fin` quand l'animation est finie.
