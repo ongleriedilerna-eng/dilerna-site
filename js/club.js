@@ -27,7 +27,7 @@
   });
   // 30/10/2026 (Marie : « ça m'affiche un truc blanc et après le club ») : sur téléphone, une fiche crème « Club Dilerna »
   // monte tout de suite, puis le club s'affiche à sa place, dans la même couleur. On va directement à la page du club (sans page de passage).
-  var URL_CLUB = "https://club.dilerna.fr/bouton-club-mobile-v5.html?reel=1&v=20261031c";   /* le numéro force la nouvelle version du club */
+  var URL_CLUB = "https://club.dilerna.fr/bouton-club-mobile-v5.html?reel=1&v=20261031d";   /* le numéro force la nouvelle version du club */
   function versClub() {
     if ((window.matchMedia && window.matchMedia("(min-width: 1024px)").matches) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) { location.href = URL_CLUB; return; }
     if (!document.getElementById("club-monte-css")) {
