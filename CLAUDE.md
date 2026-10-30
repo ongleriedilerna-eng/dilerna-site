@@ -203,3 +203,6 @@ génère le code d'accès et le colle dans GitHub → Settings → Secrets → A
   est traité comme membre). **Reste à faire (Marie a dit « demain »)** : exécuter `DILERNA SITE/club/supabase/migrations/20261030000000_acces_marie.sql`
   dans Supabase (projet club-dilerna → SQL Editor → Run) ; c'est Marie qui se connecte à Supabase. Pas de lien public gratuit pour les clientes
   (l'essai photo coûte à chaque image) : Marie montre le club depuis son téléphone, connectée.
+- 30/10/2026 : sur la fiche plein écran, petit bouton **« OFFERT »** collé à droite de « Club Dilerna » (`.fp-offert`) : il fait un petit
+  saut toutes les 2,6 s, deux étoiles dorées scintillent sur le T, et il ouvre l'écran « 1 essai offert » (essai photo, débloqué avec
+  l'e-mail, une fois par personne ; `window.dilernaEssai`). Marie ne voulait pas d'un gros bouton « Essayage magique » en dessous.
