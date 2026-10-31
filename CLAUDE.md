@@ -197,7 +197,7 @@ génère le code d'accès et le colle dans GitHub → Settings → Secrets → A
   avec moi sur WhatsApp ») · Zéro stress (réparation 10 j, joker, dépose seule offerte « une opération, par exemple »). Puis « Et en plus… » :
   9 tuiles crème dans un bloc chocolat bordé d'or, qui poppent puis sautillent (choix B ; les rubans qui défilent allaient trop vite).
   Icônes **dessinées une par une** (blanc-beige + détail marron : enveloppe blanche cœur marron, boule marron pied blanc, pied de profil couleur peau
-  avec vagues de massage, pattes de Louise marron, cadeau d'« Offrir le club » ruban marron) ; Marie a refusé tous les emojis teintés et les icônes au trait.
+  avec vagues de massage → remplacé par **l'appareil de massage de Marie** (P7), nuancier = **trois flacons** (N4, pas un diamant), pattes de Louise marron, cadeau d'« Offrir le club » ruban marron) ; Marie a refusé tous les emojis teintés et les icônes au trait.
   Bouton « Je prends ma place · 16,99 €/mois » + « Sans engagement : tu arrêtes quand tu veux, sans te justifier. » Code : bloc `<style id="apres">`
   + script à la fin de `bouton-club-mobile-v5.html` (la liste d'origine est cachée, pas supprimée). Règles : la cagnotte est perdue si on se désabonne.
 - 29/10/2026, choix de Marie : la fiche s'ouvre **en plein écran** (bloc `<style id="fiche-plein-ecran">` + script à la fin de la page) :
