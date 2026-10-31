@@ -230,6 +230,8 @@ génère le code d'accès et le colle dans GitHub → Settings → Secrets → A
 - 31/10/2026 : Louise et sa bulle « Psst… » s'effacent quand on descend jusqu'à la Carte blanche, et reviennent quand on remonte.
 - 31/10/2026 (Marie : « on voit deux chiens ») : Louise « Psst… viens voir le Club ! » n'arrive plus à l'accueil ; elle arrive quand le bloc
   « Prendre rendez-vous » (avec l'autre Louise, `.presta-book--top`) est sorti de l'écran, et s'efface à la Carte blanche (`js/club-appel.js`).
+  → 31/10/2026 (Marie) : Louise **arrive à la carte « Pose américaine »**, dit « Psst… viens voir le Club ! », **repart** (demi-tour, elle s'en va
+  en trottinant vers la gauche) quand on voit la Carte blanche, **revient à « A propos »** et repart quand on a fini « A propos ». Elle revient si on remonte.
 - 31/10/2026 : « CLUB DILERNA » en **blanc** sur le bouton rond. « Artiste ongulaire » à l'accueil : en cours de choix, `js/artiste.js`
   (rien ne s'affiche sans `?ao=1…5` ; 1re série refusée, 2e série : ligne du haut, sticker penché, ruban qui défile, tampon rond, pastille chocolat).
   `pour.js` envoie maintenant l'évènement `pour:fin` quand l'animation est finie.

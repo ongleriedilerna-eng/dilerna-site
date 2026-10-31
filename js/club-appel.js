@@ -49,6 +49,7 @@
     "  background: #FFFDF8; color: #4E2E22; font: 700 13px/1.2 var(--font-body); box-shadow: 0 0 0 1.5px #D5C6AF, 0 10px 20px -12px rgba(33, 2, 2, .6); opacity: 0; transform: scale(.4); transform-origin: 0 100%;",
     "  transition: transform .45s cubic-bezier(.3, 1.6, .5, 1), opacity .25s; cursor: pointer; }",
     ".club-psst.is-in { opacity: 1; transform: scale(1); }",
+    ".club-psst:not(.is-in) { pointer-events: none; }",
     ".club-psst b { color: #6B3418; }",
     ".club-cache { opacity: 0 !important; pointer-events: none !important; transition: opacity .35s !important; }",
     /* de temps en temps, le bouton rond fait coucou (petit saut + une onde dorée) quand Louise n'est plus là */
@@ -76,39 +77,62 @@
     requestAnimationFrame(function () { requestAnimationFrame(function () { b.classList.add("is-in"); setTimeout(function () { b.classList.add("is-vole"); }, 600); }); });
   }
   function ondes() { btn.classList.add("club-ondes"); if (!reduce) btn.classList.add("club-saute"); }
-  function louise() {
-    var tpl = document.querySelector("[data-louise] svg"); if (!tpl) return bulle();
-    var w = document.createElement("div"); w.className = "club-louise"; w.setAttribute("aria-hidden", "true");
+  // Louise (choix C) : elle entre en trottinant jusqu'au bouton rond, dit « Psst… viens voir le Club ! », puis repart (demi-tour, vers la gauche)
+  var lou = null, psst = null, etatLou = "dehors", anim = null;
+  var stop = Math.max(8, window.innerWidth / 2 - 40 - 76);   // juste à gauche du bouton rond
+  function creer() {
+    if (lou) return true;
+    var tpl = document.querySelector("[data-louise] svg"); if (!tpl) return false;
+    lou = document.createElement("div"); lou.className = "club-louise"; lou.setAttribute("aria-hidden", "true");
     var svg = tpl.cloneNode(true);
     svg.querySelectorAll("rect").forEach(function (r) {
       if (r.getAttribute("width") !== "11") return;
       var x = r.getAttribute("x"); r.classList.add("leg", x === "58" || x === "152" ? "leg--a" : "leg--b");
     });
-    w.appendChild(svg); document.body.appendChild(w);
-    var stop = Math.max(8, window.innerWidth / 2 - 40 - 76);   // juste à gauche du bouton rond
-    var fin = function () {
-      w.classList.remove("is-walking"); w.style.transform = "translateX(" + stop + "px)";
-      var p = document.createElement("button"); p.type = "button"; p.className = "club-psst";
-      p.innerHTML = "Psst… viens voir <b>le Club</b> !";
-      p.style.left = Math.max(8, stop - 6) + "px";
-      p.addEventListener("click", ouvre); document.body.appendChild(p);
-      cache();
-      requestAnimationFrame(function () { requestAnimationFrame(function () { p.classList.add("is-in"); }); });
-    };
-    if (reduce || !w.animate) return fin();
-    w.classList.add("is-walking");
-    w.animate([{ transform: "translateX(-90px)" }, { transform: "translateX(" + stop + "px)" }], { duration: 1100, easing: "ease-out", fill: "forwards" }).onfinish = fin;
+    lou.appendChild(svg); document.body.appendChild(lou);
+    psst = document.createElement("button"); psst.type = "button"; psst.className = "club-psst";
+    psst.innerHTML = "Psst… viens voir <b>le Club</b> !";
+    psst.style.left = Math.max(8, stop - 6) + "px";
+    psst.addEventListener("click", ouvre); document.body.appendChild(psst);
+    return true;
+  }
+  function ici() { var t = getComputedStyle(lou).transform; return t && t !== "none" ? new DOMMatrix(t).m41 : -90; }
+  function marche(versX, duree, demiTour, fin) {
+    var depuis = ici();
+    if (anim) anim.cancel();
+    lou.style.transform = "translateX(" + depuis + "px)";
+    lou.firstElementChild.style.transform = demiTour ? "scaleX(-1)" : "";
+    if (reduce || !lou.animate) { lou.style.transform = "translateX(" + versX + "px)"; return fin(); }
+    lou.classList.add("is-walking");
+    anim = lou.animate([{ transform: "translateX(" + depuis + "px)" }, { transform: "translateX(" + versX + "px)" }], { duration: duree, easing: demiTour ? "ease-in" : "ease-out" });
+    anim.onfinish = function () { anim = null; lou.style.transform = "translateX(" + versX + "px)"; lou.classList.remove("is-walking"); fin(); };
+  }
+  function entrer() {
+    if (etatLou === "dedans" || etatLou === "entre" || !creer()) return;
+    etatLou = "entre"; arrivee = true;
+    marche(stop, 1100, false, function () { etatLou = "dedans"; lou.firstElementChild.style.transform = ""; psst.classList.add("is-in"); });
+  }
+  function sortir() {
+    if (!lou || etatLou === "dehors" || etatLou === "sort") return;
+    etatLou = "sort"; psst.classList.remove("is-in");
+    marche(-90, 900, true, function () { etatLou = "dehors"; lou.firstElementChild.style.transform = ""; });
   }
 
-  // Louise et sa bulle s'effacent quand on descend jusqu'à la Carte blanche, et reviennent quand on remonte (demande de Marie, 31/10/2026)
-  // 31/10/2026 (Marie) : Louise n'arrive plus dès l'accueil, sinon on voit deux chiens (celui de « Prendre rendez-vous » en haut des prestations).
-  // Elle arrive quand le bloc « Prendre rendez-vous » est sorti de l'écran (en haut), et s'en va à la Carte blanche.
-  var cb = document.getElementById("carte-blanche"), rdvBloc = document.querySelector(".presta-book--top"), pret = false, arrivee = false;
+  // Où Louise est là (Marie, 31/10/2026) : elle arrive à la carte « Pose américaine », repart quand on voit la Carte blanche,
+  // revient à « A propos » et repart quand on a fini de lire « A propos ».
+  var cb = document.getElementById("carte-blanche"), apropos = document.getElementById("a-propos"), pret = false, arrivee = false;
+  var pose = Array.prototype.filter.call(document.querySelectorAll("#prestations h3"), function (h) { return /Pose am/.test(h.textContent); })[0];
   function cache() {
-    var bas = !!cb && cb.getBoundingClientRect().top < window.innerHeight * .9;
-    var avant = V === "C" && !!rdvBloc && rdvBloc.getBoundingClientRect().bottom > 0;
-    if (V === "C" && pret && !arrivee && !avant && !bas) { arrivee = true; louise(); }
-    document.querySelectorAll(".club-louise, .club-psst, .club-bulle").forEach(function (e) { e.classList.toggle("club-cache", bas || avant); });
+    var H = window.innerHeight;
+    if (V === "C") {
+      if (!pret) return;
+      var z1 = !!pose && pose.getBoundingClientRect().top < H * .75 && !(cb && cb.getBoundingClientRect().top < H * .9);
+      var a = apropos && apropos.getBoundingClientRect(), z2 = !!a && a.top < H * .75 && a.bottom > H * .55;
+      if (z1 || z2) entrer(); else sortir();
+      return;
+    }
+    var bas = !!cb && cb.getBoundingClientRect().top < H * .9;
+    document.querySelectorAll(".club-bulle").forEach(function (e) { e.classList.toggle("club-cache", bas); });
   }
   addEventListener("scroll", cache, { passive: true });
 
@@ -136,7 +160,7 @@
       setTimeout(suivant, PAUSES[Math.min(n++, PAUSES.length - 1)]);
     };
     quandPret(function () { setTimeout(suivant, 400); });
-    var apropos = document.getElementById("a-propos"), dernier = false;
+    var dernier = false;
     if (apropos) addEventListener("scroll", function () {
       if (dernier || apropos.getBoundingClientRect().top > window.innerHeight * .8) return;
       dernier = true; arrivee = true; coucou();
