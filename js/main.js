@@ -228,7 +228,8 @@
       tintRaf = 0;
       var onHero = pourSec.getBoundingClientRect().bottom > 40;
       tint.classList.toggle("is-off", !onHero);
-      if (themeMeta) themeMeta.content = onHero ? "#A89A8B" : "#F8F4EC";
+      document.documentElement.classList.toggle("on-hero", onHero);   // fond taupe sous la barre de l'heure (iPhone), voir style.css
+      if (themeMeta) themeMeta.content = onHero ? "#A99B8B" : "#F8F4EC";
     };
     window.addEventListener("scroll", function () { if (!tintRaf) tintRaf = requestAnimationFrame(setTint); }, { passive: true });
     setTint();

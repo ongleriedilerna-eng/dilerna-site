@@ -1384,7 +1384,10 @@ html { background: linear-gradient(#A89A8B 50%, var(--cocoa) 50%); }
 
 /* ===== Haut du téléphone (heure, batterie) sur l'accueil : même couleur que l'animation, pas de trait clair ===== */
 /* la bande derrière l'heure et la batterie part avec la page (fixée, elle faisait un trait qui suivait l'écran) */
-.status-tint { position: absolute; z-index: 70; top: 0; left: 0; right: 0; height: env(safe-area-inset-top, 0px); background: #A89A8B; pointer-events: none; transition: opacity .3s; }
+.status-tint { position: fixed; z-index: 70; top: 0; left: 0; right: 0; height: env(safe-area-inset-top, 0px); background: #A99B8B; pointer-events: none; transition: opacity .3s; }
+/* 31/10/2026 (Marie : « une barre blanche en haut, avant que je glisse ») : sur l'iPhone, Safari colore la barre de l'heure avec le fond
+   de la page (crème, presque blanc). Tant qu'on est sur l'accueil, le fond prend la couleur du haut de l'animation : ça se fond. */
+@media (max-width: 1023px) { html.on-hero { background: #A99B8B; } }
 .status-tint.is-off { opacity: 0; }
 
 /* ===== Carte blanche : toute la carte se retourne ; au dos, la demande en haut et le résultat en bas ===== */

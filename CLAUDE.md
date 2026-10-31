@@ -96,6 +96,10 @@ avec la médaille dorée qui pend dessous ; Louise a un petit cou et une oreille
 · Avis Google (bande plus foncée ; Louise mange le mot « Google » puis le rapporte **2 fois seulement**, puis s'en va ; le mot revient toujours en entier ; les avis défilent tout seuls) · On papote ? · Bon à savoir · Réseaux · Footer
 · Barre du bas façon appli : Accueil, Inspo, bouton rond **CLUB DILERNA** (ouvre la fiche du club), Infos, Menu.
 
+## Barre de l'heure (iPhone)
+31/10/2026 : Marie voyait une barre blanche en haut avant de faire défiler. Safari colore la barre de l'heure avec le fond de la page :
+sur l'accueil, `html.on-hero` (main.js) met le fond en **#A99B8B** (couleur du haut de l'animation), `theme-color` aussi ; `.status-tint` est en `position: fixed`.
+
 ## Horaires
 Carte des horaires : jours L→D en ronds, puis un sticker crème penché (washi à pois) avec le rond « Ouvert » et « 9h – 17h »
 (choix de Marie parmi 10 écritures). Jour d'aujourd'hui entouré en beige.
